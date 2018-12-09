@@ -1,3 +1,3 @@
-# ts-option
+# ts-core
 
-Result and Option like rusts
+stembord core utils
