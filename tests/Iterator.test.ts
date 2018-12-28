@@ -38,3 +38,16 @@ tape("simple object iter", (assert: tape.Test) => {
 
   assert.end();
 });
+
+tape("native for of iter", (assert: tape.Test) => {
+  const results: number[] = [];
+
+  for (let value of [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    .iter()
+    .filter(x => x % 2 === 0)) {
+    results.push(value);
+  }
+
+  assert.deepEqual(results, [0, 2, 4, 6, 8, 10]);
+  assert.end();
+});

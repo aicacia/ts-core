@@ -7,6 +7,10 @@ export class Iterator<T> implements IIterator<T> {
     this._iter = iter;
   }
 
+  [Symbol.iterator](): NativeIterator<T> {
+    return new NativeIterator(this);
+  }
+
   iter(): Iterator<T> {
     return this;
   }
@@ -145,3 +149,4 @@ import { Skip } from "./Skip";
 import { ToMap, defaultKeyFn, defaultValueFn } from "./ToMap";
 import { Option } from "../option";
 import { iter } from "./iter";
+import { NativeIterator } from "./NativeIterator";

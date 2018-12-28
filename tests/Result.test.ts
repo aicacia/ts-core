@@ -56,10 +56,10 @@ tape("Result", (assert: tape.Test) => {
 
   assert.throws(() => {
     err(ERROR).unwrap();
-  }, "Tried to get value of err Result");
+  }, "Tried to unwrap error value of ok Result");
 
   assert.throws(() => {
-    new Result({});
+    new Result({}, {}, {});
   }, "Results can only be created with the ok or err functions");
 
   assert.end();

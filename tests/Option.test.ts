@@ -70,10 +70,10 @@ tape("Option", (assert: tape.Test) => {
 
   assert.throws(() => {
     none().unwrap();
-  }, "Tried to get value of none Option");
+  }, "Tried to unwrap value of none Option");
 
   assert.throws(() => {
-    new Option({});
+    new Option({}, {});
   }, "Options can only be created with the some or none functions");
 
   assert.end();
