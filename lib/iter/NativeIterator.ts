@@ -8,7 +8,7 @@ export class NativeIterator<T> implements Iterator<T> {
   }
 
   next() {
-    let next = this._iter.next();
+    const next = this._iter.next();
 
     if (next.isSome()) {
       return {

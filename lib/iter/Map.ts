@@ -1,6 +1,6 @@
 import { IIterator } from "./IIterator";
 import { Iterator } from "./Iterator";
-import { Option, none, some } from "../option";
+import { Option } from "../option";
 
 export class Map<A, B> extends Iterator<B> {
   private _fn: (value: A) => B;
@@ -11,12 +11,6 @@ export class Map<A, B> extends Iterator<B> {
   }
 
   next(): Option<B> {
-    const result = (super.next() as any) as Option<A>;
-
-    if (result.isSome()) {
-      return some(this._fn(result.unwrap()) as B);
-    } else {
-      return none();
-    }
+    return ((super.next() as any) as Option<A>).map(this._fn);
   }
 }

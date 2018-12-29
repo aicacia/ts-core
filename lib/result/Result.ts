@@ -1,9 +1,9 @@
-const CREATE_SECRET = {},
-  NULL_SECRET = {};
+const CREATE_SECRET: ISecret = {},
+  NULL_SECRET: ISecret = {};
 
 type ISecret = {};
 
-export class Result<T, E = Error> {
+export class Result<T, E = Error> implements IEquals<Result<T, E>>, IClone {
   private _ok: T;
   private _err: E;
 
@@ -165,11 +165,32 @@ export class Result<T, E = Error> {
       return none();
     }
   }
+
+  equals(other: Result<T, E>): boolean {
+    return safeEquals(this._ok, other._ok) && safeEquals(this._err, other._err);
+  }
+
+  clone(): this {
+    return new Result(CREATE_SECRET, this._ok, this._err) as this;
+  }
+
+  static equals<T, E = Error>(a: Result<T, E>, b: Result<T, E>): boolean {
+    return a.equals(b);
+  }
+
+  static ok<T, E = Error>(value: T): Result<T, E> {
+    return ok(value);
+  }
+  static err<T, E = Error>(error: E): Result<T, E> {
+    return err(error);
+  }
 }
 
-export const ok = <T, E>(ok: T): Result<T, E> =>
-  new Result(CREATE_SECRET, ok, NULL_SECRET as any);
-export const err = <T, E>(err: E): Result<T, E> =>
-  new Result(CREATE_SECRET, NULL_SECRET as any, err);
+export const ok = <T, E = Error>(value: T): Result<T, E> =>
+  new Result(CREATE_SECRET, value, NULL_SECRET as any);
+export const err = <T, E = Error>(error: E): Result<T, E> =>
+  new Result(CREATE_SECRET, NULL_SECRET as any, error);
 
 import { Option, some, none } from "../option/Option";
+import { IEquals, safeEquals } from "../equals";
+import { IClone } from "../clone";
