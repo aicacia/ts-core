@@ -1,6 +1,6 @@
-import { Iterator } from "./Iterator";
+import { none, Option, some } from "../option";
 import { IIterator } from "./IIterator";
-import { Option, none, some } from "../option";
+import { Iterator } from "./Iterator";
 
 export function iter<T>(value: T[]): Iterator<T>;
 export function iter<T>(value: any): Iterator<[string, T]>;

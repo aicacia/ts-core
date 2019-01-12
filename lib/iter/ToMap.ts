@@ -1,6 +1,6 @@
+import { none, Option, some } from "../option";
 import { IIterator } from "./IIterator";
 import { Iterator } from "./Iterator";
-import { Option, some, none } from "../option";
 
 export const defaultKeyFn = <A, B>(key: A): B => key as any;
 export const defaultValueFn = <A, B>(value: A): B => value as any;
@@ -20,7 +20,7 @@ export class ToMap<T, K, V> extends Iterator<[K, V]> {
   }
 
   toObject(): { [key: string]: V } {
-    return this.reduce({} as { [key: string]: V }, (object, value) => {
+    return this.reduce<{ [key: string]: V }>({}, (object, value) => {
       object[value[0] as any] = value[1];
       return object;
     });

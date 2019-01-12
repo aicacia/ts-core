@@ -1,9 +1,20 @@
 const CREATE_SECRET: ISecret = {},
   NULL_SECRET: ISecret = {};
 
-type ISecret = {};
+interface ISecret {}
 
 export class Option<T> implements IEquals<Option<T>>, IClone {
+
+  static equals<T>(a: Option<T>, b: Option<T>): boolean {
+    return a.equals(b);
+  }
+
+  static some<T>(value: T): Option<T> {
+    return some(value);
+  }
+  static none<T>(): Option<T> {
+    return none();
+  }
   private _value: T;
 
   constructor(createSecret: ISecret, value: T) {
@@ -162,17 +173,6 @@ export class Option<T> implements IEquals<Option<T>>, IClone {
   clone(): this {
     return new Option(CREATE_SECRET, this._value) as this;
   }
-
-  static equals<T>(a: Option<T>, b: Option<T>): boolean {
-    return a.equals(b);
-  }
-
-  static some<T>(value: T): Option<T> {
-    return some(value);
-  }
-  static none<T>(): Option<T> {
-    return none();
-  }
 }
 
 export const some = <T>(value: T): Option<T> =>
@@ -180,6 +180,6 @@ export const some = <T>(value: T): Option<T> =>
 export const none = <T>(): Option<T> =>
   new Option(CREATE_SECRET, NULL_SECRET as any);
 
-import { Result, ok, err } from "../result/Result";
-import { IEquals, safeEquals } from "../equals";
 import { IClone } from "../clone";
+import { IEquals, safeEquals } from "../equals";
+import { err, ok, Result } from "../result/Result";

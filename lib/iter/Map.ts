@@ -1,6 +1,6 @@
+import { Option } from "../option";
 import { IIterator } from "./IIterator";
 import { Iterator } from "./Iterator";
-import { Option } from "../option";
 
 export class Map<A, B> extends Iterator<B> {
   private _fn: (value: A) => B;

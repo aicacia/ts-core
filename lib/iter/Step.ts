@@ -1,6 +1,6 @@
+import { none, Option } from "../option";
 import { IIterator } from "./IIterator";
 import { Iterator } from "./Iterator";
-import { Option, none } from "../option";
 
 export class Step<T> extends Iterator<T> {
   private _stepped: number;

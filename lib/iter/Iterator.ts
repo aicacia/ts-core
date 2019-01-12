@@ -52,8 +52,8 @@ export class Iterator<T> implements IIterator<T>, IEquals<Iterator<T>> {
     });
   }
 
-  toArray(): Array<T> {
-    return this.reduce<Array<T>>([], (array, value) => {
+  toArray(): T[] {
+    return this.reduce<T[]>([], (array, value) => {
       array.push(value);
       return array;
     });
@@ -67,7 +67,8 @@ export class Iterator<T> implements IIterator<T>, IEquals<Iterator<T>> {
       if (next.unwrap() === value) {
         return some(index);
       }
-      index += 1;
+      index++;
+      next = this.next();
     }
 
     return none();
@@ -81,7 +82,8 @@ export class Iterator<T> implements IIterator<T>, IEquals<Iterator<T>> {
       if (fn(next.unwrap())) {
         return some(index);
       }
-      index += 1;
+      index++;
+      next = this.next();
     }
 
     return none();
@@ -96,6 +98,7 @@ export class Iterator<T> implements IIterator<T>, IEquals<Iterator<T>> {
       if (fn(value)) {
         return some(value);
       }
+      next = this.next();
     }
 
     return none();
@@ -133,7 +136,7 @@ export class Iterator<T> implements IIterator<T>, IEquals<Iterator<T>> {
   }
 
   all(fn: (value: T) => boolean): boolean {
-    let next = this.next();
+    const next = this.next();
 
     while (next.isSome()) {
       if (!fn(next.unwrap())) {
@@ -177,13 +180,13 @@ export class Iterator<T> implements IIterator<T>, IEquals<Iterator<T>> {
   }
 }
 
-import { ForEach } from "./ForEach";
-import { Map } from "./Map";
-import { Filter } from "./Filter";
-import { Step } from "./Step";
-import { Skip } from "./Skip";
-import { ToMap, defaultKeyFn, defaultValueFn } from "./ToMap";
-import { Option, none, some } from "../option";
-import { iter } from "./iter";
-import { NativeIterator } from "./NativeIterator";
 import { IEquals } from "../equals";
+import { none, Option, some } from "../option";
+import { Filter } from "./Filter";
+import { ForEach } from "./ForEach";
+import { iter } from "./iter";
+import { Map } from "./Map";
+import { NativeIterator } from "./NativeIterator";
+import { Skip } from "./Skip";
+import { Step } from "./Step";
+import { defaultKeyFn, defaultValueFn, ToMap } from "./ToMap";

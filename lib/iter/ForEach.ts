@@ -1,6 +1,6 @@
+import { Option } from "../option";
 import { IIterator } from "./IIterator";
 import { Iterator } from "./Iterator";
-import { Option } from "../option";
 
 export class ForEach<T> extends Iterator<T> {
   private _fn: (value: T) => void;

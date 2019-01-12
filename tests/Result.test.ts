@@ -1,5 +1,5 @@
 import * as tape from "tape";
-import { Result, ok, err, none, some } from "../lib";
+import { err, none, ok, Result, some } from "../lib";
 
 const ERROR = new Error("test error");
 

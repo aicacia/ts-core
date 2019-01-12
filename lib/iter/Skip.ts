@@ -1,6 +1,6 @@
+import { none, Option } from "../option";
 import { IIterator } from "./IIterator";
 import { Iterator } from "./Iterator";
-import { none, Option } from "../option";
 
 export class Skip<T> extends Iterator<T> {
   private _skipped: number;
@@ -9,7 +9,7 @@ export class Skip<T> extends Iterator<T> {
   constructor(iter: IIterator<T>, skip: number) {
     super(iter);
     this._skipped = 0;
-    this._skip = skip <= 0 ? 1 : skip | 0;
+    this._skip = (skip <= 0 ? 1 : skip) | 0;
   }
 
   next(): Option<T> {

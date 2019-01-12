@@ -1,6 +1,6 @@
-import { Iterator } from "./Iterator";
-import { Option, none } from "../option";
+import { none, Option } from "../option";
 import { IIterator } from "./IIterator";
+import { Iterator } from "./Iterator";
 
 export class Filter<T> extends Iterator<T> {
   private _fn: (value: T) => boolean;

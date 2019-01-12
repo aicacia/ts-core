@@ -1,9 +1,20 @@
 const CREATE_SECRET: ISecret = {},
   NULL_SECRET: ISecret = {};
 
-type ISecret = {};
+interface ISecret {}
 
 export class Result<T, E = Error> implements IEquals<Result<T, E>>, IClone {
+
+  static equals<T, E = Error>(a: Result<T, E>, b: Result<T, E>): boolean {
+    return a.equals(b);
+  }
+
+  static ok<T, E = Error>(value: T): Result<T, E> {
+    return ok(value);
+  }
+  static err<T, E = Error>(error: E): Result<T, E> {
+    return err(error);
+  }
   private _ok: T;
   private _err: E;
 
@@ -173,17 +184,6 @@ export class Result<T, E = Error> implements IEquals<Result<T, E>>, IClone {
   clone(): this {
     return new Result(CREATE_SECRET, this._ok, this._err) as this;
   }
-
-  static equals<T, E = Error>(a: Result<T, E>, b: Result<T, E>): boolean {
-    return a.equals(b);
-  }
-
-  static ok<T, E = Error>(value: T): Result<T, E> {
-    return ok(value);
-  }
-  static err<T, E = Error>(error: E): Result<T, E> {
-    return err(error);
-  }
 }
 
 export const ok = <T, E = Error>(value: T): Result<T, E> =>
@@ -191,6 +191,6 @@ export const ok = <T, E = Error>(value: T): Result<T, E> =>
 export const err = <T, E = Error>(error: E): Result<T, E> =>
   new Result(CREATE_SECRET, NULL_SECRET as any, error);
 
-import { Option, some, none } from "../option/Option";
-import { IEquals, safeEquals } from "../equals";
 import { IClone } from "../clone";
+import { IEquals, safeEquals } from "../equals";
+import { none, Option, some } from "../option/Option";
