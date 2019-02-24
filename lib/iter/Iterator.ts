@@ -39,6 +39,10 @@ export class Iterator<T> implements IIterator<T>, IEquals<Iterator<T>> {
     return new Skip(this, skip);
   }
 
+  take(count: number): Take<T> {
+    return new Take(this, count);
+  }
+
   toMap<K, V>(
     keyFn: (value: T) => K = defaultKeyFn,
     valueFn: (value: T) => V = defaultValueFn
@@ -180,7 +184,7 @@ export class Iterator<T> implements IIterator<T>, IEquals<Iterator<T>> {
   }
 }
 
-import { IEquals } from "../equals";
+import { IEquals } from "../equals/equals";
 import { none, Option, some } from "../option";
 import { Filter } from "./Filter";
 import { ForEach } from "./ForEach";
@@ -189,4 +193,5 @@ import { Map } from "./Map";
 import { NativeIterator } from "./NativeIterator";
 import { Skip } from "./Skip";
 import { Step } from "./Step";
+import { Take } from "./Take";
 import { defaultKeyFn, defaultValueFn, ToMap } from "./ToMap";

@@ -9,7 +9,7 @@ export class Skip<T> extends Iterator<T> {
   constructor(iter: IIterator<T>, skip: number) {
     super(iter);
     this._skipped = 0;
-    this._skip = (skip <= 0 ? 1 : skip) | 0;
+    this._skip = (skip <= 0 ? 0 : skip) | 0;
   }
 
   next(): Option<T> {

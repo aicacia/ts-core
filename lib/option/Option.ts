@@ -4,7 +4,6 @@ const CREATE_SECRET: ISecret = {},
 interface ISecret {}
 
 export class Option<T> implements IEquals<Option<T>>, IClone {
-
   static equals<T>(a: Option<T>, b: Option<T>): boolean {
     return a.equals(b);
   }
@@ -182,4 +181,4 @@ export const none = <T>(): Option<T> =>
 
 import { IClone } from "../clone";
 import { IEquals, safeEquals } from "../equals";
-import { err, ok, Result } from "../result/Result";
+import { err, ok, Result } from "../result";

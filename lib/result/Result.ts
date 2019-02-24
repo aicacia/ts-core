@@ -4,7 +4,6 @@ const CREATE_SECRET: ISecret = {},
 interface ISecret {}
 
 export class Result<T, E = Error> implements IEquals<Result<T, E>>, IClone {
-
   static equals<T, E = Error>(a: Result<T, E>, b: Result<T, E>): boolean {
     return a.equals(b);
   }
@@ -191,6 +190,6 @@ export const ok = <T, E = Error>(value: T): Result<T, E> =>
 export const err = <T, E = Error>(error: E): Result<T, E> =>
   new Result(CREATE_SECRET, NULL_SECRET as any, error);
 
-import { IClone } from "../clone";
+import { IClone } from "../clone/clone";
 import { IEquals, safeEquals } from "../equals";
-import { none, Option, some } from "../option/Option";
+import { none, Option, some } from "../option";

@@ -4,4 +4,3 @@ tsconfig.json
 .vscode
 .editorconfig
 .gitignore
-.zuul

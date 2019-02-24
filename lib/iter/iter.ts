@@ -1,16 +1,18 @@
+import { isFunction, isNumber, isObject } from "util";
 import { none, Option, some } from "../option";
 import { IIterator } from "./IIterator";
 import { Iterator } from "./Iterator";
 
 export function iter<T>(value: T[]): Iterator<T>;
+export function iter<T>(value: IIterator<T>): Iterator<T>;
 export function iter<T>(value: any): Iterator<[string, T]>;
 
 export function iter(value: any): Iterator<any> {
-  const type = typeof value;
-
-  if (type === "object") {
-    if (typeof value.length === "number") {
+  if (isObject(value)) {
+    if (isNumber(value.length)) {
       return new Iterator(new ArrayIterator(value));
+    } else if (isFunction(value.next)) {
+      return new Iterator(value);
     } else {
       return new Iterator(new ObjectIterator(value));
     }
