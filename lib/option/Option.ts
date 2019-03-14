@@ -1,7 +1,7 @@
+interface ISecret {}
+
 const CREATE_SECRET: ISecret = {},
   NULL_SECRET: ISecret = {};
-
-interface ISecret {}
 
 export class Option<T> implements IEquals<Option<T>>, IClone {
   static equals<T>(a: Option<T>, b: Option<T>): boolean {
@@ -14,6 +14,15 @@ export class Option<T> implements IEquals<Option<T>>, IClone {
   static none<T>(): Option<T> {
     return none();
   }
+
+  static from<T>(value?: T | null): Option<T> {
+    if (value != null) {
+      return some(value);
+    } else {
+      return none();
+    }
+  }
+
   private _value: T;
 
   constructor(createSecret: ISecret, value: T) {
@@ -66,18 +75,43 @@ export class Option<T> implements IEquals<Option<T>>, IClone {
       return none();
     }
   }
-  mapOr<U>(def: U, fn: (value: T) => U): Option<U> {
+  mapOr<U>(fn: (value: T) => U, def: U): Option<U> {
     if (this.isSome()) {
       return some(fn(this._value));
     } else {
       return some(def);
     }
   }
-  mapOrElse<U>(defFn: () => U, fn: (value: T) => U): Option<U> {
+  mapOrElse<U>(fn: (value: T) => U, defFn: () => U): Option<U> {
     if (this.isSome()) {
       return some(fn(this._value));
     } else {
       return some(defFn());
+    }
+  }
+
+  flatMap<U>(fn: (value: T) => Option<U>): Option<U> {
+    if (this.isSome()) {
+      return fn(this._value);
+    } else {
+      return none();
+    }
+  }
+  flatMapOr<U>(fn: (value: T) => Option<U>, def: Option<U>): Option<U> {
+    if (this.isSome()) {
+      return fn(this._value);
+    } else {
+      return def;
+    }
+  }
+  flatMapOrElse<U>(
+    fn: (value: T) => Option<U>,
+    defFn: () => Option<U>
+  ): Option<U> {
+    if (this.isSome()) {
+      return fn(this._value);
+    } else {
+      return defFn();
     }
   }
 
@@ -169,7 +203,7 @@ export class Option<T> implements IEquals<Option<T>>, IClone {
     return safeEquals(this._value, other._value);
   }
 
-  clone(): this {
+  clone(): Option<T> {
     return new Option(CREATE_SECRET, this._value) as this;
   }
 }

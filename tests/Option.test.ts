@@ -17,13 +17,13 @@ tape("Option", (assert: tape.Test) => {
   );
   assert.equal(
     some(1)
-      .mapOr(1, x => x + 1)
+      .mapOr(x => x + 1, 1)
       .unwrap(),
     2
   );
   assert.equal(
     none<number>()
-      .mapOr(1, x => x + 1)
+      .mapOr(x => x + 1, 1)
       .unwrap(),
     1
   );
@@ -73,7 +73,7 @@ tape("Option", (assert: tape.Test) => {
   }, "Tried to unwrap value of none Option");
 
   assert.throws(() => {
-    new Option({}, {});
+    const option = new Option({}, {});
   }, "Options can only be created with the some or none functions");
 
   assert.end();

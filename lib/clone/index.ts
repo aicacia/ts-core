@@ -1,1 +1,1 @@
-export * from "./clone";
+export { clone, IClone } from "./clone";

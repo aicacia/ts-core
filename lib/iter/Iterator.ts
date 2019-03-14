@@ -175,9 +175,10 @@ export class Iterator<T> implements IIterator<T>, IEquals<Iterator<T>> {
     while (aNext.isSome() && bNext.isSome()) {
       if (!aNext.equals(bNext)) {
         return false;
+      } else {
+        aNext = this.next();
+        bNext = other.next();
       }
-      aNext = this.next();
-      bNext = other.next();
     }
 
     return true;

@@ -1,1 +1,1 @@
-export * from "./equals";
+export { IEquals, equals, safeEquals } from "./equals";

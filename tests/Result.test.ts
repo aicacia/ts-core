@@ -19,13 +19,13 @@ tape("Result", (assert: tape.Test) => {
   );
   assert.equal(
     ok(1)
-      .mapOr(1, x => x + 1)
+      .mapOr(x => x + 1, 1)
       .unwrap(),
     2
   );
   assert.equal(
     err<number, Error>(ERROR)
-      .mapOr(1, x => x + 1)
+      .mapOr(x => x + 1, 1)
       .unwrap(),
     1
   );
@@ -59,7 +59,7 @@ tape("Result", (assert: tape.Test) => {
   }, "Tried to unwrap error value of ok Result");
 
   assert.throws(() => {
-    new Result({}, {}, {});
+    const result = new Result({}, {}, {});
   }, "Results can only be created with the ok or err functions");
 
   assert.end();

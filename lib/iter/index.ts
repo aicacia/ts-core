@@ -7,3 +7,4 @@ export { Map } from "./Map";
 export { Skip } from "./Skip";
 export { Step } from "./Step";
 export { ToMap } from "./ToMap";
+export { Take } from "./Take";

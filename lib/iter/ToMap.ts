@@ -27,14 +27,11 @@ export class ToMap<T, K, V> extends Iterator<[K, V]> {
   }
 
   next(): Option<[K, V]> {
-    const result = super.next();
-
-    if (result.isSome()) {
-      const value = (result.unwrap() as any) as T;
-
-      return some<[K, V]>([this._keyFn(value), this._valueFn(value)]);
-    }
-
-    return none();
+    return super
+      .next()
+      .map(
+        value =>
+          [this._keyFn(value as any), this._valueFn(value as any)] as [K, V]
+      );
   }
 }

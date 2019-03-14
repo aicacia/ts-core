@@ -8,18 +8,18 @@ export class NativeIterator<T> implements Iterator<T> {
   }
 
   next() {
-    const next = this._iter.next();
-
-    if (next.isSome()) {
-      return {
-        done: false,
-        value: next.unwrap()
-      };
-    } else {
-      return {
-        done: true,
-        value: (undefined as any) as T
-      };
-    }
+    return this._iter
+      .next()
+      .mapOrElse<IteratorResult<T>>(mapNext, mapNone)
+      .unwrap();
   }
 }
+
+const mapNext = <T>(value: T): IteratorResult<T> => ({
+  done: false,
+  value
+});
+const mapNone = <T>(): IteratorResult<T> => ({
+  done: true,
+  value: (undefined as any) as T
+});

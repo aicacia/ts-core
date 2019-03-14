@@ -11,12 +11,9 @@ export class ForEach<T> extends Iterator<T> {
   }
 
   next(): Option<T> {
-    const result = super.next();
-
-    if (result.isSome()) {
-      this._fn(result.unwrap());
-    }
-
-    return result;
+    return super.next().map(value => {
+      this._fn(value);
+      return value;
+    });
   }
 }

@@ -1,7 +1,7 @@
+interface ISecret {}
+
 const CREATE_SECRET: ISecret = {},
   NULL_SECRET: ISecret = {};
-
-interface ISecret {}
 
 export class Result<T, E = Error> implements IEquals<Result<T, E>>, IClone {
   static equals<T, E = Error>(a: Result<T, E>, b: Result<T, E>): boolean {
@@ -14,6 +14,7 @@ export class Result<T, E = Error> implements IEquals<Result<T, E>>, IClone {
   static err<T, E = Error>(error: E): Result<T, E> {
     return err(error);
   }
+
   private _ok: T;
   private _err: E;
 
@@ -68,18 +69,43 @@ export class Result<T, E = Error> implements IEquals<Result<T, E>>, IClone {
       return err(this._err);
     }
   }
-  mapOr<U>(def: U, fn: (ok: T) => U): Result<U, E> {
+  mapOr<U>(fn: (ok: T) => U, def: U): Result<U, E> {
     if (this.isOk()) {
       return ok(fn(this._ok));
     } else {
       return ok(def);
     }
   }
-  mapOrElse<U>(defFn: () => U, fn: (ok: T) => U): Result<U, E> {
+  mapOrElse<U>(fn: (ok: T) => U, defFn: () => U): Result<U, E> {
     if (this.isOk()) {
       return ok(fn(this._ok));
     } else {
       return ok(defFn());
+    }
+  }
+
+  flatMap<U>(fn: (ok: T) => Result<U, E>): Result<U, E> {
+    if (this.isOk()) {
+      return fn(this._ok);
+    } else {
+      return err(this._err);
+    }
+  }
+  flatMapOr<U>(fn: (ok: T) => Result<U, E>, def: Result<U, E>): Result<U, E> {
+    if (this.isOk()) {
+      return fn(this._ok);
+    } else {
+      return def;
+    }
+  }
+  flatMapOrElse<U>(
+    fn: (ok: T) => Result<U, E>,
+    defFn: () => Result<U, E>
+  ): Result<U, E> {
+    if (this.isOk()) {
+      return fn(this._ok);
+    } else {
+      return defFn();
     }
   }
 
@@ -116,18 +142,46 @@ export class Result<T, E = Error> implements IEquals<Result<T, E>>, IClone {
       return ok(this._ok);
     }
   }
-  mapErrOr<U>(def: U, fn: (err: E) => U): Result<T, U> {
+  mapErrOr<U>(fn: (err: E) => U, def: U): Result<T, U> {
     if (this.isErr()) {
       return err(fn(this._err));
     } else {
       return err(def);
     }
   }
-  mapErrOrElse<U>(defFn: () => U, fn: (err: E) => U): Result<T, U> {
+  mapErrOrElse<U>(fn: (err: E) => U, defFn: () => U): Result<T, U> {
     if (this.isErr()) {
       return err(fn(this._err));
     } else {
       return err(defFn());
+    }
+  }
+
+  flatMapErr<U>(fn: (err: E) => Result<T, U>): Result<T, U> {
+    if (this.isErr()) {
+      return fn(this._err);
+    } else {
+      return ok(this._ok);
+    }
+  }
+  flatMapErrOr<U>(
+    fn: (err: E) => Result<T, U>,
+    def: Result<T, U>
+  ): Result<T, U> {
+    if (this.isErr()) {
+      return fn(this._err);
+    } else {
+      return def;
+    }
+  }
+  flatMapErrOrElse<U>(
+    fn: (err: E) => Result<T, U>,
+    defFn: () => Result<T, U>
+  ): Result<T, U> {
+    if (this.isErr()) {
+      return fn(this._err);
+    } else {
+      return defFn();
     }
   }
 
@@ -180,8 +234,8 @@ export class Result<T, E = Error> implements IEquals<Result<T, E>>, IClone {
     return safeEquals(this._ok, other._ok) && safeEquals(this._err, other._err);
   }
 
-  clone(): this {
-    return new Result(CREATE_SECRET, this._ok, this._err) as this;
+  clone(): Result<T, E> {
+    return new Result(CREATE_SECRET, this._ok, this._err);
   }
 }
 
