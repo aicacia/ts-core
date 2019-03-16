@@ -179,6 +179,15 @@ export class Option<T> implements IEquals<Option<T>>, IClone {
     return this;
   }
 
+  take(): Option<T> {
+    if (this.isSome()) {
+      const value = this._value;
+      this._value = NULL_SECRET as any;
+      return some(value);
+    } else {
+      return none();
+    }
+  }
   replace(value: T): Option<T> {
     this._value = value;
     return this;

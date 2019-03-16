@@ -65,6 +65,14 @@ tape("Option", (assert: tape.Test) => {
   assert.deepEqual(some(2).getOrInsertWith(() => 1), some(2));
   assert.deepEqual(none().getOrInsertWith(() => 1), some(1));
 
+  const someValue = some(1);
+  assert.deepEqual(someValue.take(), some(1));
+  assert.deepEqual(someValue, none());
+
+  const noneValue = none();
+  assert.deepEqual(noneValue.take(), none());
+  assert.deepEqual(noneValue, none());
+
   assert.deepEqual(some(0).replace(1), some(1));
   assert.deepEqual(none().replace(1), some(1));
 
