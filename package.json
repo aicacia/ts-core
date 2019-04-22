@@ -1,10 +1,10 @@
 {
-  "name": "@aicacia/core",
+  "name": "@stembord/core",
   "version": "0.1.0",
-  "description": "aicacia core utils",
+  "description": "stembord core utils",
   "repository": {
     "type": "git",
-    "url": "https://gitlab.com/aicacia/ts-core.git"
+    "url": "https://gitlab.com/stembord/libs/ts-core.git"
   },
   "main": "./src/index.js",
   "types": "./src/index.d.ts",
