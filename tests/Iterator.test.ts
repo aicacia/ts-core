@@ -1,10 +1,9 @@
 import * as tape from "tape";
-import "../lib";
+import { iter } from "../lib";
 
 tape("simple skip", (assert: tape.Test) => {
   assert.deepEqual(
-    [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-      .iter()
+    iter([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
       .step(2)
       .toArray(),
     [2, 5, 8]
@@ -13,8 +12,7 @@ tape("simple skip", (assert: tape.Test) => {
 });
 
 tape("simple iter", (assert: tape.Test) => {
-  const result = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-    .iter()
+  const result = iter([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
     .skip(1)
     .step(2)
     .map(i => i ** 2)
@@ -28,8 +26,7 @@ tape("simple iter", (assert: tape.Test) => {
 });
 
 tape("simple object iter", (assert: tape.Test) => {
-  const result = { a: 0, b: 1, c: 2 }
-    .iter()
+  const result = iter({ a: 0, b: 1, c: 2 })
     .map(([k, v]) => [v, k])
     .toMap(([k, v]) => k, ([k, v]) => v)
     .toObject();
@@ -42,8 +39,7 @@ tape("simple object iter", (assert: tape.Test) => {
 tape("native for of iter", (assert: tape.Test) => {
   const results: number[] = [];
 
-  for (const value of [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-    .iter()
+  for (const value of iter([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
     .filter(x => x % 2 === 0)) {
     results.push(value);
   }
@@ -53,8 +49,7 @@ tape("native for of iter", (assert: tape.Test) => {
 });
 
 tape("nth", (assert: tape.Test) => {
-  const result = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-    .iter()
+  const result = iter([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
     .map(i => i ** 2)
     .filter(i => i % 2 === 0)
     .nth(4)

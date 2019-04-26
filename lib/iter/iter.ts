@@ -3,9 +3,8 @@ import { none, Option, some } from "../option";
 import { IIterator } from "./IIterator";
 import { Iterator } from "./Iterator";
 
-export function iter<T>(value: T[]): Iterator<T>;
-export function iter<T>(value: IIterator<T>): Iterator<T>;
-export function iter<T>(value: any): Iterator<[string, T]>;
+export function iter<T>(value: T[] | IIterator<T>): Iterator<T>;
+export function iter<O>(value: O): Iterator<[keyof O, O[keyof O]]>;
 
 export function iter(value: any): Iterator<any> {
   if (isObject(value)) {
@@ -41,28 +40,8 @@ class ArrayIterator<T> implements IIterator<T> {
   }
 }
 
-class ObjectIterator<T> extends ArrayIterator<[string, T]> {
-  constructor(object: {}) {
-    super(Object.entries(object));
+class ObjectIterator<O extends {}> extends ArrayIterator<[keyof O, O[keyof O]]> {
+  constructor(object: O) {
+    super(Object.entries(object) as any);
   }
 }
-
-declare global {
-  interface Array<T> {
-    iter(): Iterator<T>;
-  }
-}
-
-Array.prototype.iter = function(): Iterator<any> {
-  return new Iterator(iter(this));
-};
-
-declare global {
-  interface Object {
-    iter<V>(): Iterator<[string, V]>;
-  }
-}
-
-Object.prototype.iter = function<V>(): Iterator<[string, V]> {
-  return new Iterator(iter(this) as any);
-};
