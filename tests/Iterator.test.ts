@@ -39,8 +39,9 @@ tape("simple object iter", (assert: tape.Test) => {
 tape("native for of iter", (assert: tape.Test) => {
   const results: number[] = [];
 
-  for (const value of iter([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
-    .filter(x => x % 2 === 0)) {
+  for (const value of iter([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]).filter(
+    x => x % 2 === 0
+  )) {
     results.push(value);
   }
 
@@ -56,5 +57,16 @@ tape("nth", (assert: tape.Test) => {
     .unwrap();
 
   assert.equal(result, 64);
+  assert.end();
+});
+
+tape("index", (assert: tape.Test) => {
+  const result = iter([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
+    .map((x, index) => index ** 2)
+    .filter((x, index) => index % 2 === 0)
+    .map((x, index) => index)
+    .toArray();
+
+  assert.deepEqual(result, [0, 1, 2, 3, 4]);
   assert.end();
 });

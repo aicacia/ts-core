@@ -2,17 +2,19 @@ import { Option } from "../option";
 import { IIterator } from "./IIterator";
 import { Iterator } from "./Iterator";
 
-export class ForEach<T> extends Iterator<T> {
-  private _fn: (value: T) => void;
+export type IForEachFn<T> = (value: T, index: number) => void;
 
-  constructor(iter: IIterator<T>, fn: (value: T) => void) {
+export class ForEach<T> extends Iterator<T> {
+  private _fn: IForEachFn<T>;
+
+  constructor(iter: IIterator<T>, fn: IForEachFn<T>) {
     super(iter);
     this._fn = fn;
   }
 
   next(): Option<T> {
-    return super.next().map(value => {
-      this._fn(value);
+    return super.nextWithIndex().map(([value, index]) => {
+      this._fn(value, index);
       return value;
     });
   }

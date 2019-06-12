@@ -1,23 +1,27 @@
-import { none, Option } from "../option";
+import { none, Option, some } from "../option";
 import { IIterator } from "./IIterator";
 import { Iterator } from "./Iterator";
 
-export class Filter<T> extends Iterator<T> {
-  private _fn: (value: T) => boolean;
+export type IFilterFn<T> = (value: T, index: number) => boolean;
 
-  constructor(iter: IIterator<T>, fn: (value: T) => boolean) {
+export class Filter<T> extends Iterator<T> {
+  private _fn: IFilterFn<T>;
+
+  constructor(iter: IIterator<T>, fn: IFilterFn<T>) {
     super(iter);
     this._fn = fn;
   }
 
   next(): Option<T> {
-    let result = super.next();
+    let result = super.nextWithIndex();
 
     while (result.isSome()) {
-      if (this._fn(result.unwrap())) {
-        return result;
+      const [value, index] = result.unwrap();
+
+      if (this._fn(value, index)) {
+        return some(value);
       }
-      result = super.next();
+      result = super.nextWithIndex();
     }
 
     return none();

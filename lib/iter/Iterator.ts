@@ -2,6 +2,7 @@ import { IIterator } from "./IIterator";
 
 export class Iterator<T> implements IIterator<T>, IEquals<Iterator<T>> {
   private _iter: IIterator<T>;
+  private _index: number = 0;
 
   constructor(iter: IIterator<T>) {
     this._iter = iter;
@@ -16,18 +17,28 @@ export class Iterator<T> implements IIterator<T>, IEquals<Iterator<T>> {
   }
 
   next(): Option<T> {
-    return this._iter.next();
+    const next = this._iter.next();
+
+    if (next.isSome()) {
+      this._index += 1;
+    }
+
+    return next;
   }
 
-  forEach(fn: (value: T) => void): ForEach<T> {
+  nextWithIndex(): Option<[T, number]> {
+    return this._iter.next().map(value => [value, this._index++]);
+  }
+
+  forEach(fn: IForEachFn<T>): ForEach<T> {
     return new ForEach(this, fn);
   }
 
-  map<B>(fn: (value: T) => B): Map<T, B> {
+  map<B>(fn: IMapFn<T, B>): Map<T, B> {
     return new Map(this, fn);
   }
 
-  filter(fn: (value: T) => boolean): Filter<T> {
+  filter(fn: IFilterFn<T>): Filter<T> {
     return new Filter(this, fn);
   }
 
@@ -44,8 +55,8 @@ export class Iterator<T> implements IIterator<T>, IEquals<Iterator<T>> {
   }
 
   toMap<K, V>(
-    keyFn: (value: T) => K = defaultKeyFn,
-    valueFn: (value: T) => V = defaultValueFn
+    keyFn: IToMapFn<T, K> = defaultKeyFn,
+    valueFn: IToMapFn<T, V> = defaultValueFn
   ): ToMap<T, K, V> {
     return new ToMap(this, keyFn, valueFn);
   }
@@ -187,12 +198,12 @@ export class Iterator<T> implements IIterator<T>, IEquals<Iterator<T>> {
 
 import { IEquals } from "../equals/equals";
 import { none, Option, some } from "../option";
-import { Filter } from "./Filter";
-import { ForEach } from "./ForEach";
+import { Filter, IFilterFn } from "./Filter";
+import { ForEach, IForEachFn } from "./ForEach";
 import { iter } from "./iter";
-import { Map } from "./Map";
+import { IMapFn, Map } from "./Map";
 import { NativeIterator } from "./NativeIterator";
 import { Skip } from "./Skip";
 import { Step } from "./Step";
 import { Take } from "./Take";
-import { defaultKeyFn, defaultValueFn, ToMap } from "./ToMap";
+import { defaultKeyFn, defaultValueFn, IToMapFn, ToMap } from "./ToMap";

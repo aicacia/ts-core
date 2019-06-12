@@ -1,6 +1,6 @@
 {
   "name": "@stembord/core",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "stembord core utils",
   "repository": {
     "type": "git",
@@ -31,14 +31,14 @@
   "readmeFilename": "README.md",
   "devDependencies": {
     "@types/tape": "^4.2.33",
-    "prettier": "^1.16.4",
+    "prettier": "^1.17.1",
     "prettier-tslint": "^0.4.2",
     "tap-spec": "^5.0.0",
-    "tape": "^4.10.1",
-    "ts-node": "^8.0.2",
-    "tslint": "^5.13.1",
+    "tape": "^4.10.2",
+    "ts-node": "^8.2.0",
+    "tslint": "^5.17.0",
     "tslint-config-prettier": "^1.18.0",
-    "typescript": "^3.3.3333"
+    "typescript": "^3.5.1"
   },
   "dependencies": {}
 }
