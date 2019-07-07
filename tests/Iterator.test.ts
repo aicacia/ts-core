@@ -1,4 +1,5 @@
 import * as tape from "tape";
+import { isString } from "util";
 import { iter } from "../lib";
 
 tape("simple skip", (assert: tape.Test) => {
@@ -68,5 +69,15 @@ tape("index", (assert: tape.Test) => {
     .toArray();
 
   assert.deepEqual(result, [0, 1, 2, 3, 4]);
+  assert.end();
+});
+
+tape("types", (assert: tape.Test) => {
+  const result = iter([{ key: "value" }, { key: 10 }])
+    .map(obj => obj.key)
+    .filter(isString)
+    .toArray();
+
+  assert.deepEqual(result, ["value"]);
   assert.end();
 });

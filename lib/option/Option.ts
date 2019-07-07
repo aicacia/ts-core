@@ -158,7 +158,9 @@ export class Option<T> implements IEquals<Option<T>>, IClone {
     }
   }
 
-  filter(fn: (value: T) => boolean): Option<T> {
+  filter<S extends T>(fn: (value: T) => value is S): Option<S>;
+  filter(fn: (value: T) => boolean): Option<T>;
+  filter(fn: any): any {
     if (this.isSome() && fn(this._value)) {
       return this;
     } else {

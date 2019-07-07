@@ -7,8 +7,8 @@ export interface IEquals<T> {
 export const equals = <A extends IEquals<B>, B>(a: A, b: B) => a.equals(b);
 
 export const safeEquals = (a: any, b: any) => {
-  if (isFunction((a as any).equals)) {
-    return (a as any).equals(b);
+  if (isFunction(a.equals)) {
+    return a.equals(b);
   } else {
     return a === b;
   }

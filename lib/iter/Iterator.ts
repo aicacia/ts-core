@@ -38,7 +38,9 @@ export class Iterator<T> implements IIterator<T>, IEquals<Iterator<T>> {
     return new Map(this, fn);
   }
 
-  filter(fn: IFilterFn<T>): Filter<T> {
+  filter<S extends T>(fn: IFilterPredicateFn<T, S>): Filter<T, S>;
+  filter(fn: IFilterBooleanFn<T>): Filter<T, T>;
+  filter(fn: any): any {
     return new Filter(this, fn);
   }
 
@@ -198,7 +200,7 @@ export class Iterator<T> implements IIterator<T>, IEquals<Iterator<T>> {
 
 import { IEquals } from "../equals/equals";
 import { none, Option, some } from "../option";
-import { Filter, IFilterFn } from "./Filter";
+import { Filter, IFilterBooleanFn, IFilterPredicateFn } from "./Filter";
 import { ForEach, IForEachFn } from "./ForEach";
 import { iter } from "./iter";
 import { IMapFn, Map } from "./Map";
