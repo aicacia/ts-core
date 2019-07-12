@@ -1,5 +1,6 @@
 import * as tape from "tape";
-import { err, none, ok, Option, some } from "../lib";
+import { none, Option, some } from ".";
+import { err, ok } from "../result";
 
 tape("Option", (assert: tape.Test) => {
   assert.equal(some(1).isSome(), true);

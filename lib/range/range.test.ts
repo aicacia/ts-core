@@ -1,5 +1,5 @@
 import * as tape from "tape";
-import { range, rangeFrom } from "../lib";
+import { range, rangeFrom } from ".";
 
 tape("range", (assert: tape.Test) => {
   assert.deepEquals(

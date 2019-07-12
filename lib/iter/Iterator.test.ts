@@ -1,6 +1,6 @@
 import * as tape from "tape";
 import { isString } from "util";
-import { iter } from "../lib";
+import { iter } from "./iter";
 
 tape("simple skip", (assert: tape.Test) => {
   assert.deepEqual(
