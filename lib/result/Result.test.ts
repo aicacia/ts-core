@@ -12,6 +12,8 @@ tape("Result", (assert: tape.Test) => {
   assert.equal(err(ERROR).isErr(), true);
 
   assert.equal(ok(1).unwrap(), 1);
+  assert.equal(err(ERROR).unwrapOr(1), 1);
+  assert.equal(err(ERROR).unwrapOrElse(() => 1), 1);
   assert.equal(
     ok(1)
       .map(x => x + 1)
@@ -21,6 +23,12 @@ tape("Result", (assert: tape.Test) => {
   assert.equal(
     ok(1)
       .mapOr(x => x + 1, 1)
+      .unwrap(),
+    2
+  );
+  assert.equal(
+    ok(1)
+      .mapOrElse(x => x + 1, () => 1)
       .unwrap(),
     2
   );
@@ -35,6 +43,25 @@ tape("Result", (assert: tape.Test) => {
       .map(x => x + 1)
       .isErr(),
     true
+  );
+
+  assert.equal(
+    ok(1)
+      .flatMap(x => ok(x))
+      .unwrap(),
+    1
+  );
+  assert.equal(
+    err(ERROR)
+      .flatMapOr(x => ok(x), ok(1))
+      .unwrap(),
+    1
+  );
+  assert.equal(
+    err(ERROR)
+      .flatMapOrElse(x => ok(x), () => ok(2))
+      .unwrap(),
+    2
   );
 
   assert.deepEqual(ok(1).and(ok(2)), ok(2));

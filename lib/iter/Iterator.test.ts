@@ -72,6 +72,19 @@ tape("index", (assert: tape.Test) => {
   assert.end();
 });
 
+tape("forEach", (assert: tape.Test) => {
+  let count = 0;
+
+  iter([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
+    .forEach(() => {
+      count++;
+    })
+    .toArray();
+
+  assert.deepEqual(count, 10);
+  assert.end();
+});
+
 tape("types", (assert: tape.Test) => {
   const result = iter([{ key: "value" }, { key: 10 }])
     .map(obj => obj.key)
