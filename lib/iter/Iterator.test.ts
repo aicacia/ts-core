@@ -94,3 +94,12 @@ tape("types", (assert: tape.Test) => {
   assert.deepEqual(result, ["value"]);
   assert.end();
 });
+
+tape("concat", (assert: tape.Test) => {
+  const result = iter([0, 1, 2])
+    .concat(iter([3, 4, 5]))
+    .toArray();
+
+  assert.deepEqual(result, [0, 1, 2, 3, 4, 5]);
+  assert.end();
+});

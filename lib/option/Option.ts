@@ -1,7 +1,7 @@
 interface ISecret {}
 
 const CREATE_SECRET: ISecret = {},
-  NULL_SECRET: ISecret = {};
+  NONE_SECRET: ISecret = {};
 
 export class Option<T> implements IEquals<Option<T>>, IClone {
   static equals<T>(a: Option<T>, b: Option<T>): boolean {
@@ -35,7 +35,7 @@ export class Option<T> implements IEquals<Option<T>>, IClone {
   }
 
   isNone(): boolean {
-    return this._value === NULL_SECRET;
+    return this._value === NONE_SECRET;
   }
 
   isSome(): boolean {
@@ -184,7 +184,7 @@ export class Option<T> implements IEquals<Option<T>>, IClone {
   take(): Option<T> {
     if (this.isSome()) {
       const value = this._value;
-      this._value = NULL_SECRET as any;
+      this._value = NONE_SECRET as any;
       return some(value);
     } else {
       return none();
@@ -222,7 +222,7 @@ export class Option<T> implements IEquals<Option<T>>, IClone {
 export const some = <T>(value: T): Option<T> =>
   new Option(CREATE_SECRET, value);
 export const none = <T>(): Option<T> =>
-  new Option(CREATE_SECRET, NULL_SECRET as any);
+  new Option(CREATE_SECRET, NONE_SECRET as T);
 
 import { IClone } from "../clone";
 import { IEquals, safeEquals } from "../equals";

@@ -38,6 +38,14 @@ export class Iterator<T> implements IIterator<T>, IEquals<Iterator<T>> {
     return new Map(this, fn);
   }
 
+  merge(iter: IIterator<T>): Merge<T> {
+    return new Merge(this, iter);
+  }
+
+  concat(iter: IIterator<T>): Merge<T> {
+    return this.merge(iter);
+  }
+
   filter<S extends T>(fn: IFilterPredicateFn<T, S>): Filter<T, S>;
   filter(fn: IFilterBooleanFn<T>): Filter<T, T>;
   filter(fn: any): any {
@@ -204,6 +212,7 @@ import { Filter, IFilterBooleanFn, IFilterPredicateFn } from "./Filter";
 import { ForEach, IForEachFn } from "./ForEach";
 import { iter } from "./iter";
 import { IMapFn, Map } from "./Map";
+import { Merge } from "./Merge";
 import { NativeIterator } from "./NativeIterator";
 import { Skip } from "./Skip";
 import { Step } from "./Step";

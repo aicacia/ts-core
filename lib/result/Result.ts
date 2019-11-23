@@ -240,10 +240,10 @@ export class Result<T, E = Error> implements IEquals<Result<T, E>>, IClone {
 }
 
 export const ok = <T, E = Error>(value: T): Result<T, E> =>
-  new Result(CREATE_SECRET, value, NULL_SECRET as any);
+  new Result(CREATE_SECRET, value, NULL_SECRET as E);
 export const err = <T, E = Error>(error: E): Result<T, E> =>
-  new Result(CREATE_SECRET, NULL_SECRET as any, error);
+  new Result(CREATE_SECRET, NULL_SECRET as T, error);
 
-import { IClone } from "../clone/clone";
+import { IClone } from "../clone";
 import { IEquals, safeEquals } from "../equals";
 import { none, Option, some } from "../option";

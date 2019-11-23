@@ -82,8 +82,14 @@ tape("Result", (assert: tape.Test) => {
   assert.deepEqual(err(ERROR).ok(), none());
   assert.deepEqual(err(ERROR).err(), some(ERROR));
 
+  assert.deepEqual(err(ERROR).unwrapErr(), ERROR);
+
   assert.throws(() => {
     err(ERROR).unwrap();
+  }, "Tried to unwrap error value of ok Result");
+
+  assert.throws(() => {
+    ok(1).unwrapErr();
   }, "Tried to unwrap error value of ok Result");
 
   assert.throws(() => {
