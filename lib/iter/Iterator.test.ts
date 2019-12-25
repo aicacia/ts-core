@@ -18,7 +18,10 @@ tape("simple iter", (assert: tape.Test) => {
     .step(2)
     .map(i => i ** 2)
     .filter(i => i % 2 === 0)
-    .toMap(i => i, i => i * 2)
+    .toMap(
+      i => i,
+      i => i * 2
+    )
     .toObject();
 
   assert.deepEqual(result, { 16: 32, 100: 200 });
@@ -29,7 +32,10 @@ tape("simple iter", (assert: tape.Test) => {
 tape("simple object iter", (assert: tape.Test) => {
   const result = iter({ a: 0, b: 1, c: 2 })
     .map(([k, v]) => [v, k])
-    .toMap(([k, v]) => k, ([k, v]) => v)
+    .toMap(
+      ([k, v]) => k,
+      ([k, v]) => v
+    )
     .toObject();
 
   assert.deepEqual(result, { 0: "a", 1: "b", 2: "c" });
@@ -101,5 +107,18 @@ tape("concat", (assert: tape.Test) => {
     .toArray();
 
   assert.deepEqual(result, [0, 1, 2, 3, 4, 5]);
+  assert.end();
+});
+
+tape("consume", (assert: tape.Test) => {
+  const array: number[] = [];
+
+  iter([0, 1, 2])
+    .forEach(value => {
+      array.push(value);
+    })
+    .consume();
+
+  assert.deepEqual(array, [0, 1, 2]);
   assert.end();
 });

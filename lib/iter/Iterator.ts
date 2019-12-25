@@ -77,6 +77,14 @@ export class Iterator<T> implements IIterator<T>, IEquals<Iterator<T>> {
     });
   }
 
+  consume() {
+    let next = this.next();
+
+    while (next.isSome()) {
+      next = this.next();
+    }
+  }
+
   toArray(): T[] {
     return this.reduce<T[]>([], (array, value) => {
       array.push(value);
@@ -147,7 +155,7 @@ export class Iterator<T> implements IIterator<T>, IEquals<Iterator<T>> {
   }
 
   first(): Option<T> {
-    return this.nth();
+    return this.nth(0);
   }
 
   any(fn: (value: T) => boolean): boolean {
