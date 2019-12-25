@@ -1,3 +1,3 @@
 # ts-core
 
-stembord core utils
+aicacia core utils
