@@ -1,22 +1,35 @@
 import { isFunction, isNumber, isObject } from "util";
 import { none, Option, some } from "../option";
 import { IIterator } from "./IIterator";
-import { Iterator } from "./Iterator";
+import { Iterator as CoreIterator } from "./Iterator";
+import { NativeIteratorWrapper } from "./NativeIteratorWrapper";
 
-export function iter<T>(value: T[] | IIterator<T>): Iterator<T>;
-export function iter<O>(value: O): Iterator<[keyof O, O[keyof O]]>;
+export function iter<T>(
+  value: T[] | IIterator<T> | Iterator<T> | Iterable<T> | IterableIterator<T>
+): CoreIterator<T>;
+export function iter<O>(
+  value: O | IterableIterator<[keyof O, O[keyof O]]>
+): CoreIterator<[keyof O, O[keyof O]]>;
 
-export function iter(value: any): Iterator<any> {
+export function iter(value: any): CoreIterator<any> {
   if (isObject(value)) {
     if (isNumber(value.length)) {
-      return new Iterator(new ArrayIterator(value));
+      return new CoreIterator(new ArrayIterator(value));
     } else if (isFunction(value.next)) {
-      return new Iterator(value);
+      if (value instanceof CoreIterator) {
+        return value;
+      } else {
+        return new CoreIterator(new NativeIteratorWrapper(value));
+      }
+    } else if (isFunction(value[Symbol.iterator])) {
+      return new CoreIterator(
+        new NativeIteratorWrapper(value[Symbol.iterator]())
+      );
     } else {
-      return new Iterator(new ObjectIterator(value));
+      return new CoreIterator(new ObjectIterator(value));
     }
   } else {
-    return new Iterator(new ArrayIterator([value] as any));
+    return new CoreIterator(new ArrayIterator([value] as any));
   }
 }
 
@@ -40,7 +53,9 @@ class ArrayIterator<T> implements IIterator<T> {
   }
 }
 
-class ObjectIterator<O extends {}> extends ArrayIterator<[keyof O, O[keyof O]]> {
+class ObjectIterator<O extends {}> extends ArrayIterator<
+  [keyof O, O[keyof O]]
+> {
   constructor(object: O) {
     super(Object.entries(object) as any);
   }

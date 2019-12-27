@@ -43,6 +43,24 @@ tape("simple object iter", (assert: tape.Test) => {
   assert.end();
 });
 
+tape("simple Iterable iter", (assert: tape.Test) => {
+  assert.deepEqual(iter(new Set([0, 1, 2, 3])).toArray(), [0, 1, 2, 3]);
+  assert.deepEqual(
+    iter(
+      new Map([
+        [0, 0],
+        [1, 1]
+      ])
+    ).toArray(),
+    [
+      [0, 0],
+      [1, 1]
+    ]
+  );
+  assert.deepEqual(iter(iter([0, 1, 2, 3])).toArray(), [0, 1, 2, 3]);
+  assert.end();
+});
+
 tape("native for of iter", (assert: tape.Test) => {
   const results: number[] = [];
 
