@@ -194,6 +194,10 @@ export class Option<T> implements IEquals<Option<T>>, IClone {
     this._value = value;
     return this;
   }
+  clear(): Option<T> {
+    this._value = NONE_SECRET as any;
+    return this;
+  }
 
   okOr<E>(error: E): Result<T, E> {
     if (this.isSome()) {
@@ -210,12 +214,32 @@ export class Option<T> implements IEquals<Option<T>>, IClone {
     }
   }
 
+  ifSome(fn: (value: T) => void): Option<T> {
+    if (this.isSome()) {
+      fn(this._value);
+    }
+    return this;
+  }
+  ifNone(fn: () => void): Option<T> {
+    if (this.isNone()) {
+      fn();
+    }
+    return this;
+  }
+
   equals(other: Option<T>): boolean {
     return safeEquals(this._value, other._value);
   }
 
   clone(): Option<T> {
     return new Option(CREATE_SECRET, this._value) as this;
+  }
+
+  fromJSON(json: any): Option<T> {
+    return Option.from(json);
+  }
+  toJSON(): T | undefined {
+    return this.unwrapOr(undefined as any);
   }
 }
 

@@ -1,8 +1,8 @@
 import { IIterator } from "./IIterator";
 
 export class Iterator<T> implements IIterator<T>, IEquals<Iterator<T>> {
-  private _iter: IIterator<T>;
-  private _index: number = 0;
+  protected _iter: IIterator<T>;
+  protected _index: number = 0;
 
   constructor(iter: IIterator<T>) {
     this._iter = iter;
@@ -180,6 +180,10 @@ export class Iterator<T> implements IIterator<T>, IEquals<Iterator<T>> {
     return true;
   }
 
+  unflatten<U>(fn: UnflattenFn<T, U>): Iterator<U> {
+    return new Unflatten(this, fn);
+  }
+
   reduce<C>(acc: C, fn: (acc: C, value: T) => C): C {
     let next = this.next();
 
@@ -226,3 +230,4 @@ import { Skip } from "./Skip";
 import { Step } from "./Step";
 import { Take } from "./Take";
 import { defaultKeyFn, defaultValueFn, IToMapFn, ToMap } from "./ToMap";
+import { Unflatten, UnflattenFn } from "./Unflatten";

@@ -230,6 +230,19 @@ export class Result<T, E = Error> implements IEquals<Result<T, E>>, IClone {
     }
   }
 
+  ifOk(fn: (ok: T) => void): Result<T, E> {
+    if (this.isOk()) {
+      fn(this._ok);
+    }
+    return this;
+  }
+  ifErr(fn: (err: E) => void): Result<T, E> {
+    if (this.isErr()) {
+      fn(this._err);
+    }
+    return this;
+  }
+
   equals(other: Result<T, E>): boolean {
     return safeEquals(this._ok, other._ok) && safeEquals(this._err, other._err);
   }
@@ -237,6 +250,35 @@ export class Result<T, E = Error> implements IEquals<Result<T, E>>, IClone {
   clone(): Result<T, E> {
     return new Result(CREATE_SECRET, this._ok, this._err);
   }
+
+  fromJSON(json: any): Result<T, E> {
+    if (json) {
+      if (json.ok) {
+        return ok(json.ok);
+      } else if (json.err) {
+        return err(json.err);
+      }
+    }
+    throw new TypeError("Invalid json for Result");
+  }
+  toJSON(): IResultJSON<T> | IResultErrorJSON<E> {
+    if (this.isOk()) {
+      return {
+        ok: this.unwrap()
+      };
+    } else {
+      return {
+        err: this.unwrapErr()
+      };
+    }
+  }
+}
+
+export interface IResultJSON<T> {
+  ok: T;
+}
+export interface IResultErrorJSON<E> {
+  err: E;
 }
 
 export const ok = <T, E = Error>(value: T): Result<T, E> =>

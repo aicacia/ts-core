@@ -14,4 +14,4 @@ export {
 } from "./iter";
 export { some, none, Option } from "./option";
 export { range, rangeFrom, Range, RangeFrom } from "./range";
-export { ok, err, Result } from "./result";
+export { ok, err, Result, IResultJSON, IResultErrorJSON } from "./result";

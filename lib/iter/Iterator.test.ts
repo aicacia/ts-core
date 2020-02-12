@@ -140,3 +140,16 @@ tape("consume", (assert: tape.Test) => {
   assert.deepEqual(array, [0, 1, 2]);
   assert.end();
 });
+
+tape("unflatten", (assert: tape.Test) => {
+  const array = iter([0, 0, 1, 1, 2, 2])
+    .unflatten(iter => iter.next().flatMap(a => iter.next().map(b => [a, b])))
+    .toArray();
+
+  assert.deepEqual(array, [
+    [0, 0],
+    [1, 1],
+    [2, 2]
+  ]);
+  assert.end();
+});

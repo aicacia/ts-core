@@ -1,1 +1,1 @@
-export { Result, ok, err } from "./Result";
+export { Result, ok, err, IResultJSON, IResultErrorJSON } from "./Result";
