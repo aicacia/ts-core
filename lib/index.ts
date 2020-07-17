@@ -1,4 +1,5 @@
-export { clone, IClone } from "./clone";
+export { clone, safeClone, IClone } from "./clone";
+export { left, right, Either } from "./either";
 export { equals, safeEquals, IEquals } from "./equals";
 export {
   Filter,

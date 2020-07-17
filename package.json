@@ -1,6 +1,6 @@
 {
   "name": "@aicacia/core",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "aicacia core utils",
   "repository": {
     "type": "git",
@@ -30,17 +30,17 @@
   "license": "(MIT OR Apache-2.0)",
   "readmeFilename": "README.md",
   "devDependencies": {
-    "@types/tape": "^4.2.33",
-    "nyc": "^14.1.1",
-    "prettier": "^1.19.1",
+    "@types/tape": "^4.13.0",
+    "nyc": "^15.1.0",
+    "prettier": "^2.0.5",
     "prettier-tslint": "^0.4.2",
     "tap-spec": "^5.0.0",
     "tap-nyc": "^1.0.3",
-    "tape": "^4.12.1",
-    "ts-node": "^8.5.2",
-    "tslint": "^5.20.1",
+    "tape": "^5.0.1",
+    "ts-node": "^8.10.2",
+    "tslint": "^6.1.2",
     "tslint-config-prettier": "^1.18.0",
-    "typescript": "^3.7.4"
+    "typescript": "^3.9.7"
   },
   "dependencies": {},
   "nyc": {

@@ -48,18 +48,10 @@ export class Result<T, E = Error> implements IEquals<Result<T, E>>, IClone {
     return this.expect();
   }
   unwrapOr(def: T): T {
-    if (this.isOk()) {
-      return this._ok;
-    } else {
-      return def;
-    }
+    return this.ok().unwrapOr(def);
   }
   unwrapOrElse(defFn: () => T): T {
-    if (this.isOk()) {
-      return this._ok;
-    } else {
-      return defFn();
-    }
+    return this.ok().unwrapOrElse(defFn);
   }
 
   map<U>(fn: (ok: T) => U): Result<U, E> {
@@ -121,18 +113,10 @@ export class Result<T, E = Error> implements IEquals<Result<T, E>>, IClone {
     return this.expectErr("Tried to unwrap error value of ok Result");
   }
   unwrapErrOr(def: E): E {
-    if (this.isErr()) {
-      return this._err;
-    } else {
-      return def;
-    }
+    return this.err().unwrapOr(def);
   }
   unwrapErrOrElse(defFn: () => E): E {
-    if (this.isErr()) {
-      return this._err;
-    } else {
-      return defFn();
-    }
+    return this.err().unwrapOrElse(defFn);
   }
 
   mapErr<U>(fn: (err: E) => U): Result<T, U> {
@@ -248,7 +232,7 @@ export class Result<T, E = Error> implements IEquals<Result<T, E>>, IClone {
   }
 
   clone(): Result<T, E> {
-    return new Result(CREATE_SECRET, this._ok, this._err);
+    return new Result(CREATE_SECRET, safeClone(this._ok), safeClone(this._err));
   }
 
   fromJSON(json: any): Result<T, E> {
@@ -264,11 +248,11 @@ export class Result<T, E = Error> implements IEquals<Result<T, E>>, IClone {
   toJSON(): IResultJSON<T> | IResultErrorJSON<E> {
     if (this.isOk()) {
       return {
-        ok: this.unwrap()
+        ok: this.unwrap(),
       };
     } else {
       return {
-        err: this.unwrapErr()
+        err: this.unwrapErr(),
       };
     }
   }
@@ -286,6 +270,6 @@ export const ok = <T, E = Error>(value: T): Result<T, E> =>
 export const err = <T, E = Error>(error: E): Result<T, E> =>
   new Result(CREATE_SECRET, NULL_SECRET as T, error);
 
-import { IClone } from "../clone";
+import { safeClone, IClone } from "../clone";
 import { IEquals, safeEquals } from "../equals";
 import { none, Option, some } from "../option";

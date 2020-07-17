@@ -1,6 +1,11 @@
 import { IIterator, Iterator } from "../iter";
 import { none, Option, some } from "../option";
 
+export enum RangeDirection {
+  Forward,
+  Backward,
+}
+
 export class Range implements IIterator<number> {
   static from(start: number, end: number) {
     return new Range(start, end);
@@ -8,12 +13,12 @@ export class Range implements IIterator<number> {
 
   start: number;
   end: number;
-  private dir: -1 | 1;
+  private dir: RangeDirection;
 
   constructor(start: number, end: number) {
     this.start = start;
     this.end = end;
-    this.dir = start > end ? -1 : 1;
+    this.dir = start > end ? RangeDirection.Backward : RangeDirection.Forward;
   }
 
   contains(item: number) {
@@ -21,7 +26,7 @@ export class Range implements IIterator<number> {
   }
 
   isEmpty() {
-    if (this.dir === 1) {
+    if (this.dir === RangeDirection.Forward) {
       return this.start > this.end;
     } else {
       return this.end > this.start;
@@ -36,7 +41,7 @@ export class Range implements IIterator<number> {
     if (this.isEmpty()) {
       return none();
     } else {
-      if (this.dir === 1) {
+      if (this.dir === RangeDirection.Forward) {
         return some(this.start++);
       } else {
         return some(this.start--);

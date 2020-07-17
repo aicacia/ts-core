@@ -232,7 +232,7 @@ export class Option<T> implements IEquals<Option<T>>, IClone {
   }
 
   clone(): Option<T> {
-    return new Option(CREATE_SECRET, this._value) as this;
+    return new Option(CREATE_SECRET, safeClone(this._value)) as this;
   }
 
   fromJSON(json: any): Option<T> {
@@ -248,6 +248,6 @@ export const some = <T>(value: T): Option<T> =>
 export const none = <T>(): Option<T> =>
   new Option(CREATE_SECRET, NONE_SECRET as T);
 
-import { IClone } from "../clone";
+import { safeClone, IClone } from "../clone";
 import { IEquals, safeEquals } from "../equals";
 import { err, ok, Result } from "../result";
