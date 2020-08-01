@@ -11,7 +11,7 @@ export {
   Skip,
   Step,
   ToMap,
-  Take
+  Take,
 } from "./iter";
 export { some, none, Option } from "./option";
 export { range, rangeFrom, Range, RangeFrom } from "./range";

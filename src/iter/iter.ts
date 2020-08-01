@@ -53,7 +53,7 @@ class ArrayIterator<T> implements IIterator<T> {
   }
 }
 
-class ObjectIterator<O extends {}> extends ArrayIterator<
+class ObjectIterator<O extends Record<string, any>> extends ArrayIterator<
   [keyof O, O[keyof O]]
 > {
   constructor(object: O) {

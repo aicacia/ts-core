@@ -113,9 +113,10 @@ tape("Result", (assert: tape.Test) => {
     ok(1).unwrapErr();
   }, /Tried to unwrap error value of ok Result/);
 
-  assert.throws(() => {
-    const result = new Result({}, {}, {});
-  }, /Results can only be created with the ok or err functions/);
+  assert.throws(
+    () => new Result({}, {}, {}),
+    /Results can only be created with the ok or err functions/
+  );
 
   assert.end();
 });

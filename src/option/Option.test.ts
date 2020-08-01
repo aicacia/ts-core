@@ -114,9 +114,10 @@ tape("Option", (assert: tape.Test) => {
     none().unwrap();
   }, /Tried to unwrap value of none Option/);
 
-  assert.throws(() => {
-    const option = new Option({}, {});
-  }, /Options can only be created with the some or none functions/);
+  assert.throws(
+    () => new Option({}, {}),
+    /Options can only be created with the some or none functions/
+  );
 
   assert.end();
 });

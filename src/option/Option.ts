@@ -1,7 +1,5 @@
-interface ISecret {}
-
-const CREATE_SECRET: ISecret = {},
-  NONE_SECRET: ISecret = {};
+const CREATE_SECRET = {},
+  NONE_SECRET = {};
 
 export class Option<T> implements IEquals<Option<T>>, IClone {
   static equals<T>(a: Option<T>, b: Option<T>): boolean {
@@ -25,7 +23,7 @@ export class Option<T> implements IEquals<Option<T>>, IClone {
 
   private _value: T;
 
-  constructor(createSecret: ISecret, value: T) {
+  constructor(createSecret: unknown, value: T) {
     if (createSecret !== CREATE_SECRET) {
       throw new TypeError(
         "Options can only be created with the some or none functions"

@@ -1,7 +1,5 @@
-interface ISecret {}
-
-const CREATE_SECRET: ISecret = {},
-  NULL_SECRET: ISecret = {};
+const CREATE_SECRET = {},
+  NULL_SECRET = {};
 
 export class Result<T, E = Error> implements IEquals<Result<T, E>>, IClone {
   static equals<T, E = Error>(a: Result<T, E>, b: Result<T, E>): boolean {
@@ -18,7 +16,7 @@ export class Result<T, E = Error> implements IEquals<Result<T, E>>, IClone {
   private _ok: T;
   private _err: E;
 
-  constructor(createSecret: ISecret, ok: T, err: E) {
+  constructor(createSecret: unknown, ok: T, err: E) {
     if (createSecret !== CREATE_SECRET) {
       throw new TypeError(
         "Results can only be created with the ok or err functions"

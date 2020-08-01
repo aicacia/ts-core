@@ -1,7 +1,5 @@
-interface ISecret {}
-
-const CREATE_SECRET: ISecret = {},
-  NULL_SECRET: ISecret = {};
+const CREATE_SECRET = {},
+  NULL_SECRET = {};
 
 export class Either<L, R> implements IEquals<Either<L, R>>, IClone {
   static equals<L, R>(a: Either<L, R>, b: Either<L, R>): boolean {
@@ -18,7 +16,7 @@ export class Either<L, R> implements IEquals<Either<L, R>>, IClone {
   private _left: L;
   private _right: R;
 
-  constructor(createSecret: ISecret, left: L, right: R) {
+  constructor(createSecret: unknown, left: L, right: R) {
     if (createSecret !== CREATE_SECRET) {
       throw new TypeError(
         "Eithers can only be created with the left or right functions"

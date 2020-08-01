@@ -13,8 +13,8 @@ export class Map<A, B> extends Iterator<B> {
   }
 
   next(): Option<B> {
-    return ((super.nextWithIndex() as any) as Option<[A, number]>).map(
-      ([value, index]) => this._fn(value, index)
-    );
+    return ((super.nextWithIndex() as any) as Option<
+      [A, number]
+    >).map(([value, index]) => this._fn(value, index));
   }
 }

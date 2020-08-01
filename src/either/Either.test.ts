@@ -111,9 +111,10 @@ tape("Either", (assert: tape.Test) => {
     left(1).unwrapRight();
   }, /Tried to unwrap right value of left Either/);
 
-  assert.throws(() => {
-    const result = new Either({}, {}, {});
-  }, /Eithers can only be created with the left or right functions/);
+  assert.throws(
+    () => new Either({}, {}, {}),
+    /Eithers can only be created with the left or right functions/
+  );
 
   assert.end();
 });

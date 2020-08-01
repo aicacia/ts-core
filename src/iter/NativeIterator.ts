@@ -17,9 +17,9 @@ export class NativeIterator<T> implements Iterator<T> {
 
 const mapNext = <T>(value: T): IteratorYieldResult<T> => ({
   done: false,
-  value
+  value,
 });
 const mapNone = <T>(): IteratorReturnResult<T> => ({
   done: true,
-  value: (undefined as any) as T
+  value: (undefined as any) as T,
 });

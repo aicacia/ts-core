@@ -35,7 +35,7 @@ export class ToMap<T, K, V> extends Iterator<[K, V]> {
         ([value, index]) =>
           [
             this._keyFn(value as any, index),
-            this._valueFn(value as any, index)
+            this._valueFn(value as any, index),
           ] as [K, V]
       );
   }

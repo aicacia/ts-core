@@ -3,12 +3,11 @@ import { isString } from "util";
 import { iter } from "./iter";
 
 tape("simple skip", (assert: tape.Test) => {
-  assert.deepEqual(
-    iter([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
-      .step(2)
-      .toArray(),
-    [2, 5, 8]
-  );
+  assert.deepEqual(iter([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]).step(2).toArray(), [
+    2,
+    5,
+    8,
+  ]);
   assert.end();
 });
 
@@ -16,11 +15,11 @@ tape("simple iter", (assert: tape.Test) => {
   const result = iter([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
     .skip(1)
     .step(2)
-    .map(i => i ** 2)
-    .filter(i => i % 2 === 0)
+    .map((i) => i ** 2)
+    .filter((i) => i % 2 === 0)
     .toMap(
-      i => i,
-      i => i * 2
+      (i) => i,
+      (i) => i * 2
     )
     .toObject();
 
@@ -33,8 +32,8 @@ tape("simple object iter", (assert: tape.Test) => {
   const result = iter({ a: 0, b: 1, c: 2 })
     .map(([k, v]) => [v, k])
     .toMap(
-      ([k, v]) => k,
-      ([k, v]) => v
+      ([k, _v]) => k,
+      ([_k, v]) => v
     )
     .toObject();
 
@@ -49,12 +48,12 @@ tape("simple Iterable iter", (assert: tape.Test) => {
     iter(
       new Map([
         [0, 0],
-        [1, 1]
+        [1, 1],
       ])
     ).toArray(),
     [
       [0, 0],
-      [1, 1]
+      [1, 1],
     ]
   );
   assert.deepEqual(iter(iter([0, 1, 2, 3])).toArray(), [0, 1, 2, 3]);
@@ -65,7 +64,7 @@ tape("native for of iter", (assert: tape.Test) => {
   const results: number[] = [];
 
   for (const value of iter([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]).filter(
-    x => x % 2 === 0
+    (x) => x % 2 === 0
   )) {
     results.push(value);
   }
@@ -76,8 +75,8 @@ tape("native for of iter", (assert: tape.Test) => {
 
 tape("nth", (assert: tape.Test) => {
   const result = iter([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
-    .map(i => i ** 2)
-    .filter(i => i % 2 === 0)
+    .map((i) => i ** 2)
+    .filter((i) => i % 2 === 0)
     .nth(4)
     .unwrap();
 
@@ -111,7 +110,7 @@ tape("forEach", (assert: tape.Test) => {
 
 tape("types", (assert: tape.Test) => {
   const result = iter([{ key: "value" }, { key: 10 }])
-    .map(obj => obj.key)
+    .map((obj) => obj.key)
     .filter(isString)
     .toArray();
 
@@ -132,7 +131,7 @@ tape("consume", (assert: tape.Test) => {
   const array: number[] = [];
 
   iter([0, 1, 2])
-    .forEach(value => {
+    .forEach((value) => {
       array.push(value);
     })
     .consume();
@@ -143,13 +142,15 @@ tape("consume", (assert: tape.Test) => {
 
 tape("unflatten", (assert: tape.Test) => {
   const array = iter([0, 0, 1, 1, 2, 2])
-    .unflatten(iter => iter.next().flatMap(a => iter.next().map(b => [a, b])))
+    .unflatten((iter) =>
+      iter.next().flatMap((a) => iter.next().map((b) => [a, b]))
+    )
     .toArray();
 
   assert.deepEqual(array, [
     [0, 0],
     [1, 1],
-    [2, 2]
+    [2, 2],
   ]);
   assert.end();
 });

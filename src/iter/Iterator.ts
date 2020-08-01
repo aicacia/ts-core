@@ -2,7 +2,7 @@ import { IIterator } from "./IIterator";
 
 export class Iterator<T> implements IIterator<T>, IEquals<Iterator<T>> {
   protected _iter: IIterator<T>;
-  protected _index: number = 0;
+  protected _index = 0;
 
   constructor(iter: IIterator<T>) {
     this._iter = iter;
@@ -27,7 +27,7 @@ export class Iterator<T> implements IIterator<T>, IEquals<Iterator<T>> {
   }
 
   nextWithIndex(): Option<[T, number]> {
-    return this._iter.next().map(value => [value, this._index++]);
+    return this._iter.next().map((value) => [value, this._index++]);
   }
 
   forEach(fn: IForEachFn<T>): ForEach<T> {
@@ -72,7 +72,7 @@ export class Iterator<T> implements IIterator<T>, IEquals<Iterator<T>> {
   }
 
   count(): number {
-    return this.reduce<number>(0, count => {
+    return this.reduce<number>(0, (count) => {
       return count + 1;
     });
   }
@@ -137,7 +137,7 @@ export class Iterator<T> implements IIterator<T>, IEquals<Iterator<T>> {
     return none();
   }
 
-  nth(index: number = 0): Option<T> {
+  nth(index = 0): Option<T> {
     let next = this.next();
 
     if (index < 0) {
