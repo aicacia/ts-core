@@ -13,12 +13,13 @@ export class Range implements IIterator<number> {
 
   start: number;
   end: number;
-  private dir: RangeDirection;
+  private direction: RangeDirection;
 
   constructor(start: number, end: number) {
     this.start = start;
     this.end = end;
-    this.dir = start > end ? RangeDirection.Backward : RangeDirection.Forward;
+    this.direction =
+      start > end ? RangeDirection.Backward : RangeDirection.Forward;
   }
 
   contains(item: number) {
@@ -26,10 +27,10 @@ export class Range implements IIterator<number> {
   }
 
   isEmpty() {
-    if (this.dir === RangeDirection.Forward) {
+    if (this.direction === RangeDirection.Forward) {
       return this.start > this.end;
     } else {
-      return this.end > this.start;
+      return this.start < this.end;
     }
   }
 
@@ -41,7 +42,7 @@ export class Range implements IIterator<number> {
     if (this.isEmpty()) {
       return none();
     } else {
-      if (this.dir === RangeDirection.Forward) {
+      if (this.direction === RangeDirection.Forward) {
         return some(this.start++);
       } else {
         return some(this.start--);

@@ -1,13 +1,22 @@
-import { IIterator } from "../iter";
-import { Range } from "./Range";
+import { Range, RangeDirection } from "./Range";
 
-export class RangeFrom extends Range implements IIterator<number> {
-  static from(start: number) {
-    return new RangeFrom(start);
+export class RangeFrom extends Range {
+  static from(
+    start: number,
+    direction: RangeDirection = RangeDirection.Forward
+  ) {
+    return new RangeFrom(start, direction);
   }
 
-  constructor(start: number) {
-    super(start, Infinity);
+  constructor(
+    start: number,
+    direction: RangeDirection = RangeDirection.Forward
+  ) {
+    if (direction === RangeDirection.Forward) {
+      super(start, Infinity);
+    } else {
+      super(start, -Infinity);
+    }
   }
 }
 
