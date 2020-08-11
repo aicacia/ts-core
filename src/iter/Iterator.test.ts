@@ -1,6 +1,7 @@
 import * as tape from "tape";
 import { isString } from "util";
 import { iter } from "./iter";
+import { none } from "../option";
 
 tape("simple skip", (assert: tape.Test) => {
   assert.deepEqual(iter([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]).step(2).toArray(), [
@@ -70,6 +71,31 @@ tape("native for of iter", (assert: tape.Test) => {
   }
 
   assert.deepEqual(results, [0, 2, 4, 6, 8, 10]);
+  assert.end();
+});
+
+tape("find", (assert: tape.Test) => {
+  assert.equal(
+    iter([1, 2])
+      .find((i) => i % 2 === 0)
+      .unwrap(),
+    2
+  );
+  assert.true(
+    iter([1, 2])
+      .find((i) => i > 3)
+      .isNone()
+  );
+  assert.end();
+});
+
+tape("findAll", (assert: tape.Test) => {
+  assert.deepEqual(
+    iter([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
+      .findAll((i) => i % 2 === 0)
+      .toArray(),
+    [0, 2, 4, 6, 8]
+  );
   assert.end();
 });
 

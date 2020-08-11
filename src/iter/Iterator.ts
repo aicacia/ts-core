@@ -137,6 +137,10 @@ export class Iterator<T> implements IIterator<T>, IEquals<Iterator<T>> {
     return none();
   }
 
+  findAll(fn: (value: T) => boolean): Iterator<T> {
+    return this.filter(fn);
+  }
+
   nth(index = 0): Option<T> {
     let next = this.next();
 
