@@ -1,6 +1,6 @@
 {
   "name": "@aicacia/core",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "description": "aicacia core utils",
   "repository": {
     "type": "git",
@@ -33,7 +33,6 @@
     "eslint": "^7.8.1",
     "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-prettier": "^3.1.4",
-    "eslint-plugin-react": "^7.20.6",
     "nyc": "^15.1.0",
     "prettier": "^2.1.1",
     "tap-nyc": "^1.0.3",

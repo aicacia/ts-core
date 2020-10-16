@@ -1,7 +1,5 @@
 import * as tape from "tape";
-import { isString } from "util";
 import { iter } from "./iter";
-import { none } from "../option";
 
 tape("simple skip", (assert: tape.Test) => {
   assert.deepEqual(iter([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]).step(2).toArray(), [
@@ -110,6 +108,16 @@ tape("nth", (assert: tape.Test) => {
   assert.end();
 });
 
+tape("first", (assert: tape.Test) => {
+  assert.equal(iter([0, 1, 2]).first().unwrap(), 0);
+  assert.end();
+});
+
+tape("last", (assert: tape.Test) => {
+  assert.equal(iter([0, 1, 2]).last().unwrap(), 2);
+  assert.end();
+});
+
 tape("index", (assert: tape.Test) => {
   const result = iter([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
     .map((x, index) => index ** 2)
@@ -137,7 +145,7 @@ tape("forEach", (assert: tape.Test) => {
 tape("types", (assert: tape.Test) => {
   const result = iter([{ key: "value" }, { key: 10 }])
     .map((obj) => obj.key)
-    .filter(isString)
+    .filter((key) => typeof key === "string")
     .toArray();
 
   assert.deepEqual(result, ["value"]);

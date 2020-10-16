@@ -64,7 +64,7 @@ export class Iterator<T> implements IIterator<T>, IEquals<Iterator<T>> {
     return new Take(this, count);
   }
 
-  toMap<K, V>(
+  toMap<K extends string | number | symbol, V>(
     keyFn: IToMapFn<T, K> = defaultKeyFn,
     valueFn: IToMapFn<T, V> = defaultValueFn
   ): ToMap<T, K, V> {
@@ -137,7 +137,7 @@ export class Iterator<T> implements IIterator<T>, IEquals<Iterator<T>> {
     return none();
   }
 
-  findAll(fn: (value: T) => boolean): Iterator<T> {
+  findAll(fn: (value: T) => boolean) {
     return this.filter(fn);
   }
 
@@ -162,6 +162,22 @@ export class Iterator<T> implements IIterator<T>, IEquals<Iterator<T>> {
     return this.nth(0);
   }
 
+  last(): Option<T> {
+    let current = this.next();
+
+    while (current.isSome()) {
+      const next = this.next();
+
+      if (next.isNone()) {
+        return current;
+      } else {
+        current = next;
+      }
+    }
+
+    return none();
+  }
+
   any(fn: (value: T) => boolean): boolean {
     return this.findIndex(fn).isSome();
   }
@@ -173,18 +189,19 @@ export class Iterator<T> implements IIterator<T>, IEquals<Iterator<T>> {
   }
 
   all(fn: (value: T) => boolean): boolean {
-    const next = this.next();
+    let next = this.next();
 
     while (next.isSome()) {
       if (!fn(next.unwrap())) {
         return false;
       }
+      next = this.next();
     }
 
     return true;
   }
 
-  unflatten<U>(fn: UnflattenFn<T, U>): Iterator<U> {
+  unflatten<U>(fn: UnflattenFn<T, U>) {
     return new Unflatten(this, fn);
   }
 
@@ -199,7 +216,7 @@ export class Iterator<T> implements IIterator<T>, IEquals<Iterator<T>> {
     return acc;
   }
 
-  reverse(): Iterator<T> {
+  reverse() {
     const reverse = this.toArray();
     reverse.reverse();
     return iter(reverse);

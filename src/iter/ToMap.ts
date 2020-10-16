@@ -7,7 +7,9 @@ export type IToMapFn<A, B> = (value: A, index: number) => B;
 export const defaultKeyFn = <A, B>(key: A): B => key as any;
 export const defaultValueFn = <A, B>(value: A): B => value as any;
 
-export class ToMap<T, K, V> extends Iterator<[K, V]> {
+export class ToMap<T, K extends string | number | symbol, V> extends Iterator<
+  [K, V]
+> {
   private _keyFn: IToMapFn<T, K>;
   private _valueFn: IToMapFn<T, V>;
 
@@ -21,9 +23,9 @@ export class ToMap<T, K, V> extends Iterator<[K, V]> {
     this._valueFn = valueFn;
   }
 
-  toObject(): { [key: string]: V } {
-    return this.reduce<{ [key: string]: V }>({}, (object, value) => {
-      object[value[0] as any] = value[1];
+  toObject(): Record<K, V> {
+    return this.reduce<Record<K, V>>({} as Record<K, V>, (object, value) => {
+      object[value[0]] = value[1];
       return object;
     });
   }

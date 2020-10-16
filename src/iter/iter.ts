@@ -1,4 +1,3 @@
-import { isFunction, isNumber, isObject } from "util";
 import { none, Option, some } from "../option";
 import { IIterator } from "./IIterator";
 import { Iterator as CoreIterator } from "./Iterator";
@@ -12,16 +11,16 @@ export function iter<O>(
 ): CoreIterator<[keyof O, O[keyof O]]>;
 
 export function iter(value: any): CoreIterator<any> {
-  if (isObject(value)) {
-    if (isNumber(value.length)) {
+  if (value !== null && typeof value === "object") {
+    if (typeof value.length === "number") {
       return new CoreIterator(new ArrayIterator(value));
-    } else if (isFunction(value.next)) {
+    } else if (typeof value.next === "function") {
       if (value instanceof CoreIterator) {
         return value;
       } else {
         return new CoreIterator(new NativeIteratorWrapper(value));
       }
-    } else if (isFunction(value[Symbol.iterator])) {
+    } else if (typeof value[Symbol.iterator] === "function") {
       return new CoreIterator(
         new NativeIteratorWrapper(value[Symbol.iterator]())
       );
