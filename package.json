@@ -1,6 +1,6 @@
 {
   "name": "@aicacia/core",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "description": "aicacia core utils",
   "repository": {
     "type": "git",
@@ -28,22 +28,25 @@
   "readmeFilename": "README.md",
   "devDependencies": {
     "@types/tape": "^4.13.0",
-    "@typescript-eslint/eslint-plugin": "^4.0.1",
-    "@typescript-eslint/parser": "^4.0.1",
-    "eslint": "^7.8.1",
-    "eslint-config-prettier": "^6.11.0",
+    "@typescript-eslint/eslint-plugin": "^4.5.0",
+    "@typescript-eslint/parser": "^4.5.0",
+    "eslint": "^7.11.0",
+    "eslint-config-prettier": "^6.14.0",
     "eslint-plugin-prettier": "^3.1.4",
     "nyc": "^15.1.0",
-    "prettier": "^2.1.1",
+    "prettier": "^2.1.2",
     "tap-nyc": "^1.0.3",
     "tap-spec": "^5.0.0",
     "tape": "^5.0.1",
     "ts-node": "^9.0.0",
-    "tslib": "^2.0.1",
-    "typedoc": "^0.19.1",
-    "typescript": "^4.0.2"
+    "tslib": "^2.0.3",
+    "typedoc": "^0.19.2",
+    "typescript": "^4.0.3"
   },
   "dependencies": {},
+  "peerDependencies": {
+    "tslib": "^2.0.3"
+  },
   "nyc": {
     "include": [
       "src"
