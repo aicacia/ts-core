@@ -11,8 +11,8 @@ export class Range implements IIterator<number> {
     return new Range(start, end);
   }
 
-  start: number;
-  end: number;
+  private start: number;
+  private end: number;
   private direction: RangeDirection;
 
   constructor(start: number, end: number) {
@@ -20,6 +20,16 @@ export class Range implements IIterator<number> {
     this.end = end;
     this.direction =
       start > end ? RangeDirection.Backward : RangeDirection.Forward;
+  }
+
+  getStart() {
+    return this.start;
+  }
+  getEnd() {
+    return this.end;
+  }
+  getDirection() {
+    return this.direction;
   }
 
   contains(item: number) {

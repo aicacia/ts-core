@@ -30,6 +30,10 @@ export class Iterator<T> implements IIterator<T>, IEquals<Iterator<T>> {
     return this._iter.next().map((value) => [value, this._index++]);
   }
 
+  enumerate(): Enumerate<T> {
+    return new Enumerate(this);
+  }
+
   forEach(fn: IForEachFn<T>): ForEach<T> {
     return new ForEach(this, fn);
   }
@@ -72,9 +76,7 @@ export class Iterator<T> implements IIterator<T>, IEquals<Iterator<T>> {
   }
 
   count(): number {
-    return this.reduce<number>(0, (count) => {
-      return count + 1;
-    });
+    return this.reduce<number>(0, (count) => count + 1);
   }
 
   consume() {
@@ -205,11 +207,11 @@ export class Iterator<T> implements IIterator<T>, IEquals<Iterator<T>> {
     return new Unflatten(this, fn);
   }
 
-  reduce<C>(acc: C, fn: (acc: C, value: T) => C): C {
+  reduce<C>(acc: C, fn: (acc: C, value: T, index: number) => C): C {
     let next = this.next();
 
     while (next.isSome()) {
-      acc = fn(acc, next.unwrap());
+      acc = fn(acc, next.unwrap(), this._index);
       next = this.next();
     }
 
@@ -252,3 +254,4 @@ import { Step } from "./Step";
 import { Take } from "./Take";
 import { defaultKeyFn, defaultValueFn, IToMapFn, ToMap } from "./ToMap";
 import { Unflatten, UnflattenFn } from "./Unflatten";
+import { Enumerate } from "./Enumerate";

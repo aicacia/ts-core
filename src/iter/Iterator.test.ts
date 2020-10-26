@@ -72,6 +72,15 @@ tape("native for of iter", (assert: tape.Test) => {
   assert.end();
 });
 
+tape("enumerate", (assert: tape.Test) => {
+  assert.deepEqual(iter(["a", "b", "c"]).enumerate().toArray(), [
+    ["a", 0],
+    ["b", 1],
+    ["c", 2],
+  ]);
+  assert.end();
+});
+
 tape("find", (assert: tape.Test) => {
   assert.equal(
     iter([1, 2])
