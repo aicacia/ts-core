@@ -86,13 +86,27 @@ tape("enumerate", (assert: tape.Test) => {
   assert.end();
 });
 
-tape("peekable", (assert: tape.Test) => {
+tape("peekable simple", (assert: tape.Test) => {
   const peekable = iter(["a", "b", "c"]).peekable();
 
   assert.equal(peekable.peek().unwrap(), "a");
   assert.equal(peekable.peek(1).unwrap(), "b");
   assert.equal(peekable.peek(2).unwrap(), "c");
   assert.deepEqual(peekable.toArray(), ["a", "b", "c"]);
+
+  assert.end();
+});
+
+tape("peekable simple", (assert: tape.Test) => {
+  const peekable = iter(["a", "b", "c"]).peekable();
+
+  assert.equal(peekable.peek().unwrap(), "a");
+  assert.equal(peekable.next().unwrap(), "a");
+  assert.equal(peekable.next().unwrap(), "b");
+  assert.equal(peekable.peek().unwrap(), "c");
+  assert.true(peekable.peek(1).isNone());
+  assert.equal(peekable.next().unwrap(), "c");
+
   assert.end();
 });
 
