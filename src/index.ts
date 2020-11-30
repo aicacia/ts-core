@@ -2,16 +2,22 @@ export { clone, safeClone, IClone } from "./clone";
 export { left, right, Either } from "./either";
 export { equals, safeEquals, IEquals } from "./equals";
 export {
+  Enumerate,
   Filter,
   ForEach,
   IIterator,
   iter,
   Iterator,
   Map,
+  Merge,
+  NativeIterator,
+  NativeIteratorWrapper,
+  Peekable,
   Skip,
   Step,
-  ToMap,
   Take,
+  ToMap,
+  Unflatten,
 } from "./iter";
 export { some, none, Option } from "./option";
 export { range, rangeFrom, Range, RangeFrom, RangeDirection } from "./range";
