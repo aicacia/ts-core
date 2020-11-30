@@ -1,10 +1,16 @@
+export { Enumerate } from "./Enumerate";
 export { Filter } from "./Filter";
 export { ForEach } from "./ForEach";
 export { IIterator } from "./IIterator";
 export { iter } from "./iter";
 export { Iterator } from "./Iterator";
 export { Map } from "./Map";
+export { Merge } from "./Merge";
+export { NativeIterator } from "./NativeIterator";
+export { NativeIteratorWrapper } from "./NativeIteratorWrapper";
+export { Peekable } from "./Peekable";
 export { Skip } from "./Skip";
 export { Step } from "./Step";
-export { ToMap } from "./ToMap";
 export { Take } from "./Take";
+export { ToMap } from "./ToMap";
+export { Unflatten } from "./Unflatten";

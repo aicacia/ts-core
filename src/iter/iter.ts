@@ -11,24 +11,26 @@ export function iter<O>(
 ): CoreIterator<[keyof O, O[keyof O]]>;
 
 export function iter(value: any): CoreIterator<any> {
-  if (value !== null && typeof value === "object") {
-    if (typeof value.length === "number") {
-      return new CoreIterator(new ArrayIterator(value));
+  if (value != null) {
+    if (typeof value[Symbol.iterator] === "function") {
+      return new CoreIterator(
+        new NativeIteratorWrapper(value[Symbol.iterator]())
+      );
     } else if (typeof value.next === "function") {
       if (value instanceof CoreIterator) {
         return value;
       } else {
         return new CoreIterator(new NativeIteratorWrapper(value));
       }
-    } else if (typeof value[Symbol.iterator] === "function") {
-      return new CoreIterator(
-        new NativeIteratorWrapper(value[Symbol.iterator]())
-      );
-    } else {
+    } else if (typeof value.length === "number") {
+      return new CoreIterator(new ArrayIterator(value));
+    } else if (typeof value === "object") {
       return new CoreIterator(new ObjectIterator(value));
+    } else {
+      return new CoreIterator(new ArrayIterator([value] as any));
     }
   } else {
-    return new CoreIterator(new ArrayIterator([value] as any));
+    return new CoreIterator(new ArrayIterator([] as any));
   }
 }
 

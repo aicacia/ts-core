@@ -1,7 +1,7 @@
 import * as tape from "tape";
 import { iter } from "./iter";
 
-tape("simple skip", (assert: tape.Test) => {
+tape("skip", (assert: tape.Test) => {
   assert.deepEqual(iter([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]).step(2).toArray(), [
     2,
     5,
@@ -10,7 +10,7 @@ tape("simple skip", (assert: tape.Test) => {
   assert.end();
 });
 
-tape("simple iter", (assert: tape.Test) => {
+tape("iter", (assert: tape.Test) => {
   const result = iter([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
     .skip(1)
     .step(2)
@@ -27,7 +27,7 @@ tape("simple iter", (assert: tape.Test) => {
   assert.end();
 });
 
-tape("simple object iter", (assert: tape.Test) => {
+tape("object iter", (assert: tape.Test) => {
   const result = iter({ a: 0, b: 1, c: 2 })
     .map(([k, v]) => [v, k])
     .toMap(
@@ -41,7 +41,7 @@ tape("simple object iter", (assert: tape.Test) => {
   assert.end();
 });
 
-tape("simple Iterable iter", (assert: tape.Test) => {
+tape("Iterable iter", (assert: tape.Test) => {
   assert.deepEqual(iter(new Set([0, 1, 2, 3])).toArray(), [0, 1, 2, 3]);
   assert.deepEqual(
     iter(
@@ -72,12 +72,27 @@ tape("native for of iter", (assert: tape.Test) => {
   assert.end();
 });
 
+tape("string", (assert: tape.Test) => {
+  assert.deepEqual(iter("asdf").toArray(), ["a", "s", "d", "f"]);
+  assert.end();
+});
+
 tape("enumerate", (assert: tape.Test) => {
   assert.deepEqual(iter(["a", "b", "c"]).enumerate().toArray(), [
-    ["a", 0],
-    ["b", 1],
-    ["c", 2],
+    [0, "a"],
+    [1, "b"],
+    [2, "c"],
   ]);
+  assert.end();
+});
+
+tape("peekable", (assert: tape.Test) => {
+  const peekable = iter(["a", "b", "c"]).peekable();
+
+  assert.equal(peekable.peek().unwrap(), "a");
+  assert.equal(peekable.peek(1).unwrap(), "b");
+  assert.equal(peekable.peek(2).unwrap(), "c");
+  assert.deepEqual(peekable.toArray(), ["a", "b", "c"]);
   assert.end();
 });
 
@@ -124,6 +139,7 @@ tape("first", (assert: tape.Test) => {
 
 tape("last", (assert: tape.Test) => {
   assert.equal(iter([0, 1, 2]).last().unwrap(), 2);
+  assert.true(iter([]).last().isNone());
   assert.end();
 });
 
@@ -195,5 +211,25 @@ tape("unflatten", (assert: tape.Test) => {
     [1, 1],
     [2, 2],
   ]);
+  assert.end();
+});
+
+tape("reverse", (assert: tape.Test) => {
+  assert.deepEqual(iter([1, 2, 3]).reverse().toArray(), [3, 2, 1]);
+  assert.end();
+});
+
+tape("equals", (assert: tape.Test) => {
+  assert.true(iter([1, 2, 3]).equals(iter([1, 2, 3])));
+  assert.false(iter([1, 2, 3]).equals(iter([2, 3, 4])));
+  assert.end();
+});
+
+tape("any/some/none/all", (assert: tape.Test) => {
+  assert.true(iter([1, 2, 3]).any((x) => x % 2 === 0));
+  assert.true(iter([1, 2, 3]).some((x) => x % 2 === 1));
+  assert.true(iter([1, 2, 3]).none((x) => typeof x === "object"));
+  assert.true(iter([1, 2, 3]).all((x) => typeof x === "number"));
+  assert.false(iter([1, 2, 3]).all((x) => typeof x !== "number"));
   assert.end();
 });

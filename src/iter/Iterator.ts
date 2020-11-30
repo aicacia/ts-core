@@ -34,6 +34,10 @@ export class Iterator<T> implements IIterator<T>, IEquals<Iterator<T>> {
     return new Enumerate(this);
   }
 
+  peekable(): Peekable<T> {
+    return new Peekable(this);
+  }
+
   forEach(fn: IForEachFn<T>): ForEach<T> {
     return new ForEach(this, fn);
   }
@@ -75,8 +79,8 @@ export class Iterator<T> implements IIterator<T>, IEquals<Iterator<T>> {
     return new ToMap(this, keyFn, valueFn);
   }
 
-  count(): number {
-    return this.reduce<number>(0, (count) => count + 1);
+  count() {
+    return this.reduce(0, (count) => count + 1);
   }
 
   consume() {
@@ -85,6 +89,8 @@ export class Iterator<T> implements IIterator<T>, IEquals<Iterator<T>> {
     while (next.isSome()) {
       next = this.next();
     }
+
+    return this;
   }
 
   toArray(): T[] {
@@ -109,31 +115,31 @@ export class Iterator<T> implements IIterator<T>, IEquals<Iterator<T>> {
     return none();
   }
 
-  findIndex(fn: (value: T) => boolean): Option<number> {
-    let next = this.next(),
-      index = 0;
+  findIndex(fn: (value: T, index: number) => boolean): Option<number> {
+    let next = this.nextWithIndex();
 
     while (next.isSome()) {
-      if (fn(next.unwrap())) {
+      const [value, index] = next.unwrap();
+
+      if (fn(value, index)) {
         return some(index);
       }
-      index++;
-      next = this.next();
+      next = this.nextWithIndex();
     }
 
     return none();
   }
 
-  find(fn: (value: T) => boolean): Option<T> {
-    let next = this.next();
+  find(fn: (value: T, index: number) => boolean): Option<T> {
+    let next = this.nextWithIndex();
 
     while (next.isSome()) {
-      const value = next.unwrap();
+      const [value, index] = next.unwrap();
 
-      if (fn(value)) {
+      if (fn(value, index)) {
         return some(value);
       }
-      next = this.next();
+      next = this.nextWithIndex();
     }
 
     return none();
@@ -180,24 +186,26 @@ export class Iterator<T> implements IIterator<T>, IEquals<Iterator<T>> {
     return none();
   }
 
-  any(fn: (value: T) => boolean): boolean {
+  any(fn: (value: T, index: number) => boolean): boolean {
     return this.findIndex(fn).isSome();
   }
-  some(fn: (value: T) => boolean): boolean {
+  some(fn: (value: T, index: number) => boolean): boolean {
     return this.any(fn);
   }
-  none(fn: (value: T) => boolean): boolean {
+  none(fn: (value: T, index: number) => boolean): boolean {
     return this.findIndex(fn).isNone();
   }
 
-  all(fn: (value: T) => boolean): boolean {
-    let next = this.next();
+  all(fn: (value: T, index: number) => boolean): boolean {
+    let next = this.nextWithIndex();
 
     while (next.isSome()) {
-      if (!fn(next.unwrap())) {
+      const [value, index] = next.unwrap();
+
+      if (!fn(value, index)) {
         return false;
       }
-      next = this.next();
+      next = this.nextWithIndex();
     }
 
     return true;
@@ -211,7 +219,8 @@ export class Iterator<T> implements IIterator<T>, IEquals<Iterator<T>> {
     let next = this.next();
 
     while (next.isSome()) {
-      acc = fn(acc, next.unwrap(), this._index);
+      const value = next.unwrap();
+      acc = fn(acc, value, this._index - 1);
       next = this.next();
     }
 
@@ -219,9 +228,7 @@ export class Iterator<T> implements IIterator<T>, IEquals<Iterator<T>> {
   }
 
   reverse() {
-    const reverse = this.toArray();
-    reverse.reverse();
-    return iter(reverse);
+    return iter(this.toArray().reverse());
   }
 
   equals(other: Iterator<T>): boolean {
@@ -255,3 +262,4 @@ import { Take } from "./Take";
 import { defaultKeyFn, defaultValueFn, IToMapFn, ToMap } from "./ToMap";
 import { Unflatten, UnflattenFn } from "./Unflatten";
 import { Enumerate } from "./Enumerate";
+import { Peekable } from "./Peekable";
