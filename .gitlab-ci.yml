@@ -24,7 +24,6 @@ pages:
   stage: deploy
   script:
     - npm run doc
-    - mv ./docs ./public
   artifacts:
     paths:
-      - public
+      - docs
