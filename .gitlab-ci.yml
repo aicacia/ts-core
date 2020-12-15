@@ -11,3 +11,10 @@ test:
   script:
     - npm run lint
     - npm run coverage
+
+pages:
+  script:
+    - npm run doc
+  artifacts:
+    paths:
+      - docs

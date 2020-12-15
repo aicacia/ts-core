@@ -92,12 +92,13 @@ tape("peekable simple", (assert: tape.Test) => {
   assert.equal(peekable.peek().unwrap(), "a");
   assert.equal(peekable.peek(1).unwrap(), "b");
   assert.equal(peekable.peek(2).unwrap(), "c");
+  assert.true(peekable.peek(5).isNone());
   assert.deepEqual(peekable.toArray(), ["a", "b", "c"]);
 
   assert.end();
 });
 
-tape("peekable simple", (assert: tape.Test) => {
+tape("peekable", (assert: tape.Test) => {
   const peekable = iter(["a", "b", "c"]).peekable();
 
   assert.equal(peekable.peek().unwrap(), "a");
@@ -106,6 +107,21 @@ tape("peekable simple", (assert: tape.Test) => {
   assert.equal(peekable.peek().unwrap(), "c");
   assert.true(peekable.peek(1).isNone());
   assert.equal(peekable.next().unwrap(), "c");
+
+  assert.end();
+});
+
+tape("peekable unpeek", (assert: tape.Test) => {
+  const peekable = iter(["a", "b", "c"]).peekable();
+
+  assert.equal(peekable.peek().unwrap(), "a");
+  assert.equal(peekable.peek(1).unwrap(), "b");
+  assert.equal(peekable.peek(2).unwrap(), "c");
+  assert.equal(peekable.unpeek().unwrap(), "a");
+  assert.equal(peekable.unpeek().unwrap(), "b");
+  assert.equal(peekable.unpeek().unwrap(), "c");
+  assert.true(peekable.unpeek().isNone());
+  assert.true(peekable.next().isNone());
 
   assert.end();
 });

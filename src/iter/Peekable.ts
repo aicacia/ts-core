@@ -1,8 +1,16 @@
-import { Option, some } from "../option";
+import { Option, some, none } from "../option";
 import { Iterator } from "./Iterator";
 
 export class Peekable<T> extends Iterator<T> {
   private peeked: T[] = [];
+
+  unpeek(): Option<T> {
+    if (this.peeked.length > 0) {
+      return some(this.peeked.shift() as T);
+    } else {
+      return none();
+    }
+  }
 
   peek(offset = 0): Option<T> {
     if (offset < this.peeked.length) {
@@ -26,10 +34,6 @@ export class Peekable<T> extends Iterator<T> {
   }
 
   next(): Option<T> {
-    if (this.peeked.length > 0) {
-      return some(this.peeked.shift() as T);
-    } else {
-      return super.next();
-    }
+    return this.unpeek().orElse(() => super.next());
   }
 }

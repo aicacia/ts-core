@@ -2,6 +2,15 @@ export { clone, safeClone, IClone } from "./clone";
 export { left, right, Either } from "./either";
 export { equals, safeEquals, IEquals } from "./equals";
 export {
+  integerToBytes,
+  bytesToInteger,
+  Hasher,
+  IHash,
+  FastHasher,
+  defaultHasher,
+  hash,
+} from "./hash";
+export {
   Enumerate,
   Filter,
   ForEach,
