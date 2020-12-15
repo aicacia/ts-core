@@ -1,5 +1,9 @@
 image: node:14
 
+stages:
+  - test
+  - deploy
+
 before_script:
   - npm install
   - npm run lint
@@ -9,6 +13,7 @@ cache:
     - node_modules/
 
 test:
+  stage: test
   script:
     - npm run coverage
   artifacts:
@@ -16,6 +21,7 @@ test:
       - coverage
 
 pages:
+  stage: deploy
   script:
     - npm run doc
     - mv ./docs ./public
