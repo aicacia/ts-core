@@ -33,7 +33,7 @@ declare global {
     hash<H extends Hasher>(hasher: H): this;
   }
   interface Array<T> extends IHash {
-    hash<H extends Hasher>(hasher: H): Array<T>;
+    hash<H extends Hasher>(hasher: H): this;
   }
   interface Object extends IHash {
     hash<H extends Hasher>(hasher: H): this;
@@ -71,10 +71,7 @@ Symbol.prototype.hash = function hash<H extends Hasher>(hasher: H) {
   return this;
 };
 
-Array.prototype.hash = function hash<H extends Hasher>(
-  this: Array<any>,
-  hasher: H
-) {
+Array.prototype.hash = function hash<H extends Hasher>(hasher: H) {
   for (const value of this) {
     safeHash(value, hasher);
   }
