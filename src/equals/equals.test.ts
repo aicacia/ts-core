@@ -1,5 +1,5 @@
 import * as tape from "tape";
-import { equals, IEquals, safeEquals } from "./equals";
+import { equals, IEquals, safeEquals } from ".";
 
 class Test<T> implements IEquals<Test<T>> {
   value: T;

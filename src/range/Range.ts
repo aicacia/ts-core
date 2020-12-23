@@ -1,3 +1,4 @@
+import { Hasher, IHash } from "../hash";
 import { IIterator, Iterator } from "../iter";
 import { none, Option, some } from "../option";
 
@@ -6,7 +7,7 @@ export enum RangeDirection {
   Backward,
 }
 
-export class Range implements IIterator<number> {
+export class Range implements IIterator<number>, IHash {
   static from(start: number, end: number) {
     return new Range(start, end);
   }
@@ -58,6 +59,13 @@ export class Range implements IIterator<number> {
         return some(this.start--);
       }
     }
+  }
+
+  hash<H extends Hasher>(hasher: H) {
+    this.start.hash(hasher);
+    this.end.hash(hasher);
+    this.direction.hash(hasher);
+    return this;
   }
 }
 

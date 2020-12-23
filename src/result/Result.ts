@@ -1,7 +1,8 @@
 const CREATE_SECRET = {},
   NULL_SECRET = {};
 
-export class Result<T, E = Error> implements IEquals<Result<T, E>>, IClone {
+export class Result<T, E = Error>
+  implements IEquals<Result<T, E>>, IClone, IHash {
   static equals<T, E = Error>(a: Result<T, E>, b: Result<T, E>): boolean {
     return a.equals(b);
   }
@@ -233,6 +234,12 @@ export class Result<T, E = Error> implements IEquals<Result<T, E>>, IClone {
     return new Result(CREATE_SECRET, safeClone(this._ok), safeClone(this._err));
   }
 
+  hash<H extends Hasher>(hasher: H) {
+    safeHash(this._ok, hasher);
+    safeHash(this._err, hasher);
+    return this;
+  }
+
   fromJSON(json: any): Result<T, E> {
     if (json) {
       if (json.ok) {
@@ -270,4 +277,5 @@ export const err = <T, E = Error>(error: E): Result<T, E> =>
 
 import { safeClone, IClone } from "../clone";
 import { IEquals, safeEquals } from "../equals";
+import { Hasher, IHash, safeHash } from "../hash";
 import { none, Option, some } from "../option";

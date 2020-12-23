@@ -10,7 +10,7 @@ export class FastHasher extends Hasher {
   write(bytes: Uint8Array | number[]) {
     let hash = this.hash;
     for (let i = 0, il = bytes.length; i < il; i++) {
-      hash = (31 * hash + bytes[i]) | 0;
+      hash = 31 * hash + bytes[i];
     }
     this.hash = smi(hash);
     return this;

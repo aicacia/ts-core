@@ -263,3 +263,4 @@ import { defaultKeyFn, defaultValueFn, IToMapFn, ToMap } from "./ToMap";
 import { Unflatten, UnflattenFn } from "./Unflatten";
 import { Enumerate } from "./Enumerate";
 import { Peekable } from "./Peekable";
+import { IHash } from "../hash";

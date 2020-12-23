@@ -1,7 +1,7 @@
 const CREATE_SECRET = {},
   NONE_SECRET = {};
 
-export class Option<T> implements IEquals<Option<T>>, IClone {
+export class Option<T> implements IEquals<Option<T>>, IClone, IHash {
   static equals<T>(a: Option<T>, b: Option<T>): boolean {
     return a.equals(b);
   }
@@ -233,6 +233,11 @@ export class Option<T> implements IEquals<Option<T>>, IClone {
     return new Option(CREATE_SECRET, safeClone(this._value)) as this;
   }
 
+  hash<H extends Hasher>(hasher: H) {
+    safeHash(this._value, hasher);
+    return this;
+  }
+
   fromJSON(json: any): Option<T> {
     return Option.from(json);
   }
@@ -248,4 +253,5 @@ export const none = <T>(): Option<T> =>
 
 import { safeClone, IClone } from "../clone";
 import { IEquals, safeEquals } from "../equals";
+import { safeHash, Hasher, IHash } from "../hash";
 import { err, ok, Result } from "../result";
