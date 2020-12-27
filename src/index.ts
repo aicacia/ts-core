@@ -5,10 +5,8 @@ export {
   integerToBytes,
   bytesToInteger,
   Hasher,
-  IHash,
   FastHasher,
   defaultHasher,
-  safeHash,
   hash,
 } from "./hash";
 export {

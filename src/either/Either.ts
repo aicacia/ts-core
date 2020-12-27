@@ -1,7 +1,7 @@
 const CREATE_SECRET = {},
   NULL_SECRET = {};
 
-export class Either<L, R> implements IEquals<Either<L, R>>, IClone, IHash {
+export class Either<L, R> implements IEquals<Either<L, R>>, IClone {
   static equals<L, R>(a: Either<L, R>, b: Either<L, R>): boolean {
     return a.equals(b);
   }
@@ -235,12 +235,6 @@ export class Either<L, R> implements IEquals<Either<L, R>>, IClone, IHash {
     );
   }
 
-  hash<H extends Hasher>(hasher: H) {
-    safeHash(this._left, hasher);
-    safeHash(this._right, hasher);
-    return this;
-  }
-
   fromJSON(json: any): Either<L, R> {
     if (json) {
       if (json.left) {
@@ -278,5 +272,4 @@ export const right = <L, R>(right: R): Either<L, R> =>
 
 import { safeClone, IClone } from "../clone";
 import { IEquals, safeEquals } from "../equals";
-import { Hasher, IHash, safeHash } from "../hash";
 import { none, Option, some } from "../option";
