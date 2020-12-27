@@ -12,16 +12,17 @@ export function iter<O>(
 
 export function iter(value: any): CoreIterator<any> {
   if (value != null) {
-    if (typeof value[Symbol.iterator] === "function") {
-      return new CoreIterator(
-        new NativeIteratorWrapper(value[Symbol.iterator]())
-      );
-    } else if (typeof value.next === "function") {
+    if (typeof value.next === "function") {
       if (value instanceof CoreIterator) {
         return value;
       } else {
         return new CoreIterator(new NativeIteratorWrapper(value));
       }
+    }
+    if (typeof value[Symbol.iterator] === "function") {
+      return new CoreIterator(
+        new NativeIteratorWrapper(value[Symbol.iterator]())
+      );
     } else if (typeof value.length === "number") {
       return new CoreIterator(new ArrayIterator(value));
     } else if (typeof value === "object") {

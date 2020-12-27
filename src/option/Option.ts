@@ -188,6 +188,14 @@ export class Option<T> implements IEquals<Option<T>>, IClone, IHash {
       return none();
     }
   }
+  from(value?: T | null): Option<T> {
+    if (value != null) {
+      this._value = value;
+    } else {
+      this.clear();
+    }
+    return this;
+  }
   replace(value: T): Option<T> {
     this._value = value;
     return this;

@@ -103,6 +103,11 @@ tape("Option", (assert: tape.Test) => {
   assert.deepEqual(someValue.take(), some(1));
   assert.deepEqual(someValue, none());
 
+  assert.deepEqual(some(1).from(1), some(1));
+  assert.deepEqual(none().from(1), some(1));
+  assert.deepEqual(some(1).from(null), none());
+  assert.deepEqual(none().from(undefined), none());
+
   const noneValue = none();
   assert.deepEqual(noneValue.take(), none());
   assert.deepEqual(noneValue, none());
