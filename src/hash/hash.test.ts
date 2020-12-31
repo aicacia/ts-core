@@ -30,8 +30,8 @@ tape("hash it all", (assert: tape.Test) => {
   assert.equal(hashValue(string), -867622775);
   assert.equal(hashValue(number), 10);
   assert.equal(hashValue(array), 923522);
-  assert.equal(hashValue(object), -515809763);
+  assert.equal(hashValue(object), 16796518);
   assert.equal(hashValue(symbol), -617543331);
-  assert.equal(hashValue(all), -635759217);
+  assert.equal(hashValue(all), -734913244);
   assert.end();
 });

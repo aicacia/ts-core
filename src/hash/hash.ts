@@ -53,6 +53,7 @@ function hashArray(array: Array<any>, hasher: Hasher) {
 function hashObject(value: any, hasher: Hasher) {
   for (const key in value) {
     if (value.hasOwnProperty(key)) {
+      hashString(key, hasher);
       hash(value[key], hasher);
     }
   }
