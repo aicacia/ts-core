@@ -246,11 +246,11 @@ export class Result<T, E = Error> implements IEquals<Result<T, E>>, IClone {
   toJSON(): IResultJSON<T> | IResultErrorJSON<E> {
     if (this.isOk()) {
       return {
-        ok: this.unwrap(),
+        ok: this.map(toJSON).unwrap(),
       };
     } else {
       return {
-        err: this.unwrapErr(),
+        err: this.mapErr(toJSON).unwrapErr(),
       };
     }
   }
@@ -271,3 +271,4 @@ export const err = <T, E = Error>(error: E): Result<T, E> =>
 import { safeClone, IClone } from "../clone";
 import { IEquals, safeEquals } from "../equals";
 import { none, Option, some } from "../option";
+import { toJSON } from "../toJSON";

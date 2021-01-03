@@ -241,11 +241,11 @@ export class Option<T> implements IEquals<Option<T>>, IClone {
     return new Option(CREATE_SECRET, safeClone(this._value)) as this;
   }
 
-  fromJSON(json: any): Option<T> {
+  fromJSON(json: T | null): Option<T> {
     return Option.from(json);
   }
-  toJSON(): T | undefined {
-    return this.unwrapOr(undefined as any);
+  toJSON(): T | null {
+    return this.map(toJSON).unwrapOr(null as any);
   }
 }
 
@@ -257,3 +257,4 @@ export const none = <T>(): Option<T> =>
 import { safeClone, IClone } from "../clone";
 import { IEquals, safeEquals } from "../equals";
 import { err, ok, Result } from "../result";
+import { toJSON } from "../toJSON";

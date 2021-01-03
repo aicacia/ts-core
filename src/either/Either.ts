@@ -248,11 +248,11 @@ export class Either<L, R> implements IEquals<Either<L, R>>, IClone {
   toJSON(): IEitherLeftJSON<L> | IEitherRightJSON<R> {
     if (this.isLeft()) {
       return {
-        left: this.unwrapLeft(),
+        left: this.mapLeft(toJSON).unwrapLeft(),
       };
     } else {
       return {
-        right: this.unwrapRight(),
+        right: this.mapRight(toJSON).unwrapRight(),
       };
     }
   }
@@ -273,3 +273,4 @@ export const right = <L, R>(right: R): Either<L, R> =>
 import { safeClone, IClone } from "../clone";
 import { IEquals, safeEquals } from "../equals";
 import { none, Option, some } from "../option";
+import { toJSON } from "../toJSON";
