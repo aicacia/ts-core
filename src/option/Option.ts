@@ -247,6 +247,9 @@ export class Option<T> implements IEquals<Option<T>>, IClone {
   toJSON(): T | null {
     return this.map(toJSON).unwrapOr(null as any);
   }
+  toJS(): T | null {
+    return this.map(toJS).unwrapOr(null as any);
+  }
 }
 
 export const some = <T>(value: T): Option<T> =>
@@ -257,4 +260,5 @@ export const none = <T>(): Option<T> =>
 import { safeClone, IClone } from "../clone";
 import { IEquals, safeEquals } from "../equals";
 import { err, ok, Result } from "../result";
+import { toJS } from "../toJS";
 import { toJSON } from "../toJSON";

@@ -1,4 +1,5 @@
 import * as tape from "tape";
+import { Map } from "immutable";
 import { none, Option, some } from ".";
 import { err, ok } from "../result";
 
@@ -114,6 +115,9 @@ tape("Option", (assert: tape.Test) => {
 
   assert.deepEqual(some(0).replace(1), some(1));
   assert.deepEqual(none().replace(1), some(1));
+
+  assert.deepEqual(some(Map()).toJS(), {});
+  assert.deepEqual(some(Map()).toJSON(), {});
 
   assert.throws(() => {
     none().unwrap();

@@ -1,4 +1,5 @@
 import * as tape from "tape";
+import { Map } from "immutable";
 import { err, ok, Result } from ".";
 import { none, some } from "../option";
 
@@ -104,6 +105,12 @@ tape("Result", (assert: tape.Test) => {
   assert.deepEqual(err(ERROR).err(), some(ERROR));
 
   assert.deepEqual(err(ERROR).unwrapErr(), ERROR);
+
+  assert.deepEqual(ok(Map()).toJS(), { ok: {} });
+  assert.deepEqual(ok(Map()).toJSON(), { ok: {} });
+
+  assert.deepEqual(err(ERROR).toJS(), { err: ERROR });
+  assert.deepEqual(err(ERROR).toJSON(), { err: ERROR });
 
   assert.throws(() => {
     err(ERROR).unwrap();

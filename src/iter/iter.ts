@@ -18,8 +18,7 @@ export function iter(value: any): CoreIterator<any> {
       } else {
         return new CoreIterator(new NativeIteratorWrapper(value));
       }
-    }
-    if (typeof value[Symbol.iterator] === "function") {
+    } else if (typeof value[Symbol.iterator] === "function") {
       return new CoreIterator(
         new NativeIteratorWrapper(value[Symbol.iterator]())
       );

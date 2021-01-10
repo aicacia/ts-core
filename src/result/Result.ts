@@ -243,7 +243,7 @@ export class Result<T, E = Error> implements IEquals<Result<T, E>>, IClone {
     }
     throw new TypeError("Invalid json for Result");
   }
-  toJSON(): IResultJSON<T> | IResultErrorJSON<E> {
+  toJSON(): IResultOk<T> | IResultErr<E> {
     if (this.isOk()) {
       return {
         ok: this.map(toJSON).unwrap(),
@@ -254,12 +254,23 @@ export class Result<T, E = Error> implements IEquals<Result<T, E>>, IClone {
       };
     }
   }
+  toJS(): IResultOk<T> | IResultErr<E> {
+    if (this.isOk()) {
+      return {
+        ok: this.map(toJS).unwrap(),
+      };
+    } else {
+      return {
+        err: this.mapErr(toJS).unwrapErr(),
+      };
+    }
+  }
 }
 
-export interface IResultJSON<T> {
+export interface IResultOk<T> {
   ok: T;
 }
-export interface IResultErrorJSON<E> {
+export interface IResultErr<E> {
   err: E;
 }
 
@@ -271,4 +282,5 @@ export const err = <T, E = Error>(error: E): Result<T, E> =>
 import { safeClone, IClone } from "../clone";
 import { IEquals, safeEquals } from "../equals";
 import { none, Option, some } from "../option";
+import { toJS } from "../toJS";
 import { toJSON } from "../toJSON";
