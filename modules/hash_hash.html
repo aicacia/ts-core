@@ -72,7 +72,8 @@
 						<section class="tsd-index-section ">
 							<h3>Functions</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-function tsd-parent-kind-module"><a href="hash_hash.html#hash" class="tsd-kind-icon">hash</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter"><a href="hash_hash.html#hash" class="tsd-kind-icon">hash</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module"><a href="hash_hash.html#hashof" class="tsd-kind-icon">hash<wbr>Of</a></li>
 							</ul>
 						</section>
 					</div>
@@ -80,17 +81,49 @@
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Functions</h2>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
 					<a name="hash" class="tsd-anchor"></a>
 					<h3>hash</h3>
-					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">hash<span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, hasher<span class="tsd-signature-symbol">: </span><a href="../classes/hash_hasher.hasher.html" class="tsd-signature-type">Hasher</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
+						<li class="tsd-signature tsd-kind-icon">hash&lt;H&gt;<span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, hasher<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">H</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">H</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/35babbe/src/hash/hash.ts#L3">hash/hash.ts:3</a></li>
+									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/15cc068/src/hash/hash.ts#L10">hash/hash.ts:10</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-type-parameters-title">Type parameters</h4>
+							<ul class="tsd-type-parameters">
+								<li>
+									<h4>H<span class="tsd-signature-symbol">: </span><a href="../classes/hash_hasher.hasher.html" class="tsd-signature-type">Hasher</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">H</span><span class="tsd-signature-symbol">&gt;</span> = <a href="../classes/hash_hasher.hasher.html" class="tsd-signature-type">Hasher</a></h4>
+								</li>
+							</ul>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>value: <span class="tsd-signature-type">any</span></h5>
+								</li>
+								<li>
+									<h5>hasher: <span class="tsd-signature-type">H</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">H</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
+					<a name="hashof" class="tsd-anchor"></a>
+					<h3>hash<wbr>Of</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
+						<li class="tsd-signature tsd-kind-icon">hash<wbr>Of<span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/15cc068/src/hash/hash.ts#L6">hash/hash.ts:6</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -98,11 +131,8 @@
 								<li>
 									<h5>value: <span class="tsd-signature-type">any</span></h5>
 								</li>
-								<li>
-									<h5>hasher: <a href="../classes/hash_hasher.hasher.html" class="tsd-signature-type">Hasher</a></h5>
-								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -121,8 +151,11 @@
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
-					<li class=" tsd-kind-function tsd-parent-kind-module">
+					<li class=" tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
 						<a href="hash_hash.html#hash" class="tsd-kind-icon">hash</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-module">
+						<a href="hash_hash.html#hashof" class="tsd-kind-icon">hash<wbr>Of</a>
 					</li>
 				</ul>
 			</nav>
