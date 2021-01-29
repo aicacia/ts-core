@@ -120,9 +120,9 @@ export class Option<T> implements IEquals<Option<T>>, IClone {
       return none();
     }
   }
-  andThen<U>(fn: () => Option<U>): Option<U> {
+  andThen<U>(fn: (value: T) => Option<U>): Option<U> {
     if (this.isSome()) {
-      return fn();
+      return fn(this._value);
     } else {
       return none();
     }

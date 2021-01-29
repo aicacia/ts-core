@@ -48,8 +48,12 @@ export class Result<T, E = Error> implements IEquals<Result<T, E>>, IClone {
   unwrapOr(def: T): T {
     return this.ok().unwrapOr(def);
   }
-  unwrapOrElse(defFn: () => T): T {
-    return this.ok().unwrapOrElse(defFn);
+  unwrapOrElse(defFn: (error: E) => T): T {
+    if (this.isOk()) {
+      return this._ok;
+    } else {
+      return defFn(this._err);
+    }
   }
 
   map<U>(fn: (ok: T) => U): Result<U, E> {
@@ -66,11 +70,11 @@ export class Result<T, E = Error> implements IEquals<Result<T, E>>, IClone {
       return ok(def);
     }
   }
-  mapOrElse<U>(fn: (ok: T) => U, defFn: () => U): Result<U, E> {
+  mapOrElse<U>(fn: (ok: T) => U, defFn: (error: E) => U): Result<U, E> {
     if (this.isOk()) {
       return ok(fn(this._ok));
     } else {
-      return ok(defFn());
+      return ok(defFn(this._err));
     }
   }
 
@@ -90,12 +94,12 @@ export class Result<T, E = Error> implements IEquals<Result<T, E>>, IClone {
   }
   flatMapOrElse<U>(
     fn: (ok: T) => Result<U, E>,
-    defFn: () => Result<U, E>
+    defFn: (error: E) => Result<U, E>
   ): Result<U, E> {
     if (this.isOk()) {
       return fn(this._ok);
     } else {
-      return defFn();
+      return defFn(this._err);
     }
   }
 
@@ -113,8 +117,12 @@ export class Result<T, E = Error> implements IEquals<Result<T, E>>, IClone {
   unwrapErrOr(def: E): E {
     return this.err().unwrapOr(def);
   }
-  unwrapErrOrElse(defFn: () => E): E {
-    return this.err().unwrapOrElse(defFn);
+  unwrapErrOrElse(defFn: (value: T) => E): E {
+    if (this.isErr()) {
+      return this._err;
+    } else {
+      return defFn(this._ok);
+    }
   }
 
   mapErr<U>(fn: (err: E) => U): Result<T, U> {
@@ -131,11 +139,11 @@ export class Result<T, E = Error> implements IEquals<Result<T, E>>, IClone {
       return err(def);
     }
   }
-  mapErrOrElse<U>(fn: (err: E) => U, defFn: () => U): Result<T, U> {
+  mapErrOrElse<U>(fn: (err: E) => U, defFn: (value: T) => U): Result<T, U> {
     if (this.isErr()) {
       return err(fn(this._err));
     } else {
-      return err(defFn());
+      return err(defFn(this._ok));
     }
   }
 
@@ -158,12 +166,12 @@ export class Result<T, E = Error> implements IEquals<Result<T, E>>, IClone {
   }
   flatMapErrOrElse<U>(
     fn: (err: E) => Result<T, U>,
-    defFn: () => Result<T, U>
+    defFn: (value: T) => Result<T, U>
   ): Result<T, U> {
     if (this.isErr()) {
       return fn(this._err);
     } else {
-      return defFn();
+      return defFn(this._ok);
     }
   }
 
@@ -174,9 +182,9 @@ export class Result<T, E = Error> implements IEquals<Result<T, E>>, IClone {
       return err(this._err);
     }
   }
-  andThen<U>(fn: () => Result<U, E>): Result<U, E> {
+  andThen<U>(fn: (value: T) => Result<U, E>): Result<U, E> {
     if (this.isOk()) {
-      return fn();
+      return fn(this._ok);
     } else {
       return err(this._err);
     }
@@ -189,9 +197,9 @@ export class Result<T, E = Error> implements IEquals<Result<T, E>>, IClone {
       return this;
     }
   }
-  orElse(fn: () => Result<T, E>): Result<T, E> {
+  orElse(fn: (error: E) => Result<T, E>): Result<T, E> {
     if (this.isErr()) {
-      return fn();
+      return fn(this._err);
     } else {
       return this;
     }
