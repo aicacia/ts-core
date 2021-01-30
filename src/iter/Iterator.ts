@@ -1,4 +1,4 @@
-import { IIterator } from "./IIterator";
+import { iterator, IIterator } from "./IIterator";
 
 export class Iterator<T> implements IIterator<T>, IEquals<Iterator<T>> {
   protected _iter: IIterator<T>;
@@ -6,6 +6,10 @@ export class Iterator<T> implements IIterator<T>, IEquals<Iterator<T>> {
 
   constructor(iter: IIterator<T>) {
     this._iter = iter;
+  }
+
+  [iterator](): IIterator<T> {
+    return this;
   }
 
   [Symbol.iterator](): NativeIterator<T> {

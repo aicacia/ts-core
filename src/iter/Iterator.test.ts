@@ -1,4 +1,6 @@
 import * as tape from "tape";
+import { none, Option, some } from "../option";
+import { IIterator, iterator } from "./IIterator";
 import { iter } from "./iter";
 
 tape("skip", (assert: tape.Test) => {
@@ -7,6 +9,35 @@ tape("skip", (assert: tape.Test) => {
     5,
     8,
   ]);
+  assert.end();
+});
+
+tape("custom iter", (assert: tape.Test) => {
+  class CustomIter<T> implements IIterator<T> {
+    private index = 0;
+    private array: T[];
+
+    constructor(array: T[]) {
+      this.array = array;
+    }
+
+    [iterator]() {
+      return this;
+    }
+
+    next(): Option<T> {
+      if (this.index < this.array.length) {
+        return some(this.array[this.index++]);
+      } else {
+        return none();
+      }
+    }
+  }
+
+  const result = iter(new CustomIter([0, 1, 2]));
+
+  assert.deepEqual(result.toArray(), [0, 1, 2]);
+
   assert.end();
 });
 

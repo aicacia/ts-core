@@ -1,5 +1,5 @@
 import { none, Option, some } from "../option";
-import { IIterator } from "./IIterator";
+import { iterator, IIterator } from "./IIterator";
 import { Iterator as CoreIterator } from "./Iterator";
 import { NativeIteratorWrapper } from "./NativeIteratorWrapper";
 
@@ -12,7 +12,9 @@ export function iter<O>(
 
 export function iter(value: any): CoreIterator<any> {
   if (value != null) {
-    if (typeof value.next === "function") {
+    if (typeof value[iterator] === "function") {
+      return new CoreIterator(value[iterator]());
+    } else if (typeof value.next === "function") {
       if (value instanceof CoreIterator) {
         return value;
       } else {

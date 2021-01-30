@@ -16,6 +16,7 @@ export {
   ForEach,
   IIterator,
   iter,
+  iterator,
   Iterator,
   Map,
   Merge,

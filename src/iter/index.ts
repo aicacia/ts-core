@@ -1,7 +1,7 @@
 export { Enumerate } from "./Enumerate";
 export { Filter } from "./Filter";
 export { ForEach } from "./ForEach";
-export { IIterator } from "./IIterator";
+export { iterator, IIterator } from "./IIterator";
 export { iter } from "./iter";
 export { Iterator } from "./Iterator";
 export { Map } from "./Map";
