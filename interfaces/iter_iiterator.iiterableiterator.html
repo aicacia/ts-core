@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>IResultOk | @aicacia/core</title>
+	<title>IIterableIterator | @aicacia/core</title>
 	<meta name="description" content="Documentation for @aicacia/core">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -55,13 +55,13 @@
 					<a href="../modules.html">@aicacia/core</a>
 				</li>
 				<li>
-					<a href="../modules/result_result.html">result/Result</a>
+					<a href="../modules/iter_iiterator.html">iter/IIterator</a>
 				</li>
 				<li>
-					<a href="result_result.iresultok.html">IResultOk</a>
+					<a href="iter_iiterator.iiterableiterator.html">IIterableIterator</a>
 				</li>
 			</ul>
-			<h1>Interface IResultOk&lt;T&gt;</h1>
+			<h1>Interface IIterableIterator&lt;T&gt;</h1>
 		</div>
 	</div>
 </header>
@@ -80,7 +80,12 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">IResultOk</span>
+						<a href="iter_iiterator.iiterator.html" class="tsd-signature-type">IIterator</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span>
+						<ul class="tsd-hierarchy">
+							<li>
+								<span class="target">IIterableIterator</span>
+							</li>
+						</ul>
 					</li>
 				</ul>
 			</section>
@@ -89,25 +94,51 @@
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
 						<section class="tsd-index-section ">
-							<h3>Properties</h3>
+							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="result_result.iresultok.html#ok" class="tsd-kind-icon">ok</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="iter_iiterator.iiterableiterator.html#___iterator_4502" class="tsd-kind-icon">__@iterator@4502</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-interface tsd-is-inherited"><a href="iter_iiterator.iiterableiterator.html#next" class="tsd-kind-icon">next</a></li>
 							</ul>
 						</section>
 					</div>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
-				<h2>Properties</h2>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="ok" class="tsd-anchor"></a>
-					<h3>ok</h3>
-					<div class="tsd-signature tsd-kind-icon">ok<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">T</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/2f1fb2a/src/result/Result.ts#L279">result/Result.ts:279</a></li>
-						</ul>
-					</aside>
+				<h2>Methods</h2>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
+					<a name="___iterator_4502" class="tsd-anchor"></a>
+					<h3>__@iterator@4502</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
+						<li class="tsd-signature tsd-kind-icon">__@iterator@4502<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="iter_iiterator.iiterator.html" class="tsd-signature-type">IIterator</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/2f1fb2a/src/iter/IIterator.ts#L10">iter/IIterator.ts:10</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <a href="iter_iiterator.iiterator.html" class="tsd-signature-type">IIterator</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface tsd-is-inherited">
+					<a name="next" class="tsd-anchor"></a>
+					<h3>next</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">next<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../classes/option_option.option.html" class="tsd-signature-type">Option</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from <a href="iter_iiterator.iiterator.html">IIterator</a>.<a href="iter_iiterator.iiterator.html#next">next</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/2f1fb2a/src/iter/IIterator.ts#L6">iter/IIterator.ts:6</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <a href="../classes/option_option.option.html" class="tsd-signature-type">Option</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
 				</section>
 			</section>
 		</div>
@@ -118,35 +149,32 @@
 						<a href="../modules.html">Exports</a>
 					</li>
 					<li class="current tsd-kind-module">
-						<a href="../modules/result_result.html">result/<wbr>Result</a>
+						<a href="../modules/iter_iiterator.html">iter/IIterator</a>
 					</li>
 				</ul>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
-					<li class=" tsd-kind-class tsd-parent-kind-module tsd-has-type-parameter">
-						<a href="../classes/result_result.result.html" class="tsd-kind-icon">Result</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-module tsd-has-type-parameter">
-						<a href="result_result.iresulterr.html" class="tsd-kind-icon">IResult<wbr>Err</a>
-					</li>
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-interface tsd-parent-kind-module tsd-has-type-parameter">
-						<a href="result_result.iresultok.html" class="tsd-kind-icon">IResult<wbr>Ok</a>
+						<a href="iter_iiterator.iiterableiterator.html" class="tsd-kind-icon">IIterable<wbr>Iterator</a>
 						<ul>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="result_result.iresultok.html#ok" class="tsd-kind-icon">ok</a>
+							<li class=" tsd-kind-method tsd-parent-kind-interface">
+								<a href="iter_iiterator.iiterableiterator.html#___iterator_4502" class="tsd-kind-icon">__@iterator@4502</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-interface tsd-is-inherited">
+								<a href="iter_iiterator.iiterableiterator.html#next" class="tsd-kind-icon">next</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
-					<li class=" tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
-						<a href="../modules/result_result.html#err" class="tsd-kind-icon">err</a>
+					<li class=" tsd-kind-interface tsd-parent-kind-module tsd-has-type-parameter">
+						<a href="iter_iiterator.iiterator.html" class="tsd-kind-icon">IIterator</a>
 					</li>
-					<li class=" tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
-						<a href="../modules/result_result.html#ok" class="tsd-kind-icon">ok</a>
+					<li class=" tsd-kind-variable tsd-parent-kind-module">
+						<a href="../modules/iter_iiterator.html#iterator" class="tsd-kind-icon">iterator</a>
 					</li>
 				</ul>
 			</nav>
@@ -166,7 +194,7 @@
 			<ul class="tsd-legend">
 				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
 				<li class="tsd-kind-interface tsd-has-type-parameter"><span class="tsd-kind-icon">Interface with type parameter</span></li>
-				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-interface"><span class="tsd-kind-icon">Method</span></li>
 			</ul>
 			<ul class="tsd-legend">
 				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
