@@ -3,8 +3,11 @@ import { Hasher } from "./Hasher";
 
 const ALREADY_HASHED_SET = new Set<any>();
 
-export function hashOf(value: any): number {
-  return hash(value, defaultHasher()).finish();
+export function hashOf(
+  value: any,
+  getHasher: () => Hasher = defaultHasher
+): number {
+  return hash(value, getHasher()).finish();
 }
 
 export function hash<H extends Hasher = Hasher>(value: any, hasher: H): H {

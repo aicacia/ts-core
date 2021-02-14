@@ -12,7 +12,11 @@ export function iter<O>(
 
 export function iter(value: any): CoreIterator<any> {
   if (value != null) {
-    if (typeof value[iterator] === "function") {
+    if (typeof value[Symbol.iterator] === "function") {
+      return new CoreIterator(
+        new NativeIteratorWrapper(value[Symbol.iterator]())
+      );
+    } else if (typeof value[iterator] === "function") {
       return new CoreIterator(value[iterator]());
     } else if (typeof value.next === "function") {
       if (value instanceof CoreIterator) {
@@ -20,10 +24,6 @@ export function iter(value: any): CoreIterator<any> {
       } else {
         return new CoreIterator(new NativeIteratorWrapper(value));
       }
-    } else if (typeof value[Symbol.iterator] === "function") {
-      return new CoreIterator(
-        new NativeIteratorWrapper(value[Symbol.iterator]())
-      );
     } else if (typeof value.length === "number") {
       return new CoreIterator(new ArrayIterator(value));
     } else if (typeof value === "object") {

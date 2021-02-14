@@ -10,8 +10,7 @@ export const defaultValueFn = <A, B>(value: A): B => value as any;
 export class ToMap<T, K extends string | number | symbol, V> extends Iterator<
   [K, V]
 > {
-  private _keyFn: IToMapFn<T, K>;
-  private _valueFn: IToMapFn<T, V>;
+  private _map: (tuple: [value: any, index: number]) => [K, V];
 
   constructor(
     iter: IIterator<T>,
@@ -19,8 +18,8 @@ export class ToMap<T, K extends string | number | symbol, V> extends Iterator<
     valueFn: IToMapFn<T, V>
   ) {
     super((iter as any) as IIterator<[K, V]>);
-    this._keyFn = keyFn;
-    this._valueFn = valueFn;
+    this._map = ([value, index]) =>
+      [keyFn(value, index), valueFn(value, index)] as [K, V];
   }
 
   toObject(): Record<K, V> {
@@ -31,14 +30,6 @@ export class ToMap<T, K extends string | number | symbol, V> extends Iterator<
   }
 
   next(): Option<[K, V]> {
-    return super
-      .nextWithIndex()
-      .map(
-        ([value, index]) =>
-          [
-            this._keyFn(value as any, index),
-            this._valueFn(value as any, index),
-          ] as [K, V]
-      );
+    return super.nextWithIndex().map(this._map);
   }
 }

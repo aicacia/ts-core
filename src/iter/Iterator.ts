@@ -104,6 +104,10 @@ export class Iterator<T> implements IIterator<T>, IEquals<Iterator<T>> {
     });
   }
 
+  join(separator?: string): string {
+    return this.toArray().join(separator);
+  }
+
   indexOf(value: T): Option<number> {
     let next = this.next(),
       index = 0;
