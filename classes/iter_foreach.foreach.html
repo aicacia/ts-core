@@ -111,7 +111,7 @@
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="iter_foreach.foreach.html#_symbol_iterator_" class="tsd-kind-icon">[<wbr>Symbol.iterator]</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="iter_foreach.foreach.html#___iterator_4502" class="tsd-kind-icon">__@iterator@4502</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="iter_foreach.foreach.html#___iterator_4504" class="tsd-kind-icon">__@iterator@4504</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="iter_foreach.foreach.html#all" class="tsd-kind-icon">all</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="iter_foreach.foreach.html#any" class="tsd-kind-icon">any</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="iter_foreach.foreach.html#concat" class="tsd-kind-icon">concat</a></li>
@@ -127,6 +127,7 @@
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="iter_foreach.foreach.html#foreach" class="tsd-kind-icon">for<wbr>Each</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="iter_foreach.foreach.html#indexof" class="tsd-kind-icon">index<wbr>Of</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="iter_foreach.foreach.html#iter" class="tsd-kind-icon">iter</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="iter_foreach.foreach.html#join" class="tsd-kind-icon">join</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="iter_foreach.foreach.html#last" class="tsd-kind-icon">last</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-inherited"><a href="iter_foreach.foreach.html#map" class="tsd-kind-icon">map</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="iter_foreach.foreach.html#merge" class="tsd-kind-icon">merge</a></li>
@@ -162,7 +163,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="iter_iterator.iterator.html">Iterator</a>.<a href="iter_iterator.iterator.html#constructor">constructor</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/2f1fb2a/src/iter/ForEach.ts#L8">iter/ForEach.ts:8</a></li>
+									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/9f53793/src/iter/ForEach.ts#L8">iter/ForEach.ts:8</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -190,12 +191,33 @@
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
 					<a name="_fn" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _fn</h3>
-					<div class="tsd-signature tsd-kind-icon">_fn<span class="tsd-signature-symbol">:</span> <a href="../modules/iter_foreach.html#iforeachfn" class="tsd-signature-type">IForEachFn</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></div>
+					<div class="tsd-signature tsd-kind-icon">_fn<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>tuple<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">[</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span>index<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">T</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/2f1fb2a/src/iter/ForEach.ts#L8">iter/ForEach.ts:8</a></li>
+							<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/9f53793/src/iter/ForEach.ts#L8">iter/ForEach.ts:8</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-type-declaration">
+						<h4>Type declaration</h4>
+						<ul class="tsd-parameters">
+							<li class="tsd-parameter-signature">
+								<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-class">
+									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>tuple<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">[</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span>index<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span></li>
+								</ul>
+								<ul class="tsd-descriptions">
+									<li class="tsd-description">
+										<h4 class="tsd-parameters-title">Parameters</h4>
+										<ul class="tsd-parameters">
+											<li>
+												<h5>tuple: <span class="tsd-signature-symbol">[</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span>index<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">]</span></h5>
+											</li>
+										</ul>
+										<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">T</span></h4>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
 					<a name="_index" class="tsd-anchor"></a>
@@ -204,7 +226,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="iter_iterator.iterator.html">Iterator</a>.<a href="iter_iterator.iterator.html#_index">_index</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/2f1fb2a/src/iter/Iterator.ts#L5">iter/Iterator.ts:5</a></li>
+							<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/9f53793/src/iter/Iterator.ts#L5">iter/Iterator.ts:5</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -215,7 +237,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="iter_iterator.iterator.html">Iterator</a>.<a href="iter_iterator.iterator.html#_iter">_iter</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/2f1fb2a/src/iter/Iterator.ts#L4">iter/Iterator.ts:4</a></li>
+							<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/9f53793/src/iter/Iterator.ts#L4">iter/Iterator.ts:4</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -233,7 +255,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="iter_iterator.iterator.html">Iterator</a>.<a href="iter_iterator.iterator.html#_symbol_iterator_">[Symbol.iterator]</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/2f1fb2a/src/iter/Iterator.ts#L15">iter/Iterator.ts:15</a></li>
+									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/9f53793/src/iter/Iterator.ts#L15">iter/Iterator.ts:15</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <a href="iter_nativeiterator.nativeiterator.html" class="tsd-signature-type">NativeIterator</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -241,17 +263,17 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-					<a name="___iterator_4502" class="tsd-anchor"></a>
-					<h3>__@iterator@4502</h3>
+					<a name="___iterator_4504" class="tsd-anchor"></a>
+					<h3>__@iterator@4504</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-						<li class="tsd-signature tsd-kind-icon">__@iterator@4502<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/iter_iiterator.iiterator.html" class="tsd-signature-type">IIterator</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">__@iterator@4504<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/iter_iiterator.iiterator.html" class="tsd-signature-type">IIterator</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="iter_iterator.iterator.html">Iterator</a>.<a href="iter_iterator.iterator.html#___iterator_4502">__@iterator@4502</a></p>
+								<p>Inherited from <a href="iter_iterator.iterator.html">Iterator</a>.<a href="iter_iterator.iterator.html#___iterator_4504">__@iterator@4504</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/2f1fb2a/src/iter/Iterator.ts#L11">iter/Iterator.ts:11</a></li>
+									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/9f53793/src/iter/Iterator.ts#L11">iter/Iterator.ts:11</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <a href="../interfaces/iter_iiterator.iiterator.html" class="tsd-signature-type">IIterator</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -269,7 +291,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="iter_iterator.iterator.html">Iterator</a>.<a href="iter_iterator.iterator.html#all">all</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/2f1fb2a/src/iter/Iterator.ts#L203">iter/Iterator.ts:203</a></li>
+									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/9f53793/src/iter/Iterator.ts#L207">iter/Iterator.ts:207</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -314,7 +336,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="iter_iterator.iterator.html">Iterator</a>.<a href="iter_iterator.iterator.html#any">any</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/2f1fb2a/src/iter/Iterator.ts#L193">iter/Iterator.ts:193</a></li>
+									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/9f53793/src/iter/Iterator.ts#L197">iter/Iterator.ts:197</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -359,7 +381,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="iter_iterator.iterator.html">Iterator</a>.<a href="iter_iterator.iterator.html#concat">concat</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/2f1fb2a/src/iter/Iterator.ts#L57">iter/Iterator.ts:57</a></li>
+									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/9f53793/src/iter/Iterator.ts#L57">iter/Iterator.ts:57</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -383,7 +405,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="iter_iterator.iterator.html">Iterator</a>.<a href="iter_iterator.iterator.html#consume">consume</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/2f1fb2a/src/iter/Iterator.ts#L90">iter/Iterator.ts:90</a></li>
+									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/9f53793/src/iter/Iterator.ts#L90">iter/Iterator.ts:90</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <a href="iter_foreach.foreach.html" class="tsd-signature-type">ForEach</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -401,7 +423,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="iter_iterator.iterator.html">Iterator</a>.<a href="iter_iterator.iterator.html#count">count</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/2f1fb2a/src/iter/Iterator.ts#L86">iter/Iterator.ts:86</a></li>
+									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/9f53793/src/iter/Iterator.ts#L86">iter/Iterator.ts:86</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
@@ -419,7 +441,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="iter_iterator.iterator.html">Iterator</a>.<a href="iter_iterator.iterator.html#enumerate">enumerate</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/2f1fb2a/src/iter/Iterator.ts#L37">iter/Iterator.ts:37</a></li>
+									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/9f53793/src/iter/Iterator.ts#L37">iter/Iterator.ts:37</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <a href="iter_enumerate.enumerate.html" class="tsd-signature-type">Enumerate</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -437,7 +459,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="iter_iterator.iterator.html">Iterator</a>.<a href="iter_iterator.iterator.html#equals">equals</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/2f1fb2a/src/iter/Iterator.ts#L238">iter/Iterator.ts:238</a></li>
+									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/9f53793/src/iter/Iterator.ts#L242">iter/Iterator.ts:242</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -462,7 +484,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="iter_iterator.iterator.html">Iterator</a>.<a href="iter_iterator.iterator.html#filter">filter</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/2f1fb2a/src/iter/Iterator.ts#L61">iter/Iterator.ts:61</a></li>
+									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/9f53793/src/iter/Iterator.ts#L61">iter/Iterator.ts:61</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -483,7 +505,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="iter_iterator.iterator.html">Iterator</a>.<a href="iter_iterator.iterator.html#filter">filter</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/2f1fb2a/src/iter/Iterator.ts#L62">iter/Iterator.ts:62</a></li>
+									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/9f53793/src/iter/Iterator.ts#L62">iter/Iterator.ts:62</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -507,7 +529,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="iter_iterator.iterator.html">Iterator</a>.<a href="iter_iterator.iterator.html#find">find</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/2f1fb2a/src/iter/Iterator.ts#L137">iter/Iterator.ts:137</a></li>
+									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/9f53793/src/iter/Iterator.ts#L141">iter/Iterator.ts:141</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -552,7 +574,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="iter_iterator.iterator.html">Iterator</a>.<a href="iter_iterator.iterator.html#findall">findAll</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/2f1fb2a/src/iter/Iterator.ts#L152">iter/Iterator.ts:152</a></li>
+									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/9f53793/src/iter/Iterator.ts#L156">iter/Iterator.ts:156</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -594,7 +616,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="iter_iterator.iterator.html">Iterator</a>.<a href="iter_iterator.iterator.html#findindex">findIndex</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/2f1fb2a/src/iter/Iterator.ts#L122">iter/Iterator.ts:122</a></li>
+									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/9f53793/src/iter/Iterator.ts#L126">iter/Iterator.ts:126</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -639,7 +661,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="iter_iterator.iterator.html">Iterator</a>.<a href="iter_iterator.iterator.html#first">first</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/2f1fb2a/src/iter/Iterator.ts#L173">iter/Iterator.ts:173</a></li>
+									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/9f53793/src/iter/Iterator.ts#L177">iter/Iterator.ts:177</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <a href="option_option.option.html" class="tsd-signature-type">Option</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -657,7 +679,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="iter_iterator.iterator.html">Iterator</a>.<a href="iter_iterator.iterator.html#foreach">forEach</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/2f1fb2a/src/iter/Iterator.ts#L45">iter/Iterator.ts:45</a></li>
+									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/9f53793/src/iter/Iterator.ts#L45">iter/Iterator.ts:45</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -681,7 +703,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="iter_iterator.iterator.html">Iterator</a>.<a href="iter_iterator.iterator.html#indexof">indexOf</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/2f1fb2a/src/iter/Iterator.ts#L107">iter/Iterator.ts:107</a></li>
+									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/9f53793/src/iter/Iterator.ts#L111">iter/Iterator.ts:111</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -705,10 +727,34 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="iter_iterator.iterator.html">Iterator</a>.<a href="iter_iterator.iterator.html#iter">iter</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/2f1fb2a/src/iter/Iterator.ts#L19">iter/Iterator.ts:19</a></li>
+									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/9f53793/src/iter/Iterator.ts#L19">iter/Iterator.ts:19</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <a href="iter_iterator.iterator.html" class="tsd-signature-type">Iterator</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<a name="join" class="tsd-anchor"></a>
+					<h3>join</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">join<span class="tsd-signature-symbol">(</span>separator<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from <a href="iter_iterator.iterator.html">Iterator</a>.<a href="iter_iterator.iterator.html#join">join</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/9f53793/src/iter/Iterator.ts#L107">iter/Iterator.ts:107</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> separator: <span class="tsd-signature-type">string</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -723,7 +769,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="iter_iterator.iterator.html">Iterator</a>.<a href="iter_iterator.iterator.html#last">last</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/2f1fb2a/src/iter/Iterator.ts#L177">iter/Iterator.ts:177</a></li>
+									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/9f53793/src/iter/Iterator.ts#L181">iter/Iterator.ts:181</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <a href="option_option.option.html" class="tsd-signature-type">Option</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -741,7 +787,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="iter_iterator.iterator.html">Iterator</a>.<a href="iter_iterator.iterator.html#map">map</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/2f1fb2a/src/iter/Iterator.ts#L49">iter/Iterator.ts:49</a></li>
+									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/9f53793/src/iter/Iterator.ts#L49">iter/Iterator.ts:49</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -771,7 +817,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="iter_iterator.iterator.html">Iterator</a>.<a href="iter_iterator.iterator.html#merge">merge</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/2f1fb2a/src/iter/Iterator.ts#L53">iter/Iterator.ts:53</a></li>
+									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/9f53793/src/iter/Iterator.ts#L53">iter/Iterator.ts:53</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -795,7 +841,7 @@
 							<aside class="tsd-sources">
 								<p>Overrides <a href="iter_iterator.iterator.html">Iterator</a>.<a href="iter_iterator.iterator.html#next">next</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/2f1fb2a/src/iter/ForEach.ts#L15">iter/ForEach.ts:15</a></li>
+									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/9f53793/src/iter/ForEach.ts#L18">iter/ForEach.ts:18</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <a href="option_option.option.html" class="tsd-signature-type">Option</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -813,7 +859,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="iter_iterator.iterator.html">Iterator</a>.<a href="iter_iterator.iterator.html#nextwithindex">nextWithIndex</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/2f1fb2a/src/iter/Iterator.ts#L33">iter/Iterator.ts:33</a></li>
+									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/9f53793/src/iter/Iterator.ts#L33">iter/Iterator.ts:33</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <a href="option_option.option.html" class="tsd-signature-type">Option</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -831,7 +877,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="iter_iterator.iterator.html">Iterator</a>.<a href="iter_iterator.iterator.html#none">none</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/2f1fb2a/src/iter/Iterator.ts#L199">iter/Iterator.ts:199</a></li>
+									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/9f53793/src/iter/Iterator.ts#L203">iter/Iterator.ts:203</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -876,7 +922,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="iter_iterator.iterator.html">Iterator</a>.<a href="iter_iterator.iterator.html#nth">nth</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/2f1fb2a/src/iter/Iterator.ts#L156">iter/Iterator.ts:156</a></li>
+									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/9f53793/src/iter/Iterator.ts#L160">iter/Iterator.ts:160</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -900,7 +946,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="iter_iterator.iterator.html">Iterator</a>.<a href="iter_iterator.iterator.html#peekable">peekable</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/2f1fb2a/src/iter/Iterator.ts#L41">iter/Iterator.ts:41</a></li>
+									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/9f53793/src/iter/Iterator.ts#L41">iter/Iterator.ts:41</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <a href="iter_peekable.peekable.html" class="tsd-signature-type">Peekable</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -918,7 +964,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="iter_iterator.iterator.html">Iterator</a>.<a href="iter_iterator.iterator.html#reduce">reduce</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/2f1fb2a/src/iter/Iterator.ts#L222">iter/Iterator.ts:222</a></li>
+									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/9f53793/src/iter/Iterator.ts#L226">iter/Iterator.ts:226</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -975,7 +1021,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="iter_iterator.iterator.html">Iterator</a>.<a href="iter_iterator.iterator.html#reverse">reverse</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/2f1fb2a/src/iter/Iterator.ts#L234">iter/Iterator.ts:234</a></li>
+									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/9f53793/src/iter/Iterator.ts#L238">iter/Iterator.ts:238</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <a href="iter_iterator.iterator.html" class="tsd-signature-type">Iterator</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -993,7 +1039,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="iter_iterator.iterator.html">Iterator</a>.<a href="iter_iterator.iterator.html#skip">skip</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/2f1fb2a/src/iter/Iterator.ts#L71">iter/Iterator.ts:71</a></li>
+									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/9f53793/src/iter/Iterator.ts#L71">iter/Iterator.ts:71</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1017,7 +1063,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="iter_iterator.iterator.html">Iterator</a>.<a href="iter_iterator.iterator.html#some">some</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/2f1fb2a/src/iter/Iterator.ts#L196">iter/Iterator.ts:196</a></li>
+									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/9f53793/src/iter/Iterator.ts#L200">iter/Iterator.ts:200</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1062,7 +1108,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="iter_iterator.iterator.html">Iterator</a>.<a href="iter_iterator.iterator.html#step">step</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/2f1fb2a/src/iter/Iterator.ts#L67">iter/Iterator.ts:67</a></li>
+									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/9f53793/src/iter/Iterator.ts#L67">iter/Iterator.ts:67</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1086,7 +1132,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="iter_iterator.iterator.html">Iterator</a>.<a href="iter_iterator.iterator.html#take">take</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/2f1fb2a/src/iter/Iterator.ts#L75">iter/Iterator.ts:75</a></li>
+									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/9f53793/src/iter/Iterator.ts#L75">iter/Iterator.ts:75</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1110,7 +1156,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="iter_iterator.iterator.html">Iterator</a>.<a href="iter_iterator.iterator.html#toarray">toArray</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/2f1fb2a/src/iter/Iterator.ts#L100">iter/Iterator.ts:100</a></li>
+									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/9f53793/src/iter/Iterator.ts#L100">iter/Iterator.ts:100</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span></h4>
@@ -1128,7 +1174,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="iter_iterator.iterator.html">Iterator</a>.<a href="iter_iterator.iterator.html#tomap">toMap</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/2f1fb2a/src/iter/Iterator.ts#L79">iter/Iterator.ts:79</a></li>
+									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/9f53793/src/iter/Iterator.ts#L79">iter/Iterator.ts:79</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -1164,7 +1210,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="iter_iterator.iterator.html">Iterator</a>.<a href="iter_iterator.iterator.html#unflatten">unflatten</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/2f1fb2a/src/iter/Iterator.ts#L218">iter/Iterator.ts:218</a></li>
+									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/9f53793/src/iter/Iterator.ts#L222">iter/Iterator.ts:222</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -1219,7 +1265,7 @@
 								<a href="iter_foreach.foreach.html#_symbol_iterator_" class="tsd-kind-icon">[<wbr>Symbol.iterator]</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-								<a href="iter_foreach.foreach.html#___iterator_4502" class="tsd-kind-icon">__@iterator@4502</a>
+								<a href="iter_foreach.foreach.html#___iterator_4504" class="tsd-kind-icon">__@iterator@4504</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 								<a href="iter_foreach.foreach.html#all" class="tsd-kind-icon">all</a>
@@ -1265,6 +1311,9 @@
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 								<a href="iter_foreach.foreach.html#iter" class="tsd-kind-icon">iter</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+								<a href="iter_foreach.foreach.html#join" class="tsd-kind-icon">join</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 								<a href="iter_foreach.foreach.html#last" class="tsd-kind-icon">last</a>
