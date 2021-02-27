@@ -1,6 +1,6 @@
 {
   "name": "@aicacia/core",
-  "version": "0.1.19",
+  "version": "0.1.20",
   "description": "aicacia core utils",
   "repository": {
     "type": "git",
@@ -12,7 +12,6 @@
     "build": "tsc",
     "doc": "typedoc --entryPoints src",
     "prepublishOnly": "npm run clean && npm run build",
-    "karma": "karma start",
     "test": "ts-node node_modules/.bin/tape src/**/*.test.{ts,tsx} | tap-spec",
     "bench": "ts-node node_modules/.bin/tape src/**/*.benchmark.{ts,tsx} | tap-spec",
     "coverage": "nyc --reporter=lcov --check-coverage --lines=75 --require ts-node/register tape src/**/*.test.{ts,tsx} | tap-spec; nyc report ---reporter=text",
@@ -53,7 +52,7 @@
     "tape": "5",
     "ts-node": "9",
     "tslib": "2",
-    "typedoc": "beta",
+    "typedoc": "^0.20.28",
     "typescript": "4"
   },
   "peerDependencies": {

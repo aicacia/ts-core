@@ -4,6 +4,11 @@ import { Iterator } from "./Iterator";
 export class Peekable<T> extends Iterator<T> {
   private peeked: T[] = [];
 
+  unpeekAll() {
+    this.peeked.length = 0;
+    return this;
+  }
+
   unpeek(): Option<T> {
     if (this.peeked.length > 0) {
       return some(this.peeked.shift() as T);

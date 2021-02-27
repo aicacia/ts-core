@@ -103,12 +103,8 @@ export class Result<T, E = Error> implements IEquals<Result<T, E>>, IClone {
     }
   }
 
-  expectErr(msg: string): E {
-    if (this.isErr()) {
-      return this._err;
-    } else {
-      throw new Error(msg);
-    }
+  expectErr(msg: (() => string) | string): E {
+    return this.err().expect(msg);
   }
 
   unwrapErr(): E {

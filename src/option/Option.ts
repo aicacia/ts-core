@@ -40,11 +40,11 @@ export class Option<T> implements IEquals<Option<T>>, IClone {
     return !this.isNone();
   }
 
-  expect(msg: string): T {
+  expect(msg: (() => string) | string): T {
     if (this.isSome()) {
       return this._value;
     } else {
-      throw new Error(msg);
+      throw new Error(typeof msg === "function" ? msg() : msg);
     }
   }
 

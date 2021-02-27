@@ -34,7 +34,7 @@ export class Either<L, R> implements IEquals<Either<L, R>>, IClone {
     return this._right !== NULL_SECRET;
   }
 
-  expectLeft(msg: string): L {
+  expectLeft(msg: (() => string) | string): L {
     return this.left().expect(msg);
   }
 
@@ -98,7 +98,7 @@ export class Either<L, R> implements IEquals<Either<L, R>>, IClone {
     }
   }
 
-  expectRight(msg: string): R {
+  expectRight(msg: (() => string) | string): R {
     return this.right().expect(msg);
   }
 
