@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Iterator | @aicacia/core</title>
+	<title>Iter | @aicacia/core</title>
 	<meta name="description" content="Documentation for @aicacia/core">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -55,13 +55,13 @@
 					<a href="../modules.html">@aicacia/core</a>
 				</li>
 				<li>
-					<a href="../modules/iter_iterator.html">iter/Iterator</a>
+					<a href="../modules/iter_iter.html">iter/Iter</a>
 				</li>
 				<li>
-					<a href="iter_iterator.iterator.html">Iterator</a>
+					<a href="iter_iter.iter.html">Iter</a>
 				</li>
 			</ul>
-			<h1>Class Iterator&lt;T&gt;</h1>
+			<h1>Class Iter&lt;T&gt;</h1>
 		</div>
 	</div>
 </header>
@@ -80,7 +80,7 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">Iterator</span>
+						<span class="target">Iter</span>
 						<ul class="tsd-hierarchy">
 							<li>
 								<a href="iter_enumerate.enumerate.html" class="tsd-signature-type" data-tsd-kind="Class">Enumerate</a>
@@ -122,8 +122,9 @@
 			<section class="tsd-panel">
 				<h3>Implements</h3>
 				<ul class="tsd-hierarchy">
-					<li><a href="../interfaces/iter_iiterator.iiterator.html" class="tsd-signature-type" data-tsd-kind="Interface">IIterator</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></li>
-					<li><a href="../interfaces/equals_equals.iequals.html" class="tsd-signature-type" data-tsd-kind="Interface">IEquals</a><span class="tsd-signature-symbol">&lt;</span><a href="iter_iterator.iterator.html" class="tsd-signature-type" data-tsd-kind="Class">Iterator</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
+					<li><span class="tsd-signature-type">Iterable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></li>
+					<li><span class="tsd-signature-type">Iterator</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol">&gt;</span></li>
+					<li><span class="tsd-signature-type">IterableIterator</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></li>
 				</ul>
 			</section>
 			<section class="tsd-panel-group tsd-index-group">
@@ -133,54 +134,52 @@
 						<section class="tsd-index-section ">
 							<h3>Constructors</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-constructor tsd-parent-kind-class tsd-has-type-parameter"><a href="iter_iterator.iterator.html#constructor" class="tsd-kind-icon">constructor</a></li>
+								<li class="tsd-kind-constructor tsd-parent-kind-class tsd-has-type-parameter"><a href="iter_iter.iter.html#constructor" class="tsd-kind-icon">constructor</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section tsd-is-private-protected">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><a href="iter_iterator.iterator.html#_index" class="tsd-kind-icon">_index</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><a href="iter_iterator.iterator.html#_iter" class="tsd-kind-icon">_iter</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><a href="iter_iter.iter.html#_index" class="tsd-kind-icon">_index</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><a href="iter_iter.iter.html#_iter" class="tsd-kind-icon">_iter</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="iter_iterator.iterator.html#_symbol_iterator_" class="tsd-kind-icon">[<wbr>Symbol.iterator]</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="iter_iterator.iterator.html#_iterator_" class="tsd-kind-icon">[iterator]</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="iter_iterator.iterator.html#all" class="tsd-kind-icon">all</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="iter_iterator.iterator.html#any" class="tsd-kind-icon">any</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="iter_iterator.iterator.html#concat" class="tsd-kind-icon">concat</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="iter_iterator.iterator.html#consume" class="tsd-kind-icon">consume</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="iter_iterator.iterator.html#count" class="tsd-kind-icon">count</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="iter_iterator.iterator.html#enumerate" class="tsd-kind-icon">enumerate</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="iter_iterator.iterator.html#equals" class="tsd-kind-icon">equals</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter"><a href="iter_iterator.iterator.html#filter" class="tsd-kind-icon">filter</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="iter_iterator.iterator.html#find" class="tsd-kind-icon">find</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="iter_iterator.iterator.html#findall" class="tsd-kind-icon">find<wbr>All</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="iter_iterator.iterator.html#findindex" class="tsd-kind-icon">find<wbr>Index</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="iter_iterator.iterator.html#first" class="tsd-kind-icon">first</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="iter_iterator.iterator.html#foreach" class="tsd-kind-icon">for<wbr>Each</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="iter_iterator.iterator.html#indexof" class="tsd-kind-icon">index<wbr>Of</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="iter_iterator.iterator.html#iter" class="tsd-kind-icon">iter</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="iter_iterator.iterator.html#join" class="tsd-kind-icon">join</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="iter_iterator.iterator.html#last" class="tsd-kind-icon">last</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter"><a href="iter_iterator.iterator.html#map" class="tsd-kind-icon">map</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="iter_iterator.iterator.html#merge" class="tsd-kind-icon">merge</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="iter_iterator.iterator.html#next" class="tsd-kind-icon">next</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="iter_iterator.iterator.html#nextwithindex" class="tsd-kind-icon">next<wbr>With<wbr>Index</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="iter_iterator.iterator.html#none" class="tsd-kind-icon">none</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="iter_iterator.iterator.html#nth" class="tsd-kind-icon">nth</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="iter_iterator.iterator.html#peekable" class="tsd-kind-icon">peekable</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter"><a href="iter_iterator.iterator.html#reduce" class="tsd-kind-icon">reduce</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="iter_iterator.iterator.html#reverse" class="tsd-kind-icon">reverse</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="iter_iterator.iterator.html#skip" class="tsd-kind-icon">skip</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="iter_iterator.iterator.html#some" class="tsd-kind-icon">some</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="iter_iterator.iterator.html#step" class="tsd-kind-icon">step</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="iter_iterator.iterator.html#take" class="tsd-kind-icon">take</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="iter_iterator.iterator.html#toarray" class="tsd-kind-icon">to<wbr>Array</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter"><a href="iter_iterator.iterator.html#tomap" class="tsd-kind-icon">to<wbr>Map</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter"><a href="iter_iterator.iterator.html#unflatten" class="tsd-kind-icon">unflatten</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="iter_iter.iter.html#_symbol_iterator_" class="tsd-kind-icon">[<wbr>Symbol.iterator]</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="iter_iter.iter.html#all" class="tsd-kind-icon">all</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="iter_iter.iter.html#any" class="tsd-kind-icon">any</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="iter_iter.iter.html#concat" class="tsd-kind-icon">concat</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="iter_iter.iter.html#consume" class="tsd-kind-icon">consume</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="iter_iter.iter.html#count" class="tsd-kind-icon">count</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="iter_iter.iter.html#enumerate" class="tsd-kind-icon">enumerate</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter"><a href="iter_iter.iter.html#filter" class="tsd-kind-icon">filter</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="iter_iter.iter.html#find" class="tsd-kind-icon">find</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="iter_iter.iter.html#findall" class="tsd-kind-icon">find<wbr>All</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="iter_iter.iter.html#findindex" class="tsd-kind-icon">find<wbr>Index</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="iter_iter.iter.html#first" class="tsd-kind-icon">first</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="iter_iter.iter.html#foreach" class="tsd-kind-icon">for<wbr>Each</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="iter_iter.iter.html#indexof" class="tsd-kind-icon">index<wbr>Of</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="iter_iter.iter.html#iter" class="tsd-kind-icon">iter</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="iter_iter.iter.html#join" class="tsd-kind-icon">join</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="iter_iter.iter.html#last" class="tsd-kind-icon">last</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter"><a href="iter_iter.iter.html#map" class="tsd-kind-icon">map</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="iter_iter.iter.html#merge" class="tsd-kind-icon">merge</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="iter_iter.iter.html#next" class="tsd-kind-icon">next</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="iter_iter.iter.html#nextwithindex" class="tsd-kind-icon">next<wbr>With<wbr>Index</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="iter_iter.iter.html#none" class="tsd-kind-icon">none</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="iter_iter.iter.html#nth" class="tsd-kind-icon">nth</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="iter_iter.iter.html#peekable" class="tsd-kind-icon">peekable</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter"><a href="iter_iter.iter.html#reduce" class="tsd-kind-icon">reduce</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="iter_iter.iter.html#reverse" class="tsd-kind-icon">reverse</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="iter_iter.iter.html#skip" class="tsd-kind-icon">skip</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="iter_iter.iter.html#some" class="tsd-kind-icon">some</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="iter_iter.iter.html#step" class="tsd-kind-icon">step</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="iter_iter.iter.html#take" class="tsd-kind-icon">take</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="iter_iter.iter.html#toarray" class="tsd-kind-icon">to<wbr>Array</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter"><a href="iter_iter.iter.html#tomap" class="tsd-kind-icon">to<wbr>Map</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter"><a href="iter_iter.iter.html#unflatten" class="tsd-kind-icon">unflatten</a></li>
 							</ul>
 						</section>
 					</div>
@@ -192,13 +191,13 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class tsd-has-type-parameter">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Iterator&lt;T&gt;<span class="tsd-signature-symbol">(</span>iter<span class="tsd-signature-symbol">: </span><a href="../interfaces/iter_iiterator.iiterator.html" class="tsd-signature-type" data-tsd-kind="Interface">IIterator</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="iter_iterator.iterator.html" class="tsd-signature-type" data-tsd-kind="Class">Iterator</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Iter&lt;T&gt;<span class="tsd-signature-symbol">(</span>iter<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Iterator</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="iter_iter.iter.html" class="tsd-signature-type" data-tsd-kind="Class">Iter</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/590ce9e/src/iter/Iterator.ts#L5">iter/Iterator.ts:5</a></li>
+									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/1469ab0/src/iter/Iter.ts#L7">iter/Iter.ts:7</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -210,10 +209,10 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>iter: <a href="../interfaces/iter_iiterator.iiterator.html" class="tsd-signature-type" data-tsd-kind="Interface">IIterator</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h5>
+									<h5>iter: <span class="tsd-signature-type">Iterator</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol">&gt;</span></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="iter_iterator.iterator.html" class="tsd-signature-type" data-tsd-kind="Class">Iterator</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <a href="iter_iter.iter.html" class="tsd-signature-type" data-tsd-kind="Class">Iter</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -226,17 +225,17 @@
 					<div class="tsd-signature tsd-kind-icon">_index<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 0</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/590ce9e/src/iter/Iterator.ts#L5">iter/Iterator.ts:5</a></li>
+							<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/1469ab0/src/iter/Iter.ts#L7">iter/Iter.ts:7</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-protected">
 					<a name="_iter" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagProtected">Protected</span> _iter</h3>
-					<div class="tsd-signature tsd-kind-icon">_iter<span class="tsd-signature-symbol">:</span> <a href="../interfaces/iter_iiterator.iiterator.html" class="tsd-signature-type" data-tsd-kind="Interface">IIterator</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></div>
+					<div class="tsd-signature tsd-kind-icon">_iter<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Iterator</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/590ce9e/src/iter/Iterator.ts#L4">iter/Iterator.ts:4</a></li>
+							<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/1469ab0/src/iter/Iter.ts#L6">iter/Iter.ts:6</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -247,33 +246,17 @@
 					<a name="_symbol_iterator_" class="tsd-anchor"></a>
 					<h3>[<wbr>Symbol.iterator]</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">[<wbr>Symbol.iterator]<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="iter_nativeiterator.nativeiterator.html" class="tsd-signature-type" data-tsd-kind="Class">NativeIterator</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">[<wbr>Symbol.iterator]<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IterableIterator</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
+								<p>Implementation of Iterable.__@iterator</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/590ce9e/src/iter/Iterator.ts#L15">iter/Iterator.ts:15</a></li>
+									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/1469ab0/src/iter/Iter.ts#L13">iter/Iter.ts:13</a></li>
 								</ul>
 							</aside>
-							<h4 class="tsd-returns-title">Returns <a href="iter_nativeiterator.nativeiterator.html" class="tsd-signature-type" data-tsd-kind="Class">NativeIterator</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="_iterator_" class="tsd-anchor"></a>
-					<h3>[iterator]</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">[iterator]<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/iter_iiterator.iiterator.html" class="tsd-signature-type" data-tsd-kind="Interface">IIterator</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/590ce9e/src/iter/Iterator.ts#L11">iter/Iterator.ts:11</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-returns-title">Returns <a href="../interfaces/iter_iiterator.iiterator.html" class="tsd-signature-type" data-tsd-kind="Interface">IIterator</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">IterableIterator</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -287,7 +270,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/590ce9e/src/iter/Iterator.ts#L207">iter/Iterator.ts:207</a></li>
+									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/1469ab0/src/iter/Iter.ts#L205">iter/Iter.ts:205</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -331,7 +314,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/590ce9e/src/iter/Iterator.ts#L197">iter/Iterator.ts:197</a></li>
+									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/1469ab0/src/iter/Iter.ts#L195">iter/Iter.ts:195</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -369,19 +352,19 @@
 					<a name="concat" class="tsd-anchor"></a>
 					<h3>concat</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">concat<span class="tsd-signature-symbol">(</span>iter<span class="tsd-signature-symbol">: </span><a href="../interfaces/iter_iiterator.iiterator.html" class="tsd-signature-type" data-tsd-kind="Interface">IIterator</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="iter_merge.merge.html" class="tsd-signature-type" data-tsd-kind="Class">Merge</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">concat<span class="tsd-signature-symbol">(</span>iter<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Iterator</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="iter_merge.merge.html" class="tsd-signature-type" data-tsd-kind="Class">Merge</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/590ce9e/src/iter/Iterator.ts#L57">iter/Iterator.ts:57</a></li>
+									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/1469ab0/src/iter/Iter.ts#L55">iter/Iter.ts:55</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>iter: <a href="../interfaces/iter_iiterator.iiterator.html" class="tsd-signature-type" data-tsd-kind="Interface">IIterator</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h5>
+									<h5>iter: <span class="tsd-signature-type">Iterator</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol">&gt;</span></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="iter_merge.merge.html" class="tsd-signature-type" data-tsd-kind="Class">Merge</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -392,16 +375,16 @@
 					<a name="consume" class="tsd-anchor"></a>
 					<h3>consume</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">consume<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="iter_iterator.iterator.html" class="tsd-signature-type" data-tsd-kind="Class">Iterator</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">consume<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="iter_iter.iter.html" class="tsd-signature-type" data-tsd-kind="Class">Iter</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/590ce9e/src/iter/Iterator.ts#L90">iter/Iterator.ts:90</a></li>
+									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/1469ab0/src/iter/Iter.ts#L88">iter/Iter.ts:88</a></li>
 								</ul>
 							</aside>
-							<h4 class="tsd-returns-title">Returns <a href="iter_iterator.iterator.html" class="tsd-signature-type" data-tsd-kind="Class">Iterator</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <a href="iter_iter.iter.html" class="tsd-signature-type" data-tsd-kind="Class">Iter</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -415,7 +398,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/590ce9e/src/iter/Iterator.ts#L86">iter/Iterator.ts:86</a></li>
+									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/1469ab0/src/iter/Iter.ts#L84">iter/Iter.ts:84</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
@@ -432,33 +415,10 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/590ce9e/src/iter/Iterator.ts#L37">iter/Iterator.ts:37</a></li>
+									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/1469ab0/src/iter/Iter.ts#L35">iter/Iter.ts:35</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <a href="iter_enumerate.enumerate.html" class="tsd-signature-type" data-tsd-kind="Class">Enumerate</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="equals" class="tsd-anchor"></a>
-					<h3>equals</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">equals<span class="tsd-signature-symbol">(</span>other<span class="tsd-signature-symbol">: </span><a href="iter_iterator.iterator.html" class="tsd-signature-type" data-tsd-kind="Class">Iterator</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/590ce9e/src/iter/Iterator.ts#L242">iter/Iterator.ts:242</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>other: <a href="iter_iterator.iterator.html" class="tsd-signature-type" data-tsd-kind="Class">Iterator</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -473,7 +433,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/590ce9e/src/iter/Iterator.ts#L61">iter/Iterator.ts:61</a></li>
+									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/1469ab0/src/iter/Iter.ts#L59">iter/Iter.ts:59</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -493,7 +453,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/590ce9e/src/iter/Iterator.ts#L62">iter/Iterator.ts:62</a></li>
+									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/1469ab0/src/iter/Iter.ts#L60">iter/Iter.ts:60</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -516,7 +476,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/590ce9e/src/iter/Iterator.ts#L141">iter/Iterator.ts:141</a></li>
+									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/1469ab0/src/iter/Iter.ts#L139">iter/Iter.ts:139</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -560,7 +520,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/590ce9e/src/iter/Iterator.ts#L156">iter/Iterator.ts:156</a></li>
+									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/1469ab0/src/iter/Iter.ts#L154">iter/Iter.ts:154</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -595,13 +555,13 @@
 					<a name="findindex" class="tsd-anchor"></a>
 					<h3>find<wbr>Index</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">find<wbr>Index<span class="tsd-signature-symbol">(</span>fn<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span>, index<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="option_option.option.html" class="tsd-signature-type" data-tsd-kind="Class">Option</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">find<wbr>Index<span class="tsd-signature-symbol">(</span>fn<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span>, index<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/590ce9e/src/iter/Iterator.ts#L126">iter/Iterator.ts:126</a></li>
+									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/1469ab0/src/iter/Iter.ts#L124">iter/Iter.ts:124</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -631,7 +591,7 @@
 									</ul>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="option_option.option.html" class="tsd-signature-type" data-tsd-kind="Class">Option</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -645,7 +605,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/590ce9e/src/iter/Iterator.ts#L177">iter/Iterator.ts:177</a></li>
+									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/1469ab0/src/iter/Iter.ts#L175">iter/Iter.ts:175</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <a href="option_option.option.html" class="tsd-signature-type" data-tsd-kind="Class">Option</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -662,7 +622,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/590ce9e/src/iter/Iterator.ts#L45">iter/Iterator.ts:45</a></li>
+									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/1469ab0/src/iter/Iter.ts#L43">iter/Iter.ts:43</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -679,13 +639,13 @@
 					<a name="indexof" class="tsd-anchor"></a>
 					<h3>index<wbr>Of</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">index<wbr>Of<span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="option_option.option.html" class="tsd-signature-type" data-tsd-kind="Class">Option</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">index<wbr>Of<span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/590ce9e/src/iter/Iterator.ts#L111">iter/Iterator.ts:111</a></li>
+									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/1469ab0/src/iter/Iter.ts#L109">iter/Iter.ts:109</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -694,7 +654,7 @@
 									<h5>value: <span class="tsd-signature-type">T</span></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="option_option.option.html" class="tsd-signature-type" data-tsd-kind="Class">Option</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -702,16 +662,16 @@
 					<a name="iter" class="tsd-anchor"></a>
 					<h3>iter</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">iter<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="iter_iterator.iterator.html" class="tsd-signature-type" data-tsd-kind="Class">Iterator</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">iter<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="iter_iter.iter.html" class="tsd-signature-type" data-tsd-kind="Class">Iter</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/590ce9e/src/iter/Iterator.ts#L19">iter/Iterator.ts:19</a></li>
+									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/1469ab0/src/iter/Iter.ts#L17">iter/Iter.ts:17</a></li>
 								</ul>
 							</aside>
-							<h4 class="tsd-returns-title">Returns <a href="iter_iterator.iterator.html" class="tsd-signature-type" data-tsd-kind="Class">Iterator</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <a href="iter_iter.iter.html" class="tsd-signature-type" data-tsd-kind="Class">Iter</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -725,7 +685,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/590ce9e/src/iter/Iterator.ts#L107">iter/Iterator.ts:107</a></li>
+									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/1469ab0/src/iter/Iter.ts#L105">iter/Iter.ts:105</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -748,7 +708,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/590ce9e/src/iter/Iterator.ts#L181">iter/Iterator.ts:181</a></li>
+									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/1469ab0/src/iter/Iter.ts#L179">iter/Iter.ts:179</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <a href="option_option.option.html" class="tsd-signature-type" data-tsd-kind="Class">Option</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -765,7 +725,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/590ce9e/src/iter/Iterator.ts#L49">iter/Iterator.ts:49</a></li>
+									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/1469ab0/src/iter/Iter.ts#L47">iter/Iter.ts:47</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -788,19 +748,19 @@
 					<a name="merge" class="tsd-anchor"></a>
 					<h3>merge</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">merge<span class="tsd-signature-symbol">(</span>iter<span class="tsd-signature-symbol">: </span><a href="../interfaces/iter_iiterator.iiterator.html" class="tsd-signature-type" data-tsd-kind="Interface">IIterator</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="iter_merge.merge.html" class="tsd-signature-type" data-tsd-kind="Class">Merge</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">merge<span class="tsd-signature-symbol">(</span>iter<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Iterator</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="iter_merge.merge.html" class="tsd-signature-type" data-tsd-kind="Class">Merge</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/590ce9e/src/iter/Iterator.ts#L53">iter/Iterator.ts:53</a></li>
+									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/1469ab0/src/iter/Iter.ts#L51">iter/Iter.ts:51</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>iter: <a href="../interfaces/iter_iiterator.iiterator.html" class="tsd-signature-type" data-tsd-kind="Interface">IIterator</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h5>
+									<h5>iter: <span class="tsd-signature-type">Iterator</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol">&gt;</span></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="iter_merge.merge.html" class="tsd-signature-type" data-tsd-kind="Class">Merge</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -811,17 +771,17 @@
 					<a name="next" class="tsd-anchor"></a>
 					<h3>next</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">next<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="option_option.option.html" class="tsd-signature-type" data-tsd-kind="Class">Option</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">next<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IteratorResult</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Implementation of <a href="../interfaces/iter_iiterator.iiterator.html">IIterator</a>.<a href="../interfaces/iter_iiterator.iiterator.html#next">next</a></p>
+								<p>Implementation of Iterator.next</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/590ce9e/src/iter/Iterator.ts#L23">iter/Iterator.ts:23</a></li>
+									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/1469ab0/src/iter/Iter.ts#L21">iter/Iter.ts:21</a></li>
 								</ul>
 							</aside>
-							<h4 class="tsd-returns-title">Returns <a href="option_option.option.html" class="tsd-signature-type" data-tsd-kind="Class">Option</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">IteratorResult</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -829,16 +789,16 @@
 					<a name="nextwithindex" class="tsd-anchor"></a>
 					<h3>next<wbr>With<wbr>Index</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">next<wbr>With<wbr>Index<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="option_option.option.html" class="tsd-signature-type" data-tsd-kind="Class">Option</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">next<wbr>With<wbr>Index<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IteratorResult</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/590ce9e/src/iter/Iterator.ts#L33">iter/Iterator.ts:33</a></li>
+									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/1469ab0/src/iter/Iter.ts#L25">iter/Iter.ts:25</a></li>
 								</ul>
 							</aside>
-							<h4 class="tsd-returns-title">Returns <a href="option_option.option.html" class="tsd-signature-type" data-tsd-kind="Class">Option</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">IteratorResult</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -852,7 +812,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/590ce9e/src/iter/Iterator.ts#L203">iter/Iterator.ts:203</a></li>
+									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/1469ab0/src/iter/Iter.ts#L201">iter/Iter.ts:201</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -896,7 +856,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/590ce9e/src/iter/Iterator.ts#L160">iter/Iterator.ts:160</a></li>
+									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/1469ab0/src/iter/Iter.ts#L158">iter/Iter.ts:158</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -919,7 +879,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/590ce9e/src/iter/Iterator.ts#L41">iter/Iterator.ts:41</a></li>
+									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/1469ab0/src/iter/Iter.ts#L39">iter/Iter.ts:39</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <a href="iter_peekable.peekable.html" class="tsd-signature-type" data-tsd-kind="Class">Peekable</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -936,7 +896,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/590ce9e/src/iter/Iterator.ts#L226">iter/Iterator.ts:226</a></li>
+									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/1469ab0/src/iter/Iter.ts#L224">iter/Iter.ts:224</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -986,16 +946,16 @@
 					<a name="reverse" class="tsd-anchor"></a>
 					<h3>reverse</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">reverse<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="iter_iterator.iterator.html" class="tsd-signature-type" data-tsd-kind="Class">Iterator</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">reverse<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="iter_iter.iter.html" class="tsd-signature-type" data-tsd-kind="Class">Iter</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/590ce9e/src/iter/Iterator.ts#L238">iter/Iterator.ts:238</a></li>
+									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/1469ab0/src/iter/Iter.ts#L236">iter/Iter.ts:236</a></li>
 								</ul>
 							</aside>
-							<h4 class="tsd-returns-title">Returns <a href="iter_iterator.iterator.html" class="tsd-signature-type" data-tsd-kind="Class">Iterator</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <a href="iter_iter.iter.html" class="tsd-signature-type" data-tsd-kind="Class">Iter</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -1009,7 +969,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/590ce9e/src/iter/Iterator.ts#L71">iter/Iterator.ts:71</a></li>
+									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/1469ab0/src/iter/Iter.ts#L69">iter/Iter.ts:69</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1032,7 +992,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/590ce9e/src/iter/Iterator.ts#L200">iter/Iterator.ts:200</a></li>
+									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/1469ab0/src/iter/Iter.ts#L198">iter/Iter.ts:198</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1076,7 +1036,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/590ce9e/src/iter/Iterator.ts#L67">iter/Iterator.ts:67</a></li>
+									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/1469ab0/src/iter/Iter.ts#L65">iter/Iter.ts:65</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1099,7 +1059,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/590ce9e/src/iter/Iterator.ts#L75">iter/Iterator.ts:75</a></li>
+									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/1469ab0/src/iter/Iter.ts#L73">iter/Iter.ts:73</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1122,7 +1082,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/590ce9e/src/iter/Iterator.ts#L100">iter/Iterator.ts:100</a></li>
+									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/1469ab0/src/iter/Iter.ts#L98">iter/Iter.ts:98</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span></h4>
@@ -1139,7 +1099,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/590ce9e/src/iter/Iterator.ts#L79">iter/Iterator.ts:79</a></li>
+									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/1469ab0/src/iter/Iter.ts#L77">iter/Iter.ts:77</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -1174,7 +1134,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/590ce9e/src/iter/Iterator.ts#L222">iter/Iterator.ts:222</a></li>
+									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/1469ab0/src/iter/Iter.ts#L220">iter/Iter.ts:220</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -1202,7 +1162,7 @@
 						<a href="../modules.html">Exports</a>
 					</li>
 					<li class="current tsd-kind-module">
-						<a href="../modules/iter_iterator.html">iter/<wbr>Iterator</a>
+						<a href="../modules/iter_iter.html">iter/<wbr>Iter</a>
 					</li>
 				</ul>
 			</nav>
@@ -1211,126 +1171,123 @@
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-class tsd-parent-kind-module tsd-has-type-parameter">
-						<a href="iter_iterator.iterator.html" class="tsd-kind-icon">Iterator</a>
+						<a href="iter_iter.iter.html" class="tsd-kind-icon">Iter</a>
 						<ul>
 							<li class=" tsd-kind-constructor tsd-parent-kind-class tsd-has-type-parameter">
-								<a href="iter_iterator.iterator.html#constructor" class="tsd-kind-icon">constructor</a>
+								<a href="iter_iter.iter.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-protected">
-								<a href="iter_iterator.iterator.html#_index" class="tsd-kind-icon">_index</a>
+								<a href="iter_iter.iter.html#_index" class="tsd-kind-icon">_index</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-protected">
-								<a href="iter_iterator.iterator.html#_iter" class="tsd-kind-icon">_iter</a>
+								<a href="iter_iter.iter.html#_iter" class="tsd-kind-icon">_iter</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="iter_iterator.iterator.html#_symbol_iterator_" class="tsd-kind-icon">[<wbr>Symbol.iterator]</a>
+								<a href="iter_iter.iter.html#_symbol_iterator_" class="tsd-kind-icon">[<wbr>Symbol.iterator]</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="iter_iterator.iterator.html#_iterator_" class="tsd-kind-icon">[iterator]</a>
+								<a href="iter_iter.iter.html#all" class="tsd-kind-icon">all</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="iter_iterator.iterator.html#all" class="tsd-kind-icon">all</a>
+								<a href="iter_iter.iter.html#any" class="tsd-kind-icon">any</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="iter_iterator.iterator.html#any" class="tsd-kind-icon">any</a>
+								<a href="iter_iter.iter.html#concat" class="tsd-kind-icon">concat</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="iter_iterator.iterator.html#concat" class="tsd-kind-icon">concat</a>
+								<a href="iter_iter.iter.html#consume" class="tsd-kind-icon">consume</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="iter_iterator.iterator.html#consume" class="tsd-kind-icon">consume</a>
+								<a href="iter_iter.iter.html#count" class="tsd-kind-icon">count</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="iter_iterator.iterator.html#count" class="tsd-kind-icon">count</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="iter_iterator.iterator.html#enumerate" class="tsd-kind-icon">enumerate</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="iter_iterator.iterator.html#equals" class="tsd-kind-icon">equals</a>
+								<a href="iter_iter.iter.html#enumerate" class="tsd-kind-icon">enumerate</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
-								<a href="iter_iterator.iterator.html#filter" class="tsd-kind-icon">filter</a>
+								<a href="iter_iter.iter.html#filter" class="tsd-kind-icon">filter</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="iter_iterator.iterator.html#find" class="tsd-kind-icon">find</a>
+								<a href="iter_iter.iter.html#find" class="tsd-kind-icon">find</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="iter_iterator.iterator.html#findall" class="tsd-kind-icon">find<wbr>All</a>
+								<a href="iter_iter.iter.html#findall" class="tsd-kind-icon">find<wbr>All</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="iter_iterator.iterator.html#findindex" class="tsd-kind-icon">find<wbr>Index</a>
+								<a href="iter_iter.iter.html#findindex" class="tsd-kind-icon">find<wbr>Index</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="iter_iterator.iterator.html#first" class="tsd-kind-icon">first</a>
+								<a href="iter_iter.iter.html#first" class="tsd-kind-icon">first</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="iter_iterator.iterator.html#foreach" class="tsd-kind-icon">for<wbr>Each</a>
+								<a href="iter_iter.iter.html#foreach" class="tsd-kind-icon">for<wbr>Each</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="iter_iterator.iterator.html#indexof" class="tsd-kind-icon">index<wbr>Of</a>
+								<a href="iter_iter.iter.html#indexof" class="tsd-kind-icon">index<wbr>Of</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="iter_iterator.iterator.html#iter" class="tsd-kind-icon">iter</a>
+								<a href="iter_iter.iter.html#iter" class="tsd-kind-icon">iter</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="iter_iterator.iterator.html#join" class="tsd-kind-icon">join</a>
+								<a href="iter_iter.iter.html#join" class="tsd-kind-icon">join</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="iter_iterator.iterator.html#last" class="tsd-kind-icon">last</a>
+								<a href="iter_iter.iter.html#last" class="tsd-kind-icon">last</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
-								<a href="iter_iterator.iterator.html#map" class="tsd-kind-icon">map</a>
+								<a href="iter_iter.iter.html#map" class="tsd-kind-icon">map</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="iter_iterator.iterator.html#merge" class="tsd-kind-icon">merge</a>
+								<a href="iter_iter.iter.html#merge" class="tsd-kind-icon">merge</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="iter_iterator.iterator.html#next" class="tsd-kind-icon">next</a>
+								<a href="iter_iter.iter.html#next" class="tsd-kind-icon">next</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="iter_iterator.iterator.html#nextwithindex" class="tsd-kind-icon">next<wbr>With<wbr>Index</a>
+								<a href="iter_iter.iter.html#nextwithindex" class="tsd-kind-icon">next<wbr>With<wbr>Index</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="iter_iterator.iterator.html#none" class="tsd-kind-icon">none</a>
+								<a href="iter_iter.iter.html#none" class="tsd-kind-icon">none</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="iter_iterator.iterator.html#nth" class="tsd-kind-icon">nth</a>
+								<a href="iter_iter.iter.html#nth" class="tsd-kind-icon">nth</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="iter_iterator.iterator.html#peekable" class="tsd-kind-icon">peekable</a>
+								<a href="iter_iter.iter.html#peekable" class="tsd-kind-icon">peekable</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
-								<a href="iter_iterator.iterator.html#reduce" class="tsd-kind-icon">reduce</a>
+								<a href="iter_iter.iter.html#reduce" class="tsd-kind-icon">reduce</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="iter_iterator.iterator.html#reverse" class="tsd-kind-icon">reverse</a>
+								<a href="iter_iter.iter.html#reverse" class="tsd-kind-icon">reverse</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="iter_iterator.iterator.html#skip" class="tsd-kind-icon">skip</a>
+								<a href="iter_iter.iter.html#skip" class="tsd-kind-icon">skip</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="iter_iterator.iterator.html#some" class="tsd-kind-icon">some</a>
+								<a href="iter_iter.iter.html#some" class="tsd-kind-icon">some</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="iter_iterator.iterator.html#step" class="tsd-kind-icon">step</a>
+								<a href="iter_iter.iter.html#step" class="tsd-kind-icon">step</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="iter_iterator.iterator.html#take" class="tsd-kind-icon">take</a>
+								<a href="iter_iter.iter.html#take" class="tsd-kind-icon">take</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="iter_iterator.iterator.html#toarray" class="tsd-kind-icon">to<wbr>Array</a>
+								<a href="iter_iter.iter.html#toarray" class="tsd-kind-icon">to<wbr>Array</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
-								<a href="iter_iterator.iterator.html#tomap" class="tsd-kind-icon">to<wbr>Map</a>
+								<a href="iter_iter.iter.html#tomap" class="tsd-kind-icon">to<wbr>Map</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
-								<a href="iter_iterator.iterator.html#unflatten" class="tsd-kind-icon">unflatten</a>
+								<a href="iter_iter.iter.html#unflatten" class="tsd-kind-icon">unflatten</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
+					<li class=" tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
+						<a href="../modules/iter_iter.html#iter-1" class="tsd-kind-icon">iter</a>
+					</li>
 				</ul>
 			</nav>
 		</div>
@@ -1341,7 +1298,6 @@
 		<h2>Legend</h2>
 		<div class="tsd-legend-group">
 			<ul class="tsd-legend">
-				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
 				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
 				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
 				<li class="tsd-kind-type-alias tsd-has-type-parameter"><span class="tsd-kind-icon">Type alias with type parameter</span></li>
@@ -1352,11 +1308,10 @@
 				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
 			</ul>
 			<ul class="tsd-legend">
-				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
-				<li class="tsd-kind-interface tsd-has-type-parameter"><span class="tsd-kind-icon">Interface with type parameter</span></li>
+				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
 			</ul>
 			<ul class="tsd-legend">
-				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
+				<li class="tsd-kind-interface tsd-has-type-parameter"><span class="tsd-kind-icon">Interface with type parameter</span></li>
 			</ul>
 			<ul class="tsd-legend">
 				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected property</span></li>
