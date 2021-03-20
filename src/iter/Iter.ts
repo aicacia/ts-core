@@ -1,37 +1,35 @@
-import { iterator, IIterator } from "./IIterator";
-
-export class Iterator<T> implements IIterator<T>, IEquals<Iterator<T>> {
-  protected _iter: IIterator<T>;
+export class Iter<T>
+  implements
+    Iterable<T>,
+    Iterator<T, undefined, undefined>,
+    IterableIterator<T> {
+  protected _iter: Iterator<T>;
   protected _index = 0;
 
-  constructor(iter: IIterator<T>) {
+  constructor(iter: Iterator<T>) {
     this._iter = iter;
   }
 
-  [iterator](): IIterator<T> {
+  [Symbol.iterator](): IterableIterator<T> {
     return this;
   }
 
-  [Symbol.iterator](): NativeIterator<T> {
-    return new NativeIterator(this);
-  }
-
-  iter(): Iterator<T> {
+  iter(): Iter<T> {
     return this;
   }
 
-  next(): Option<T> {
+  next(): IteratorResult<T, undefined> {
+    return this._iter.next();
+  }
+
+  nextWithIndex(): IteratorResult<[T, number], undefined> {
     const next = this._iter.next();
 
-    if (next.isSome()) {
-      this._index += 1;
+    if (next.done) {
+      return next;
+    } else {
+      return { value: [next.value, this._index++] };
     }
-
-    return next;
-  }
-
-  nextWithIndex(): Option<[T, number]> {
-    return this._iter.next().map((value) => [value, this._index++]);
   }
 
   enumerate(): Enumerate<T> {
@@ -50,11 +48,11 @@ export class Iterator<T> implements IIterator<T>, IEquals<Iterator<T>> {
     return new Map(this, fn);
   }
 
-  merge(iter: IIterator<T>): Merge<T> {
+  merge(iter: Iterator<T>): Merge<T> {
     return new Merge(this, iter);
   }
 
-  concat(iter: IIterator<T>): Merge<T> {
+  concat(iter: Iterator<T>): Merge<T> {
     return this.merge(iter);
   }
 
@@ -90,7 +88,7 @@ export class Iterator<T> implements IIterator<T>, IEquals<Iterator<T>> {
   consume() {
     let next = this.next();
 
-    while (next.isSome()) {
+    while (!next.done) {
       next = this.next();
     }
 
@@ -108,41 +106,41 @@ export class Iterator<T> implements IIterator<T>, IEquals<Iterator<T>> {
     return this.toArray().join(separator);
   }
 
-  indexOf(value: T): Option<number> {
+  indexOf(value: T): number {
     let next = this.next(),
       index = 0;
 
-    while (next.isSome()) {
-      if (next.unwrap() === value) {
-        return some(index);
+    while (!next.done) {
+      if (next.value === value) {
+        return index;
       }
       index++;
       next = this.next();
     }
 
-    return none();
+    return -1;
   }
 
-  findIndex(fn: (value: T, index: number) => boolean): Option<number> {
+  findIndex(fn: (value: T, index: number) => boolean): number {
     let next = this.nextWithIndex();
 
-    while (next.isSome()) {
-      const [value, index] = next.unwrap();
+    while (!next.done) {
+      const [value, index] = next.value;
 
       if (fn(value, index)) {
-        return some(index);
+        return index;
       }
       next = this.nextWithIndex();
     }
 
-    return none();
+    return -1;
   }
 
   find(fn: (value: T, index: number) => boolean): Option<T> {
     let next = this.nextWithIndex();
 
-    while (next.isSome()) {
-      const [value, index] = next.unwrap();
+    while (!next.done) {
+      const [value, index] = next.value;
 
       if (fn(value, index)) {
         return some(value);
@@ -164,9 +162,9 @@ export class Iterator<T> implements IIterator<T>, IEquals<Iterator<T>> {
       index = 0;
     }
 
-    while (next.isSome()) {
+    while (!next.done) {
       if (index-- <= 0) {
-        return next;
+        return some(next.value);
       }
       next = this.next();
     }
@@ -181,11 +179,11 @@ export class Iterator<T> implements IIterator<T>, IEquals<Iterator<T>> {
   last(): Option<T> {
     let current = this.next();
 
-    while (current.isSome()) {
+    while (!current.done) {
       const next = this.next();
 
-      if (next.isNone()) {
-        return current;
+      if (next.done) {
+        return some(current.value);
       } else {
         current = next;
       }
@@ -195,20 +193,20 @@ export class Iterator<T> implements IIterator<T>, IEquals<Iterator<T>> {
   }
 
   any(fn: (value: T, index: number) => boolean): boolean {
-    return this.findIndex(fn).isSome();
+    return this.findIndex(fn) !== -1;
   }
   some(fn: (value: T, index: number) => boolean): boolean {
     return this.any(fn);
   }
   none(fn: (value: T, index: number) => boolean): boolean {
-    return this.findIndex(fn).isNone();
+    return this.findIndex(fn) === -1;
   }
 
   all(fn: (value: T, index: number) => boolean): boolean {
     let next = this.nextWithIndex();
 
-    while (next.isSome()) {
-      const [value, index] = next.unwrap();
+    while (!next.done) {
+      const [value, index] = next.value;
 
       if (!fn(value, index)) {
         return false;
@@ -226,8 +224,8 @@ export class Iterator<T> implements IIterator<T>, IEquals<Iterator<T>> {
   reduce<C>(acc: C, fn: (acc: C, value: T, index: number) => C): C {
     let next = this.next();
 
-    while (next.isSome()) {
-      const value = next.unwrap();
+    while (!next.done) {
+      const value = next.value;
       acc = fn(acc, value, this._index - 1);
       next = this.next();
     }
@@ -238,32 +236,40 @@ export class Iterator<T> implements IIterator<T>, IEquals<Iterator<T>> {
   reverse() {
     return iter(this.toArray().reverse());
   }
+}
 
-  equals(other: Iterator<T>): boolean {
-    let aNext = this.next(),
-      bNext = other.next();
+export function iter<T>(
+  value: T[] | Iterator<T> | Iter<T> | Iterable<T>
+): Iter<T>;
+export function iter<O>(
+  value: O | Iterable<[keyof O, O[keyof O]]>
+): Iter<[keyof O, O[keyof O]]>;
 
-    while (aNext.isSome() && bNext.isSome()) {
-      if (!aNext.equals(bNext)) {
-        return false;
+export function iter(value: any): Iter<any> {
+  if (value != null) {
+    if (typeof value[Symbol.iterator] === "function") {
+      return new Iter(value[Symbol.iterator]());
+    } else if (typeof value.next === "function") {
+      if (value instanceof Iter) {
+        return value;
       } else {
-        aNext = this.next();
-        bNext = other.next();
+        return new Iter(value);
       }
+    } else if (typeof value === "object") {
+      return iter(Object.entries(value));
+    } else {
+      return iter([value]);
     }
-
-    return true;
+  } else {
+    return iter([] as any[]);
   }
 }
 
-import { IEquals } from "../equals/equals";
 import { none, Option, some } from "../option";
 import { Filter, IFilterBooleanFn, IFilterPredicateFn } from "./Filter";
 import { ForEach, IForEachFn } from "./ForEach";
-import { iter } from "./iter";
 import { IMapFn, Map } from "./Map";
 import { Merge } from "./Merge";
-import { NativeIterator } from "./NativeIterator";
 import { Skip } from "./Skip";
 import { Step } from "./Step";
 import { Take } from "./Take";

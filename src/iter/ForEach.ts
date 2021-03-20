@@ -1,13 +1,11 @@
-import { Option } from "../option";
-import { IIterator } from "./IIterator";
-import { Iterator } from "./Iterator";
+import { Iter } from "./Iter";
 
 export type IForEachFn<T> = (value: T, index: number) => void;
 
-export class ForEach<T> extends Iterator<T> {
+export class ForEach<T> extends Iter<T> {
   private _fn: (tuple: [value: T, index: number]) => T;
 
-  constructor(iter: IIterator<T>, fn: IForEachFn<T>) {
+  constructor(iter: Iterator<T>, fn: IForEachFn<T>) {
     super(iter);
     this._fn = ([value, index]) => {
       fn(value, index);
@@ -15,7 +13,13 @@ export class ForEach<T> extends Iterator<T> {
     };
   }
 
-  next(): Option<T> {
-    return super.nextWithIndex().map(this._fn);
+  next(): IteratorResult<T, undefined> {
+    const next = super.nextWithIndex();
+
+    if (next.done) {
+      return next;
+    } else {
+      return { done: false, value: this._fn(next.value) };
+    }
   }
 }

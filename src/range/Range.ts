@@ -1,12 +1,11 @@
-import { IIterator, Iterator } from "../iter";
-import { none, Option, some } from "../option";
+import { Iter } from "../iter";
 
 export enum RangeDirection {
   Forward,
   Backward,
 }
 
-export class Range implements IIterator<number> {
+export class Range implements Iterator<number>, Iterable<number> {
   static from(start: number, end: number) {
     return new Range(start, end);
   }
@@ -44,18 +43,22 @@ export class Range implements IIterator<number> {
     }
   }
 
-  iter() {
-    return new Iterator(this);
+  iter(): Iter<number> {
+    return new Iter(this);
   }
 
-  next(): Option<number> {
+  [Symbol.iterator]() {
+    return this;
+  }
+
+  next(): IteratorResult<number> {
     if (this.isEmpty()) {
-      return none();
+      return { done: true, value: undefined };
     } else {
       if (this.direction === RangeDirection.Forward) {
-        return some(this.start++);
+        return { done: false, value: this.start++ };
       } else {
-        return some(this.start--);
+        return { done: false, value: this.start-- };
       }
     }
   }

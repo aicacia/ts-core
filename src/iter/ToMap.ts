@@ -1,23 +1,21 @@
-import { Option } from "../option";
-import { IIterator } from "./IIterator";
-import { Iterator } from "./Iterator";
+import { Iter } from "./Iter";
 
 export type IToMapFn<A, B> = (value: A, index: number) => B;
 
 export const defaultKeyFn = <A, B>(key: A): B => key as any;
 export const defaultValueFn = <A, B>(value: A): B => value as any;
 
-export class ToMap<T, K extends string | number | symbol, V> extends Iterator<
+export class ToMap<T, K extends string | number | symbol, V> extends Iter<
   [K, V]
 > {
   private _map: (tuple: [value: any, index: number]) => [K, V];
 
   constructor(
-    iter: IIterator<T>,
+    iter: Iterator<T>,
     keyFn: IToMapFn<T, K>,
     valueFn: IToMapFn<T, V>
   ) {
-    super((iter as any) as IIterator<[K, V]>);
+    super((iter as any) as Iterator<[K, V]>);
     this._map = ([value, index]) =>
       [keyFn(value, index), valueFn(value, index)] as [K, V];
   }
@@ -29,7 +27,13 @@ export class ToMap<T, K extends string | number | symbol, V> extends Iterator<
     });
   }
 
-  next(): Option<[K, V]> {
-    return super.nextWithIndex().map(this._map);
+  next(): IteratorResult<[K, V], undefined> {
+    const next = super.nextWithIndex();
+
+    if (next.done) {
+      return next as any;
+    } else {
+      return { done: false, value: this._map(next.value) };
+    }
   }
 }

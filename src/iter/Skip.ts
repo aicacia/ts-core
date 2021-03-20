@@ -1,21 +1,19 @@
-import { none, Option } from "../option";
-import { IIterator } from "./IIterator";
-import { Iterator } from "./Iterator";
+import { Iter } from "./Iter";
 
-export class Skip<T> extends Iterator<T> {
+export class Skip<T> extends Iter<T> {
   private _skipped: number;
   private _skip: number;
 
-  constructor(iter: IIterator<T>, skip: number) {
+  constructor(iter: Iterator<T>, skip: number) {
     super(iter);
     this._skipped = 0;
     this._skip = (skip <= 0 ? 0 : skip) | 0;
   }
 
-  next(): Option<T> {
+  next(): IteratorResult<T, undefined> {
     let result = super.next();
 
-    while (result.isSome()) {
+    while (!result.done) {
       if (this._skipped <= this._skip) {
         this._skipped += 1;
         result = super.next();
@@ -24,6 +22,6 @@ export class Skip<T> extends Iterator<T> {
       }
     }
 
-    return none();
+    return { done: true, value: undefined };
   }
 }

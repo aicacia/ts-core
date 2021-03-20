@@ -1,7 +1,5 @@
 import * as tape from "tape";
-import { none, Option, some } from "../option";
-import { IIterator, iterator } from "./IIterator";
-import { iter } from "./iter";
+import { iter } from "./Iter";
 
 tape("skip", (assert: tape.Test) => {
   assert.deepEqual(iter([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]).step(2).toArray(), [
@@ -13,7 +11,7 @@ tape("skip", (assert: tape.Test) => {
 });
 
 tape("custom iter", (assert: tape.Test) => {
-  class CustomIter<T> implements IIterator<T> {
+  class CustomIter<T> implements Iterator<T> {
     private index = 0;
     private array: T[];
 
@@ -21,15 +19,15 @@ tape("custom iter", (assert: tape.Test) => {
       this.array = array;
     }
 
-    [iterator]() {
+    [Symbol.iterator]() {
       return this;
     }
 
-    next(): Option<T> {
+    next(): IteratorResult<T, undefined> {
       if (this.index < this.array.length) {
-        return some(this.array[this.index++]);
+        return { done: false, value: this.array[this.index++] };
       } else {
-        return none();
+        return { done: true, value: undefined };
       }
     }
   }
@@ -133,11 +131,11 @@ tape("peekable", (assert: tape.Test) => {
   const peekable = iter(["a", "b", "c"]).peekable();
 
   assert.equal(peekable.peek().unwrap(), "a");
-  assert.equal(peekable.next().unwrap(), "a");
-  assert.equal(peekable.next().unwrap(), "b");
+  assert.equal(peekable.next().value, "a");
+  assert.equal(peekable.next().value, "b");
   assert.equal(peekable.peek().unwrap(), "c");
   assert.true(peekable.peek(1).isNone());
-  assert.equal(peekable.next().unwrap(), "c");
+  assert.equal(peekable.next().value, "c");
 
   assert.end();
 });
@@ -152,7 +150,7 @@ tape("peekable unpeek", (assert: tape.Test) => {
   assert.equal(peekable.unpeek().unwrap(), "b");
   assert.equal(peekable.unpeek().unwrap(), "c");
   assert.true(peekable.unpeek().isNone());
-  assert.true(peekable.next().isNone());
+  assert.true(peekable.next().done);
 
   assert.end();
 });
@@ -262,9 +260,21 @@ tape("consume", (assert: tape.Test) => {
 
 tape("unflatten", (assert: tape.Test) => {
   const array = iter([0, 0, 1, 1, 2, 2])
-    .unflatten((iter) =>
-      iter.next().flatMap((a) => iter.next().map((b) => [a, b]))
-    )
+    .unflatten((iter) => {
+      const next = iter.next();
+
+      if (next.done) {
+        return next;
+      } else {
+        const nextNext = iter.next();
+
+        if (nextNext.done) {
+          return nextNext;
+        } else {
+          return { done: false, value: [next.value, nextNext.value] };
+        }
+      }
+    })
     .toArray();
 
   assert.deepEqual(array, [
@@ -277,12 +287,6 @@ tape("unflatten", (assert: tape.Test) => {
 
 tape("reverse", (assert: tape.Test) => {
   assert.deepEqual(iter([1, 2, 3]).reverse().toArray(), [3, 2, 1]);
-  assert.end();
-});
-
-tape("equals", (assert: tape.Test) => {
-  assert.true(iter([1, 2, 3]).equals(iter([1, 2, 3])));
-  assert.false(iter([1, 2, 3]).equals(iter([2, 3, 4])));
   assert.end();
 });
 

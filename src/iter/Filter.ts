@@ -1,6 +1,4 @@
-import { none, Option, some } from "../option";
-import { IIterator } from "./IIterator";
-import { Iterator } from "./Iterator";
+import { Iter } from "./Iter";
 
 export type IFilterPredicateFn<T, S extends T> = (
   value: T,
@@ -8,29 +6,29 @@ export type IFilterPredicateFn<T, S extends T> = (
 ) => value is S;
 export type IFilterBooleanFn<T> = (value: T, index: number) => boolean;
 
-export class Filter<T, S extends T> extends Iterator<S> {
+export class Filter<T, S extends T> extends Iter<S> {
   private _fn: IFilterBooleanFn<T> | IFilterPredicateFn<T, S>;
 
   constructor(
-    iter: IIterator<T>,
+    iter: Iterator<T>,
     fn: IFilterBooleanFn<T> | IFilterPredicateFn<T, S>
   ) {
-    super(iter as IIterator<S>);
+    super(iter as any);
     this._fn = fn;
   }
 
-  next(): Option<S> {
+  next(): IteratorResult<S, undefined> {
     let result = super.nextWithIndex();
 
-    while (result.isSome()) {
-      const [value, index] = result.unwrap();
+    while (!result.done) {
+      const [value, index] = result.value;
 
       if (this._fn(value, index)) {
-        return some(value);
+        return { done: false, value };
       }
       result = super.nextWithIndex();
     }
 
-    return none();
+    return { done: true, value: undefined };
   }
 }

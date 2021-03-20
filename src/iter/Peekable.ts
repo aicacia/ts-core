@@ -1,7 +1,7 @@
 import { Option, some, none } from "../option";
-import { Iterator } from "./Iterator";
+import { Iter } from "./Iter";
 
-export class Peekable<T> extends Iterator<T> {
+export class Peekable<T> extends Iter<T> {
   private peeked: T[] = [];
 
   unpeekAll() {
@@ -24,8 +24,8 @@ export class Peekable<T> extends Iterator<T> {
       let index = this.peeked.length - offset - 1,
         next = super.next();
 
-      while (next.isSome()) {
-        this.peeked.push(next.unwrap());
+      while (!next.done) {
+        this.peeked.push(next.value);
 
         if (--index <= 0) {
           break;
@@ -34,11 +34,27 @@ export class Peekable<T> extends Iterator<T> {
         }
       }
 
-      return next;
+      if (next.done) {
+        return none();
+      } else {
+        return some(next.value);
+      }
     }
   }
 
-  next(): Option<T> {
-    return this.unpeek().orElse(() => super.next());
+  next(): IteratorResult<T, undefined> {
+    const peeked = this.unpeek();
+
+    if (peeked.isSome()) {
+      return { done: false, value: peeked.unwrap() };
+    }
+
+    const next = super.next();
+
+    if (next.done) {
+      return next as any;
+    } else {
+      return { done: false, value: next.value };
+    }
   }
 }

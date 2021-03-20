@@ -1,21 +1,19 @@
-import { none, Option } from "../option";
-import { IIterator } from "./IIterator";
-import { Iterator } from "./Iterator";
+import { Iter } from "./Iter";
 
-export class Step<T> extends Iterator<T> {
+export class Step<T> extends Iter<T> {
   private _stepped: number;
   private _step: number;
 
-  constructor(iter: IIterator<T>, step: number) {
+  constructor(iter: Iterator<T>, step: number) {
     super(iter);
     this._stepped = 0;
     this._step = step <= 0 ? 1 : step | 0;
   }
 
-  next(): Option<T> {
+  next(): IteratorResult<T, undefined> {
     let result = super.next();
 
-    while (result.isSome()) {
+    while (!result.done) {
       if (this._stepped < this._step) {
         this._stepped += 1;
         result = super.next();
@@ -25,6 +23,6 @@ export class Step<T> extends Iterator<T> {
       }
     }
 
-    return none();
+    return { done: true, value: undefined };
   }
 }

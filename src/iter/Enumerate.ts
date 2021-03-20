@@ -1,14 +1,21 @@
-import { Option } from "../option";
-import { IIterator } from "./IIterator";
-import { Iterator } from "./Iterator";
+import { Iter } from "./Iter";
 
-export class Enumerate<T> extends Iterator<[number, T]> {
-  constructor(iter: IIterator<T>) {
+export class Enumerate<T> extends Iter<[number, T]> {
+  constructor(iter: Iterator<T>) {
     super(iter as any);
   }
 
-  next(): Option<[number, T]> {
-    return ((super.nextWithIndex() as any) as Option<[T, number]>).map(swap);
+  next(): IteratorResult<[number, T], undefined> {
+    const next: IteratorResult<
+      [T, number],
+      undefined
+    > = super.nextWithIndex() as any;
+
+    if (next.done) {
+      return next as any;
+    } else {
+      return { value: swap(next.value) };
+    }
   }
 }
 

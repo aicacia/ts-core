@@ -1,18 +1,20 @@
-import { Option } from "../option";
-import { IIterator } from "./IIterator";
-import { Iterator } from "./Iterator";
+import { Iter } from "./Iter";
 
-export class Merge<T> extends Iterator<T> {
-  private _other: IIterator<T>;
+export class Merge<T> extends Iter<T> {
+  private _other: Iterator<T>;
 
-  constructor(iter: IIterator<T>, other: IIterator<T>) {
+  constructor(iter: Iterator<T>, other: Iterator<T>) {
     super(iter);
     this._other = other;
   }
 
-  next(): Option<T> {
-    return super.next().orElse(this.onOtherNext);
-  }
+  next(): IteratorResult<T, undefined> {
+    const next = super.next();
 
-  private onOtherNext = () => this._other.next();
+    if (next.done) {
+      return this._other.next();
+    } else {
+      return next;
+    }
+  }
 }
