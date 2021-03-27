@@ -212,15 +212,19 @@ export class Result<T, E = Error> {
     }
   }
 
-  ifOk(fn: (ok: T) => void): Result<T, E> {
+  ifOk(fn: (ok: T) => void, errFn?: (err: E) => void): Result<T, E> {
     if (this.isOk()) {
       fn(this._ok);
+    } else if (errFn) {
+      errFn(this._err);
     }
     return this;
   }
-  ifErr(fn: (err: E) => void): Result<T, E> {
+  ifErr(fn: (err: E) => void, okFn?: (ok: T) => void): Result<T, E> {
     if (this.isErr()) {
       fn(this._err);
+    } else if (okFn) {
+      okFn(this._ok);
     }
     return this;
   }

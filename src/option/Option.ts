@@ -216,15 +216,19 @@ export class Option<T> {
     }
   }
 
-  ifSome(fn: (value: T) => void): Option<T> {
+  ifSome(fn: (value: T) => void, elseFn?: () => void): Option<T> {
     if (this.isSome()) {
       fn(this._value);
+    } else if (elseFn) {
+      elseFn();
     }
     return this;
   }
-  ifNone(fn: () => void): Option<T> {
+  ifNone(fn: () => void, elseFn?: (value: T) => void): Option<T> {
     if (this.isNone()) {
       fn();
+    } else if (elseFn) {
+      elseFn(this._value);
     }
     return this;
   }
