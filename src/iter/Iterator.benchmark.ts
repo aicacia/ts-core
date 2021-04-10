@@ -1,32 +1,41 @@
 import * as tape from "tape";
 import { Suite, Event } from "benchmark";
-import { iter } from ".";
+import { range } from "../range";
+
+function addAicaciaBench(suite: Suite, size: number) {
+  const iter = range(0, size).iter();
+
+  suite.add(`Aicacia: Array(${size})`, () => {
+    let acc = 0;
+    for (const x of iter.filter((x) => x % 2 === 0).map((x) => x * x)) {
+      acc += x;
+    }
+    return acc;
+  });
+}
+
+function addNativeBench(suite: Suite, size: number) {
+  const array = range(0, size).iter().toArray();
+  suite.add(`Native: Array(${size})`, () => {
+    let acc = 0;
+    for (const x of array.filter((x) => x % 2 === 0).map((x) => x * x)) {
+      acc += x;
+    }
+    return acc;
+  });
+}
 
 tape("for of loop", (assert: tape.Test) => {
-  new Suite()
-    .add("aicacia", () => {
-      let acc = 0;
-      for (const x of iter([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
-        .filter((x) => x % 2 === 0)
-        .map((x) => x * x)) {
-        acc += x;
-      }
-      return acc;
-    })
-    .add("native", () => {
-      let acc = 0;
-      for (const x of [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
-        .filter((x) => x % 2 === 0)
-        .map((x) => x * x)) {
-        acc += x;
-      }
-      return acc;
-    })
+  const suite = new Suite()
     .on("cycle", function (this: Suite, event: Event) {
       console.log(String(event.target));
     })
-    .on("complete", function () {
-      assert.end();
-    })
-    .run({ async: true });
+    .on("complete", () => assert.end());
+
+  for (let i = 1; i <= 4; i++) {
+    addAicaciaBench(suite, 1024 * i * i * i);
+    addNativeBench(suite, 1024 * i * i * i);
+  }
+
+  suite.run({ async: false });
 });
