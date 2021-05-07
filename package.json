@@ -1,6 +1,6 @@
 {
   "name": "@aicacia/core",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "aicacia core utils",
   "repository": {
     "type": "git",
@@ -18,7 +18,7 @@
     "clean": "rm -rf ./lib",
     "lint": "eslint . --fix",
     "prettier": "prettier --ignore-path ./.eslintignore --ignore-unknown --write .",
-    "preCommit": "npm run prettier && npm run lint && npm run coverage"
+    "preCommit": "npm run prettier && npm run lint && npm run coverage && npm run prepublishOnly"
   },
   "husky": {
     "hooks": {
