@@ -15,7 +15,7 @@ export class ToMap<T, K extends string | number | symbol, V> extends Iter<
     keyFn: IToMapFn<T, K>,
     valueFn: IToMapFn<T, V>
   ) {
-    super((iter as any) as Iterator<[K, V]>);
+    super(iter as any as Iterator<[K, V]>);
     this._map = ([value, index]) =>
       [keyFn(value, index), valueFn(value, index)] as [K, V];
   }

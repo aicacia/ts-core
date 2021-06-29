@@ -2,7 +2,8 @@ export class Iter<T>
   implements
     Iterable<T>,
     Iterator<T, undefined, undefined>,
-    IterableIterator<T> {
+    IterableIterator<T>
+{
   protected _iter: Iterator<T>;
   protected _index = 0;
 

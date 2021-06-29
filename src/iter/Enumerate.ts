@@ -6,10 +6,8 @@ export class Enumerate<T> extends Iter<[number, T]> {
   }
 
   next(): IteratorResult<[number, T], undefined> {
-    const next: IteratorResult<
-      [T, number],
-      undefined
-    > = super.nextWithIndex() as any;
+    const next: IteratorResult<[T, number], undefined> =
+      super.nextWithIndex() as any;
 
     if (next.done) {
       return next as any;

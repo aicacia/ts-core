@@ -6,7 +6,7 @@ export class Map<A, B> extends Iter<B> {
   private _fn: (tuple: [value: A, index: number]) => B;
 
   constructor(iter: Iterator<A>, fn: IMapFn<A, B>) {
-    super((iter as any) as Iterator<B>);
+    super(iter as any as Iterator<B>);
     this._fn = ([value, index]) => fn(value, index);
   }
 
