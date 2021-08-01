@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>hash/smi | @aicacia/core</title>
+	<title>option/Option | @aicacia/core</title>
 	<meta name="description" content="Documentation for @aicacia/core">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -53,10 +53,10 @@
 					<a href="../modules.html">@aicacia/core</a>
 				</li>
 				<li>
-					<a href="hash_smi.html">hash/smi</a>
+					<a href="option_Option.html">option/Option</a>
 				</li>
 			</ul>
-			<h1>Module hash/smi</h1>
+			<h1>Module option/Option</h1>
 		</div>
 	</div>
 </header>
@@ -68,9 +68,16 @@
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
 						<section class="tsd-index-section ">
+							<h3>Classes</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-class tsd-parent-kind-module tsd-has-type-parameter"><a href="../classes/option_Option.Option.html" class="tsd-kind-icon">Option</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
 							<h3>Functions</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-function tsd-parent-kind-module"><a href="hash_smi.html#smi" class="tsd-kind-icon">smi</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter"><a href="option_Option.html#none" class="tsd-kind-icon">none</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter"><a href="option_Option.html#some" class="tsd-kind-icon">some</a></li>
 							</ul>
 						</section>
 					</div>
@@ -78,26 +85,55 @@
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Functions</h2>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
-					<a name="smi" class="tsd-anchor"></a>
-					<h3>smi</h3>
-					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">smi<span class="tsd-signature-symbol">(</span>i32<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
+					<a name="none" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> none</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
+						<li class="tsd-signature tsd-kind-icon">none&lt;T&gt;<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../classes/option_Option.Option.html" class="tsd-signature-type" data-tsd-kind="Class">Option</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/9d9770b/src/hash/smi.ts#L5">hash/smi.ts:5</a></li>
+									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/9d9770b/src/option/Option.ts#L249">option/Option.ts:249</a></li>
 								</ul>
 							</aside>
+							<h4 class="tsd-type-parameters-title">Type parameters</h4>
+							<ul class="tsd-type-parameters">
+								<li>
+									<h4>T</h4>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="../classes/option_Option.Option.html" class="tsd-signature-type" data-tsd-kind="Class">Option</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
+					<a name="some" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> some</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
+						<li class="tsd-signature tsd-kind-icon">some&lt;T&gt;<span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../classes/option_Option.Option.html" class="tsd-signature-type" data-tsd-kind="Class">Option</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/9d9770b/src/option/Option.ts#L247">option/Option.ts:247</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-type-parameters-title">Type parameters</h4>
+							<ul class="tsd-type-parameters">
+								<li>
+									<h4>T</h4>
+								</li>
+							</ul>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>i32: <span class="tsd-signature-type">number</span></h5>
+									<h5>value: <span class="tsd-signature-type">T</span></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
+							<h4 class="tsd-returns-title">Returns <a href="../classes/option_Option.Option.html" class="tsd-signature-type" data-tsd-kind="Class">Option</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -110,14 +146,20 @@
 						<a href="../modules.html">Modules</a>
 					</li>
 					<li class="current tsd-kind-module">
-						<a href="hash_smi.html">hash/smi</a>
+						<a href="option_Option.html">option/<wbr>Option</a>
 					</li>
 				</ul>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
-					<li class=" tsd-kind-function tsd-parent-kind-module">
-						<a href="hash_smi.html#smi" class="tsd-kind-icon">smi</a>
+					<li class=" tsd-kind-class tsd-parent-kind-module tsd-has-type-parameter">
+						<a href="../classes/option_Option.Option.html" class="tsd-kind-icon">Option</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
+						<a href="option_Option.html#none" class="tsd-kind-icon">none</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
+						<a href="option_Option.html#some" class="tsd-kind-icon">some</a>
 					</li>
 				</ul>
 			</nav>
