@@ -1,7 +1,7 @@
+import { integerToBytes } from "./integerToBytes";
+
 const BYTE_ARRAY = new Uint8Array(1),
   INTEGER_ARRAY = new Uint8Array(4);
-
-import { integerToBytes } from "./integerToBytes";
 
 export abstract class Hasher {
   abstract finish(): number;

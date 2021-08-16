@@ -23,3 +23,7 @@ export class ForEach<T> extends Iter<T> {
     }
   }
 }
+
+Iter.prototype.forEach = function forEach(fn: any) {
+  return new ForEach(this, fn);
+};

@@ -2,8 +2,8 @@ import { Iter } from "./Iter";
 
 export type IToMapFn<A, B> = (value: A, index: number) => B;
 
-export const defaultKeyFn = <A, B>(key: A): B => key as any;
-export const defaultValueFn = <A, B>(value: A): B => value as any;
+const defaultKeyFn = <A, B>(key: A): B => key as any;
+const defaultValueFn = <A, B>(value: A): B => value as any;
 
 export class ToMap<T, K extends string | number | symbol, V> extends Iter<
   [K, V]
@@ -12,8 +12,8 @@ export class ToMap<T, K extends string | number | symbol, V> extends Iter<
 
   constructor(
     iter: Iterator<T>,
-    keyFn: IToMapFn<T, K>,
-    valueFn: IToMapFn<T, V>
+    keyFn: IToMapFn<T, K> = defaultKeyFn,
+    valueFn: IToMapFn<T, V> = defaultValueFn
   ) {
     super(iter as any as Iterator<[K, V]>);
     this._map = ([value, index]) =>
@@ -37,3 +37,7 @@ export class ToMap<T, K extends string | number | symbol, V> extends Iter<
     }
   }
 }
+
+Iter.prototype.toMap = function toMap(keyFn: any, valueFn: any) {
+  return new ToMap(this, keyFn, valueFn);
+};

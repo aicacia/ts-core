@@ -24,7 +24,8 @@ export {
 } from "./iter";
 export { some, none, Option } from "./option";
 export { range, rangeFrom, Range, RangeFrom, RangeDirection } from "./range";
-export { ok, err, Result, IResultOk, IResultErr } from "./result";
-export { IConstructor } from "./IConstructor";
+export type { IResultOk, IResultErr } from "./result";
+export { ok, err, Result } from "./result";
+export type { IConstructor } from "./IConstructor";
 export { toJS } from "./toJS";
 export { toJSON } from "./toJSON";

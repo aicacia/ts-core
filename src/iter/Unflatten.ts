@@ -14,3 +14,7 @@ export class Unflatten<T, U> extends Iter<U> {
     return this._fn(this._iter as any);
   }
 }
+
+Iter.prototype.unflatten = function unflatten(fn: any) {
+  return new Unflatten(this, fn);
+};

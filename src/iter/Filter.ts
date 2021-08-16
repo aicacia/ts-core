@@ -32,3 +32,7 @@ export class Filter<T, S extends T> extends Iter<S> {
     return { done: true, value: undefined };
   }
 }
+
+Iter.prototype.filter = function filter(fn: any): any {
+  return new Filter(this, fn);
+};

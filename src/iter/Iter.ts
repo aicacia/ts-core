@@ -1,3 +1,17 @@
+import type { Option } from "../option";
+import type { Filter, IFilterBooleanFn, IFilterPredicateFn } from "./Filter";
+import type { ForEach, IForEachFn } from "./ForEach";
+import type { IMapFn, Map } from "./Map";
+import type { Merge } from "./Merge";
+import type { Skip } from "./Skip";
+import type { Step } from "./Step";
+import type { Take } from "./Take";
+import type { IToMapFn, ToMap } from "./ToMap";
+import type { Unflatten, UnflattenFn } from "./Unflatten";
+import type { Enumerate } from "./Enumerate";
+import type { Peekable } from "./Peekable";
+import { none, some } from "../option";
+
 export class Iter<T>
   implements
     Iterable<T>,
@@ -33,24 +47,29 @@ export class Iter<T>
     }
   }
 
-  enumerate(): Enumerate<T> {
-    return new Enumerate(this);
+  enumerate(): Enumerate<T>;
+  enumerate(): any {
+    return undefined;
   }
 
-  peekable(): Peekable<T> {
-    return new Peekable(this);
+  peekable(): Peekable<T>;
+  peekable(): any {
+    return undefined;
   }
 
-  forEach(fn: IForEachFn<T>): ForEach<T> {
-    return new ForEach(this, fn);
+  forEach(fn: IForEachFn<T>): ForEach<T>;
+  forEach(_fn: any): any {
+    return undefined;
   }
 
-  map<B>(fn: IMapFn<T, B>): Map<T, B> {
-    return new Map(this, fn);
+  map<B>(fn: IMapFn<T, B>): Map<T, B>;
+  map(_fn: any): any {
+    return undefined;
   }
 
-  merge(iter: Iterator<T>): Merge<T> {
-    return new Merge(this, iter);
+  merge(iter: Iterator<T>): Merge<T>;
+  merge(_iter: any): any {
+    return undefined;
   }
 
   concat(iter: Iterator<T>): Merge<T> {
@@ -59,27 +78,31 @@ export class Iter<T>
 
   filter<S extends T>(fn: IFilterPredicateFn<T, S>): Filter<T, S>;
   filter(fn: IFilterBooleanFn<T>): Filter<T, T>;
-  filter(fn: any): any {
-    return new Filter(this, fn);
+  filter(_fn: any): any {
+    return undefined;
   }
 
-  step(step: number): Step<T> {
-    return new Step(this, step);
+  step(step: number): Step<T>;
+  step(_step: any): any {
+    return undefined;
   }
 
-  skip(skip: number): Skip<T> {
-    return new Skip(this, skip);
+  skip(skip: number): Skip<T>;
+  skip(_skip: any): any {
+    return undefined;
   }
 
-  take(count: number): Take<T> {
-    return new Take(this, count);
+  take(count: number): Take<T>;
+  take(_count: any): any {
+    return undefined;
   }
 
   toMap<K extends string | number | symbol, V>(
-    keyFn: IToMapFn<T, K> = defaultKeyFn,
-    valueFn: IToMapFn<T, V> = defaultValueFn
-  ): ToMap<T, K, V> {
-    return new ToMap(this, keyFn, valueFn);
+    keyFn?: IToMapFn<T, K>,
+    valueFn?: IToMapFn<T, V>
+  ): ToMap<T, K, V>;
+  toMap(_keyFn: any, _valueFn: any): any {
+    return undefined;
   }
 
   count() {
@@ -218,8 +241,9 @@ export class Iter<T>
     return true;
   }
 
-  unflatten<U>(fn: UnflattenFn<T, U>) {
-    return new Unflatten(this, fn);
+  unflatten<U>(fn: UnflattenFn<T, U>): Unflatten<T, U>;
+  unflatten(_fn: any): any {
+    return undefined;
   }
 
   reduce<C>(acc: C, fn: (acc: C, value: T, index: number) => C): C {
@@ -265,16 +289,3 @@ export function iter(value: any): Iter<any> {
     return iter([] as any[]);
   }
 }
-
-import { none, Option, some } from "../option";
-import { Filter, IFilterBooleanFn, IFilterPredicateFn } from "./Filter";
-import { ForEach, IForEachFn } from "./ForEach";
-import { IMapFn, Map } from "./Map";
-import { Merge } from "./Merge";
-import { Skip } from "./Skip";
-import { Step } from "./Step";
-import { Take } from "./Take";
-import { defaultKeyFn, defaultValueFn, IToMapFn, ToMap } from "./ToMap";
-import { Unflatten, UnflattenFn } from "./Unflatten";
-import { Enumerate } from "./Enumerate";
-import { Peekable } from "./Peekable";

@@ -18,3 +18,7 @@ export class Merge<T> extends Iter<T> {
     }
   }
 }
+
+Iter.prototype.merge = function merge(other: any) {
+  return new Merge(this, other);
+};

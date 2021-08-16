@@ -1,1 +1,2 @@
-export { Result, ok, err, IResultOk, IResultErr } from "./Result";
+export type { IResultOk, IResultErr } from "./Result";
+export { Result, ok, err } from "./Result";

@@ -19,3 +19,7 @@ export class Take<T> extends Iter<T> {
     }
   }
 }
+
+Iter.prototype.take = function take(count: any) {
+  return new Take(this, count);
+};

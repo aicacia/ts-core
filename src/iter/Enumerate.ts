@@ -17,6 +17,10 @@ export class Enumerate<T> extends Iter<[number, T]> {
   }
 }
 
+Iter.prototype.enumerate = function enumerate() {
+  return new Enumerate(this);
+};
+
 function swap<A, B>(array: [A, B]): [B, A] {
   const tmp = array[0],
     newArray: [B, A] = array as any;

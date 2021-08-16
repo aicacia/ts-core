@@ -98,11 +98,11 @@ tape("Result", (assert: tape.Test) => {
     ok(1)
   );
 
-  assert.deepEqual(ok(1).ok(), some(1));
-  assert.deepEqual(ok(1).err(), none());
-
-  assert.deepEqual(err(ERROR).ok(), none());
-  assert.deepEqual(err(ERROR).err(), some(ERROR));
+  assert.deepEqual(Result.fromOption(some(1)), ok(1));
+  assert.deepEqual(
+    Result.fromOption(none()),
+    err(new Error("Tried to create Result from none Option"))
+  );
 
   assert.deepEqual(err(ERROR).unwrapErr(), ERROR);
 

@@ -25,3 +25,7 @@ export class Skip<T> extends Iter<T> {
     return { done: true, value: undefined };
   }
 }
+
+Iter.prototype.skip = function skip(skip: any) {
+  return new Skip(this, skip);
+};

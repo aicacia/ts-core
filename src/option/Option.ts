@@ -1,5 +1,9 @@
+import type { Result } from "../result";
+import { toJS } from "../toJS";
+import { toJSON } from "../toJSON";
+
 const CREATE_SECRET = {},
-  NONE_SECRET = {};
+  NULL_SECRET = {};
 
 export class Option<T> {
   static some<T>(value: T): Option<T> {
@@ -12,6 +16,13 @@ export class Option<T> {
   static from<T>(value?: T | null): Option<T> {
     if (value != null) {
       return some(value);
+    } else {
+      return none();
+    }
+  }
+  static fromResult<T, E = Error>(result: Result<T, E>): Option<T> {
+    if (result.isOk()) {
+      return some(result.unwrap());
     } else {
       return none();
     }
@@ -29,7 +40,7 @@ export class Option<T> {
   }
 
   isNone(): boolean {
-    return this._value === NONE_SECRET;
+    return this._value === NULL_SECRET;
   }
 
   isSome(): boolean {
@@ -178,7 +189,7 @@ export class Option<T> {
   take(): Option<T> {
     if (this.isSome()) {
       const value = this._value;
-      this._value = NONE_SECRET as any;
+      this._value = NULL_SECRET as any;
       return some(value);
     } else {
       return none();
@@ -197,22 +208,15 @@ export class Option<T> {
     return this;
   }
   clear(): Option<T> {
-    this._value = NONE_SECRET as any;
+    this._value = NULL_SECRET as any;
     return this;
   }
 
-  okOr<E>(error: E): Result<T, E> {
-    if (this.isSome()) {
-      return ok(this._value);
+  fromResult<T, E>(result: Result<T, E>): Option<T> {
+    if (result.isOk()) {
+      return some(result.unwrap());
     } else {
-      return err(error);
-    }
-  }
-  okOrElse<E>(errorFn: () => E): Result<T, E> {
-    if (this.isSome()) {
-      return ok(this._value);
-    } else {
-      return err(errorFn());
+      return none();
     }
   }
 
@@ -247,8 +251,4 @@ export class Option<T> {
 export const some = <T>(value: T): Option<T> =>
   new Option(CREATE_SECRET, value);
 export const none = <T>(): Option<T> =>
-  new Option(CREATE_SECRET, NONE_SECRET as T);
-
-import { err, ok, Result } from "../result";
-import { toJS } from "../toJS";
-import { toJSON } from "../toJSON";
+  new Option(CREATE_SECRET, NULL_SECRET as T);

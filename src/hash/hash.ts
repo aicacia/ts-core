@@ -1,5 +1,5 @@
+import type { Hasher } from "./Hasher";
 import { defaultHasher } from "./defaultHasher";
-import { Hasher } from "./Hasher";
 
 const ALREADY_HASHED_SET = new Set<any>();
 

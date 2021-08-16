@@ -36,17 +36,8 @@ tape("Option", (assert: tape.Test) => {
     true
   );
 
-  assert.deepEqual(some(1).okOr("Error"), ok(1));
-  assert.deepEqual(none().okOr("Error"), err("Error"));
-
-  assert.deepEqual(
-    some(1).okOrElse(() => "Error"),
-    ok(1)
-  );
-  assert.deepEqual(
-    none().okOrElse(() => "Error"),
-    err("Error")
-  );
+  assert.deepEqual(Option.fromResult(ok(1)), some(1));
+  assert.deepEqual(Option.fromResult(err("Error")), none());
 
   assert.deepEqual(some(1).and(some(2)), some(2));
   assert.deepEqual(none().and(some(1)), none());

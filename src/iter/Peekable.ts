@@ -58,3 +58,7 @@ export class Peekable<T> extends Iter<T> {
     }
   }
 }
+
+Iter.prototype.peekable = function peekable() {
+  return new Peekable(this);
+};

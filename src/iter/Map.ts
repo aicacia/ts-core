@@ -20,3 +20,7 @@ export class Map<A, B> extends Iter<B> {
     }
   }
 }
+
+Iter.prototype.map = function map(fn: any) {
+  return new Map(this, fn);
+};

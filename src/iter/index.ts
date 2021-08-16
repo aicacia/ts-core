@@ -1,7 +1,7 @@
+export { Iter, iter } from "./Iter";
 export { Enumerate } from "./Enumerate";
 export { Filter } from "./Filter";
 export { ForEach } from "./ForEach";
-export { Iter, iter } from "./Iter";
 export { Map } from "./Map";
 export { Merge } from "./Merge";
 export { Peekable } from "./Peekable";

@@ -1,3 +1,7 @@
+import type { Option } from "../option";
+import { toJS } from "../toJS";
+import { toJSON } from "../toJSON";
+
 const CREATE_SECRET = {},
   NULL_SECRET = {};
 
@@ -7,6 +11,16 @@ export class Result<T, E = Error> {
   }
   static err<T, E = Error>(error: E): Result<T, E> {
     return err(error);
+  }
+  static fromOption<T>(
+    option: Option<T>,
+    msg = "Tried to create Result from none Option"
+  ): Result<T, Error> {
+    if (option.isSome()) {
+      return ok(option.unwrap());
+    } else {
+      return err<T>(new Error(msg));
+    }
   }
 
   private _ok: T;
@@ -42,7 +56,11 @@ export class Result<T, E = Error> {
     return this.expect();
   }
   unwrapOr(def: T): T {
-    return this.ok().unwrapOr(def);
+    if (this.isOk()) {
+      return this._ok;
+    } else {
+      return def;
+    }
   }
   unwrapOrElse(defFn: (error: E) => T): T {
     if (this.isOk()) {
@@ -100,14 +118,22 @@ export class Result<T, E = Error> {
   }
 
   expectErr(msg: (() => string) | string): E {
-    return this.err().expect(msg);
+    if (this.isErr()) {
+      return this._err;
+    } else {
+      throw new Error(typeof msg === "function" ? msg() : msg);
+    }
   }
 
   unwrapErr(): E {
     return this.expectErr("Tried to unwrap error value of ok Result");
   }
   unwrapErrOr(def: E): E {
-    return this.err().unwrapOr(def);
+    if (this.isErr()) {
+      return this._err;
+    } else {
+      return def;
+    }
   }
   unwrapErrOrElse(defFn: (value: T) => E): E {
     if (this.isErr()) {
@@ -197,21 +223,6 @@ export class Result<T, E = Error> {
     }
   }
 
-  ok(): Option<T> {
-    if (this.isOk()) {
-      return some(this._ok);
-    } else {
-      return none();
-    }
-  }
-  err(): Option<E> {
-    if (this.isErr()) {
-      return some(this._err);
-    } else {
-      return none();
-    }
-  }
-
   ifOk(fn: (ok: T) => void, errFn?: (err: E) => void): Result<T, E> {
     if (this.isOk()) {
       fn(this._ok);
@@ -274,7 +285,3 @@ export const ok = <T, E = Error>(value: T): Result<T, E> =>
   new Result(CREATE_SECRET, value, NULL_SECRET as E);
 export const err = <T, E = Error>(error: E): Result<T, E> =>
   new Result(CREATE_SECRET, NULL_SECRET as T, error);
-
-import { none, Option, some } from "../option";
-import { toJS } from "../toJS";
-import { toJSON } from "../toJSON";

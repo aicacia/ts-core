@@ -26,3 +26,7 @@ export class Step<T> extends Iter<T> {
     return { done: true, value: undefined };
   }
 }
+
+Iter.prototype.step = function step(step: any) {
+  return new Step(this, step);
+};
