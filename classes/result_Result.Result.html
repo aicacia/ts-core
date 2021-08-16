@@ -100,7 +100,6 @@
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter"><a href="result_Result.Result.html#and" class="tsd-kind-icon">and</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter"><a href="result_Result.Result.html#andThen" class="tsd-kind-icon">and<wbr>Then</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="result_Result.Result.html#err" class="tsd-kind-icon">err</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="result_Result.Result.html#expect" class="tsd-kind-icon">expect</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="result_Result.Result.html#expectErr" class="tsd-kind-icon">expect<wbr>Err</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter"><a href="result_Result.Result.html#flatMap" class="tsd-kind-icon">flat<wbr>Map</a></li>
@@ -120,7 +119,6 @@
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter"><a href="result_Result.Result.html#mapErrOrElse" class="tsd-kind-icon">map<wbr>Err<wbr>OrElse</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter"><a href="result_Result.Result.html#mapOr" class="tsd-kind-icon">map<wbr>Or</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter"><a href="result_Result.Result.html#mapOrElse" class="tsd-kind-icon">map<wbr>OrElse</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="result_Result.Result.html#ok" class="tsd-kind-icon">ok</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="result_Result.Result.html#or" class="tsd-kind-icon">or</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="result_Result.Result.html#orElse" class="tsd-kind-icon">or<wbr>Else</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="result_Result.Result.html#toJS" class="tsd-kind-icon">toJS</a></li>
@@ -131,8 +129,9 @@
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="result_Result.Result.html#unwrapErrOrElse" class="tsd-kind-icon">unwrap<wbr>Err<wbr>OrElse</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="result_Result.Result.html#unwrapOr" class="tsd-kind-icon">unwrap<wbr>Or</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="result_Result.Result.html#unwrapOrElse" class="tsd-kind-icon">unwrap<wbr>OrElse</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-static"><a href="result_Result.Result.html#err-1" class="tsd-kind-icon">err</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-static"><a href="result_Result.Result.html#ok-1" class="tsd-kind-icon">ok</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-static"><a href="result_Result.Result.html#err" class="tsd-kind-icon">err</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-static"><a href="result_Result.Result.html#fromOption" class="tsd-kind-icon">from<wbr>Option</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-static"><a href="result_Result.Result.html#ok" class="tsd-kind-icon">ok</a></li>
 							</ul>
 						</section>
 					</div>
@@ -150,7 +149,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/8465abb/src/result/Result.ts#L15">result/Result.ts:15</a></li>
+									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/731cc0e/src/result/Result.ts#L29">result/Result.ts:29</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -191,7 +190,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/8465abb/src/result/Result.ts#L170">result/Result.ts:170</a></li>
+									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/731cc0e/src/result/Result.ts#L196">result/Result.ts:196</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -220,7 +219,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/8465abb/src/result/Result.ts#L177">result/Result.ts:177</a></li>
+									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/731cc0e/src/result/Result.ts#L203">result/Result.ts:203</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -258,23 +257,6 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="err" class="tsd-anchor"></a>
-					<h3>err</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">err<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="option_Option.Option.html" class="tsd-signature-type" data-tsd-kind="Class">Option</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">E</span><span class="tsd-signature-symbol">&gt;</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/8465abb/src/result/Result.ts#L207">result/Result.ts:207</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-returns-title">Returns <a href="option_Option.Option.html" class="tsd-signature-type" data-tsd-kind="Class">Option</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">E</span><span class="tsd-signature-symbol">&gt;</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="expect" class="tsd-anchor"></a>
 					<h3>expect</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
@@ -284,7 +266,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/8465abb/src/result/Result.ts#L33">result/Result.ts:33</a></li>
+									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/731cc0e/src/result/Result.ts#L47">result/Result.ts:47</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">T</span></h4>
@@ -301,7 +283,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/8465abb/src/result/Result.ts#L102">result/Result.ts:102</a></li>
+									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/731cc0e/src/result/Result.ts#L120">result/Result.ts:120</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -324,7 +306,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/8465abb/src/result/Result.ts#L77">result/Result.ts:77</a></li>
+									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/731cc0e/src/result/Result.ts#L95">result/Result.ts:95</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -371,7 +353,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/8465abb/src/result/Result.ts#L142">result/Result.ts:142</a></li>
+									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/731cc0e/src/result/Result.ts#L168">result/Result.ts:168</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -418,7 +400,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/8465abb/src/result/Result.ts#L149">result/Result.ts:149</a></li>
+									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/731cc0e/src/result/Result.ts#L175">result/Result.ts:175</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -468,7 +450,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/8465abb/src/result/Result.ts#L159">result/Result.ts:159</a></li>
+									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/731cc0e/src/result/Result.ts#L185">result/Result.ts:185</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -536,7 +518,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/8465abb/src/result/Result.ts#L84">result/Result.ts:84</a></li>
+									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/731cc0e/src/result/Result.ts#L102">result/Result.ts:102</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -586,7 +568,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/8465abb/src/result/Result.ts#L91">result/Result.ts:91</a></li>
+									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/731cc0e/src/result/Result.ts#L109">result/Result.ts:109</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -654,7 +636,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/8465abb/src/result/Result.ts#L232">result/Result.ts:232</a></li>
+									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/731cc0e/src/result/Result.ts#L243">result/Result.ts:243</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -677,7 +659,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/8465abb/src/result/Result.ts#L223">result/Result.ts:223</a></li>
+									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/731cc0e/src/result/Result.ts#L234">result/Result.ts:234</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -739,7 +721,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/8465abb/src/result/Result.ts#L215">result/Result.ts:215</a></li>
+									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/731cc0e/src/result/Result.ts#L226">result/Result.ts:226</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -801,7 +783,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/8465abb/src/result/Result.ts#L25">result/Result.ts:25</a></li>
+									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/731cc0e/src/result/Result.ts#L39">result/Result.ts:39</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
@@ -818,7 +800,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/8465abb/src/result/Result.ts#L29">result/Result.ts:29</a></li>
+									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/731cc0e/src/result/Result.ts#L43">result/Result.ts:43</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
@@ -835,7 +817,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/8465abb/src/result/Result.ts#L55">result/Result.ts:55</a></li>
+									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/731cc0e/src/result/Result.ts#L73">result/Result.ts:73</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -882,7 +864,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/8465abb/src/result/Result.ts#L120">result/Result.ts:120</a></li>
+									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/731cc0e/src/result/Result.ts#L146">result/Result.ts:146</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -929,7 +911,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/8465abb/src/result/Result.ts#L127">result/Result.ts:127</a></li>
+									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/731cc0e/src/result/Result.ts#L153">result/Result.ts:153</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -979,7 +961,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/8465abb/src/result/Result.ts#L134">result/Result.ts:134</a></li>
+									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/731cc0e/src/result/Result.ts#L160">result/Result.ts:160</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -1047,7 +1029,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/8465abb/src/result/Result.ts#L62">result/Result.ts:62</a></li>
+									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/731cc0e/src/result/Result.ts#L80">result/Result.ts:80</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -1097,7 +1079,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/8465abb/src/result/Result.ts#L69">result/Result.ts:69</a></li>
+									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/731cc0e/src/result/Result.ts#L87">result/Result.ts:87</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -1156,23 +1138,6 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="ok" class="tsd-anchor"></a>
-					<h3>ok</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">ok<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="option_Option.Option.html" class="tsd-signature-type" data-tsd-kind="Class">Option</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/8465abb/src/result/Result.ts#L200">result/Result.ts:200</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-returns-title">Returns <a href="option_Option.Option.html" class="tsd-signature-type" data-tsd-kind="Class">Option</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="or" class="tsd-anchor"></a>
 					<h3>or</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
@@ -1182,7 +1147,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/8465abb/src/result/Result.ts#L185">result/Result.ts:185</a></li>
+									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/731cc0e/src/result/Result.ts#L211">result/Result.ts:211</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1205,7 +1170,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/8465abb/src/result/Result.ts#L192">result/Result.ts:192</a></li>
+									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/731cc0e/src/result/Result.ts#L218">result/Result.ts:218</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1246,7 +1211,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/8465abb/src/result/Result.ts#L253">result/Result.ts:253</a></li>
+									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/731cc0e/src/result/Result.ts#L264">result/Result.ts:264</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <a href="../interfaces/result_Result.IResultOk.html" class="tsd-signature-type" data-tsd-kind="Interface">IResultOk</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/result_Result.IResultErr.html" class="tsd-signature-type" data-tsd-kind="Interface">IResultErr</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">E</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -1263,7 +1228,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/8465abb/src/result/Result.ts#L242">result/Result.ts:242</a></li>
+									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/731cc0e/src/result/Result.ts#L253">result/Result.ts:253</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <a href="../interfaces/result_Result.IResultOk.html" class="tsd-signature-type" data-tsd-kind="Interface">IResultOk</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/result_Result.IResultErr.html" class="tsd-signature-type" data-tsd-kind="Interface">IResultErr</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">E</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -1280,7 +1245,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/8465abb/src/result/Result.ts#L41">result/Result.ts:41</a></li>
+									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/731cc0e/src/result/Result.ts#L55">result/Result.ts:55</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">T</span></h4>
@@ -1297,7 +1262,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/8465abb/src/result/Result.ts#L106">result/Result.ts:106</a></li>
+									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/731cc0e/src/result/Result.ts#L128">result/Result.ts:128</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">E</span></h4>
@@ -1314,7 +1279,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/8465abb/src/result/Result.ts#L109">result/Result.ts:109</a></li>
+									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/731cc0e/src/result/Result.ts#L131">result/Result.ts:131</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1337,7 +1302,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/8465abb/src/result/Result.ts#L112">result/Result.ts:112</a></li>
+									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/731cc0e/src/result/Result.ts#L138">result/Result.ts:138</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1378,7 +1343,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/8465abb/src/result/Result.ts#L44">result/Result.ts:44</a></li>
+									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/731cc0e/src/result/Result.ts#L58">result/Result.ts:58</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1401,7 +1366,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/8465abb/src/result/Result.ts#L47">result/Result.ts:47</a></li>
+									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/731cc0e/src/result/Result.ts#L65">result/Result.ts:65</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1433,7 +1398,7 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-static">
-					<a name="err-1" class="tsd-anchor"></a>
+					<a name="err" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagStatic">Static</span> err</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-static">
 						<li class="tsd-signature tsd-kind-icon">err&lt;T, E&gt;<span class="tsd-signature-symbol">(</span>error<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">E</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="result_Result.Result.html" class="tsd-signature-type" data-tsd-kind="Class">Result</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">E</span><span class="tsd-signature-symbol">&gt;</span></li>
@@ -1442,7 +1407,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/8465abb/src/result/Result.ts#L8">result/Result.ts:8</a></li>
+									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/731cc0e/src/result/Result.ts#L12">result/Result.ts:12</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -1465,7 +1430,39 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-static">
-					<a name="ok-1" class="tsd-anchor"></a>
+					<a name="fromOption" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> from<wbr>Option</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-static">
+						<li class="tsd-signature tsd-kind-icon">from<wbr>Option&lt;T&gt;<span class="tsd-signature-symbol">(</span>option<span class="tsd-signature-symbol">: </span><a href="option_Option.Option.html" class="tsd-signature-type" data-tsd-kind="Class">Option</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span>, msg<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="result_Result.Result.html" class="tsd-signature-type" data-tsd-kind="Class">Result</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">Error</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/731cc0e/src/result/Result.ts#L15">result/Result.ts:15</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-type-parameters-title">Type parameters</h4>
+							<ul class="tsd-type-parameters">
+								<li>
+									<h4>T</h4>
+								</li>
+							</ul>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>option: <a href="option_Option.Option.html" class="tsd-signature-type" data-tsd-kind="Class">Option</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h5>
+								</li>
+								<li>
+									<h5>msg: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> = &quot;Tried to create Result from none Option&quot;</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="result_Result.Result.html" class="tsd-signature-type" data-tsd-kind="Class">Result</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">Error</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-static">
+					<a name="ok" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagStatic">Static</span> ok</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-static">
 						<li class="tsd-signature tsd-kind-icon">ok&lt;T, E&gt;<span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="result_Result.Result.html" class="tsd-signature-type" data-tsd-kind="Class">Result</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">E</span><span class="tsd-signature-symbol">&gt;</span></li>
@@ -1474,7 +1471,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/8465abb/src/result/Result.ts#L5">result/Result.ts:5</a></li>
+									<li>Defined in <a href="https://github.com/aicacia/ts-core/blob/731cc0e/src/result/Result.ts#L9">result/Result.ts:9</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -1524,9 +1521,6 @@
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
 								<a href="result_Result.Result.html#andThen" class="tsd-kind-icon">and<wbr>Then</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="result_Result.Result.html#err" class="tsd-kind-icon">err</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="result_Result.Result.html#expect" class="tsd-kind-icon">expect</a>
@@ -1586,9 +1580,6 @@
 								<a href="result_Result.Result.html#mapOrElse" class="tsd-kind-icon">map<wbr>OrElse</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="result_Result.Result.html#ok" class="tsd-kind-icon">ok</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="result_Result.Result.html#or" class="tsd-kind-icon">or</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
@@ -1619,10 +1610,13 @@
 								<a href="result_Result.Result.html#unwrapOrElse" class="tsd-kind-icon">unwrap<wbr>OrElse</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-static">
-								<a href="result_Result.Result.html#err-1" class="tsd-kind-icon">err</a>
+								<a href="result_Result.Result.html#err" class="tsd-kind-icon">err</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-static">
-								<a href="result_Result.Result.html#ok-1" class="tsd-kind-icon">ok</a>
+								<a href="result_Result.Result.html#fromOption" class="tsd-kind-icon">from<wbr>Option</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-static">
+								<a href="result_Result.Result.html#ok" class="tsd-kind-icon">ok</a>
 							</li>
 						</ul>
 					</li>
