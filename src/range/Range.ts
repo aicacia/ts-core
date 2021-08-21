@@ -6,17 +6,19 @@ export enum RangeDirection {
 }
 
 export class Range implements Iterator<number>, Iterable<number> {
-  static from(start: number, end: number) {
-    return new Range(start, end);
+  static from(start: number, end: number, step = 1) {
+    return new Range(start, end, step);
   }
 
   private start: number;
   private end: number;
+  private step: number;
   private direction: RangeDirection;
 
-  constructor(start: number, end: number) {
+  constructor(start: number, end: number, step = 1) {
     this.start = start;
     this.end = end;
+    this.step = Math.abs(step);
     this.direction =
       start > end ? RangeDirection.Backward : RangeDirection.Forward;
   }
@@ -26,6 +28,9 @@ export class Range implements Iterator<number>, Iterable<number> {
   }
   getEnd() {
     return this.end;
+  }
+  getStep() {
+    return this.step;
   }
   getDirection() {
     return this.direction;
@@ -55,11 +60,13 @@ export class Range implements Iterator<number>, Iterable<number> {
     if (this.isEmpty()) {
       return { done: true, value: undefined };
     } else {
+      const value = this.start;
       if (this.direction === RangeDirection.Forward) {
-        return { done: false, value: this.start++ };
+        this.start += this.step;
       } else {
-        return { done: false, value: this.start-- };
+        this.start -= this.step;
       }
+      return { done: false, value };
     }
   }
 }
