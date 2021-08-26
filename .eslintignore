@@ -4,5 +4,6 @@
 coverage/
 docs/
 dest/
-lib/
+cjs/
+esm/
 node_modules/

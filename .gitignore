@@ -1,6 +1,7 @@
 node_modules
 coverage
 docs
-lib
+dest
+cjs
 npm-debug.log
 .nyc_output
