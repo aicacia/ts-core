@@ -12,7 +12,7 @@
   "scripts": {
     "build": "tsc",
     "buildESM": "rollup -c",
-    "doc": "typedoc --entryPoints src",
+    "doc": "typedoc",
     "prepublishOnly": "npm run clean && npm run build && npm run buildESM",
     "test": "ts-node node_modules/.bin/tape src/**/*.test.{ts,tsx} | tap-spec",
     "bench": "ts-node node_modules/.bin/tape src/**/*.benchmark.{ts,tsx} | tap-spec",
