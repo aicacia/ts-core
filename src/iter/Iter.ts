@@ -49,27 +49,27 @@ export class Iter<T>
 
   enumerate(): Enumerate<T>;
   enumerate(): any {
-    return undefined;
+    throw new Error("iter/Enumerate was not imported!");
   }
 
   peekable(): Peekable<T>;
   peekable(): any {
-    return undefined;
+    throw new Error("iter/Peekable was not imported!");
   }
 
   forEach(fn: IForEachFn<T>): ForEach<T>;
   forEach(_fn: any): any {
-    return undefined;
+    throw new Error("iter/ForEach was not imported!");
   }
 
   map<B>(fn: IMapFn<T, B>): Map<T, B>;
   map(_fn: any): any {
-    return undefined;
+    throw new Error("iter/Map was not imported!");
   }
 
   merge(iter: Iterator<T>): Merge<T>;
   merge(_iter: any): any {
-    return undefined;
+    throw new Error("iter/Merge was not imported!");
   }
 
   concat(iter: Iterator<T>): Merge<T> {
@@ -79,22 +79,22 @@ export class Iter<T>
   filter<S extends T>(fn: IFilterPredicateFn<T, S>): Filter<T, S>;
   filter(fn: IFilterBooleanFn<T>): Filter<T, T>;
   filter(_fn: any): any {
-    return undefined;
+    throw new Error("iter/Filter was not imported!");
   }
 
   step(step: number): Step<T>;
   step(_step: any): any {
-    return undefined;
+    throw new Error("iter/Step was not imported!");
   }
 
   skip(skip: number): Skip<T>;
   skip(_skip: any): any {
-    return undefined;
+    throw new Error("iter/Skip was not imported!");
   }
 
   take(count: number): Take<T>;
   take(_count: any): any {
-    return undefined;
+    throw new Error("iter/Take was not imported!");
   }
 
   toMap<K extends string | number | symbol, V>(
@@ -102,7 +102,7 @@ export class Iter<T>
     valueFn?: IToMapFn<T, V>
   ): ToMap<T, K, V>;
   toMap(_keyFn: any, _valueFn: any): any {
-    return undefined;
+    throw new Error("iter/ToMap was not imported!");
   }
 
   count() {
@@ -243,7 +243,7 @@ export class Iter<T>
 
   unflatten<U>(fn: UnflattenFn<T, U>): Unflatten<T, U>;
   unflatten(_fn: any): any {
-    return undefined;
+    throw new Error("iter/Unflatten was not imported!");
   }
 
   reduce<C>(acc: C, fn: (acc: C, value: T, index: number) => C): C {
