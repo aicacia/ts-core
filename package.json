@@ -1,6 +1,6 @@
 {
   "name": "@aicacia/core",
-  "version": "0.2.8",
+  "version": "0.2.9",
   "description": "aicacia core utils",
   "repository": {
     "type": "git",
@@ -49,9 +49,10 @@
     "eslint-config-prettier": "8",
     "eslint-plugin-prettier": "3",
     "husky": "4",
-    "immutable": "^4.0.0-rc.12",
+    "immutable": "^4.0.0-rc.14",
     "nyc": "15",
     "prettier": "2",
+    "rollup-plugin-esm-import-to-url": "2",
     "rollup-plugin-terser": "7",
     "tap-nyc": "1",
     "tap-spec": "5",
