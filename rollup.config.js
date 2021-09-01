@@ -3,14 +3,13 @@ import commonjs from "@rollup/plugin-commonjs";
 import typescript from "@rollup/plugin-typescript";
 import { terser } from "rollup-plugin-terser";
 import esmImportToUrl from "rollup-plugin-esm-import-to-url";
-import pkg from "./package.json";
 
 export default [
   {
     input: "src/index.ts",
     output: [
       {
-        file: pkg.browser,
+        file: "browser/index.js",
         format: "es",
         sourcemap: true,
         plugins: [terser()],

@@ -1,12 +1,11 @@
 {
   "name": "@aicacia/core",
-  "version": "0.2.11",
+  "version": "0.2.12",
   "description": "aicacia core utils",
   "repository": {
     "type": "git",
     "url": "https://github.com/aicacia/ts-core"
   },
-  "browser": "browser/index.js",
   "module": "esm/index.js",
   "main": "cjs/index.js",
   "types": "types/index.d.ts",
