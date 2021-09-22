@@ -58,22 +58,29 @@ function hashSymbol(value: symbol, hasher: Hasher) {
 }
 
 function hashIterable(iterable: Iterable<any>, hasher: Hasher) {
+  let length = 0;
   for (const value of iterable) {
     hashInternal(value, hasher);
+    length++;
   }
+  hashNumber(length, hasher);
 }
 
 function hashArray(array: Array<any>, hasher: Hasher) {
   for (let i = 0, il = array.length; i < il; i++) {
     hashInternal(array[i], hasher);
   }
+  hashNumber(array.length, hasher);
 }
 
 function hashObject(value: any, hasher: Hasher) {
+  let length = 0;
   for (const key in value) {
     if (value.hasOwnProperty(key)) {
       hashString(key, hasher);
       hashInternal(value[key], hasher);
+      length++;
     }
   }
+  hashNumber(length, hasher);
 }

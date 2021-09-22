@@ -24,15 +24,15 @@ tape("hash it all", (assert: tape.Test) => {
   assert.equal(hashOf(string), -867622775);
   assert.equal(hashOf(number), 10);
   assert.equal(hashOf(array), 923522);
-  assert.equal(hashOf(object), 16796518);
+  assert.equal(hashOf(object), -411031449);
   assert.equal(hashOf(symbol), -617543331);
-  assert.equal(hashOf(all), -734913244);
+  assert.equal(hashOf(all), 450713642);
   assert.end();
 });
 
 tape("hash recur", (assert: tape.Test) => {
   const object: Record<string, any> = { self: null };
   object.self = object;
-  assert.equal(hashOf(object), -372399574);
+  assert.equal(hashOf(object), 679247147);
   assert.end();
 });
